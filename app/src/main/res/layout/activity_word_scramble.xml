@@ -9,9 +9,36 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Hello and welcome to Word Scramble"
-        android:textSize="20dp"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Select Difficulty"
+        android:textSize="40dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="200dp"
+        android:width="350dp"
+        android:height="70dp"
+        android:text="Easy"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="280dp"
+        android:width="350dp"
+        android:height="70dp"
+        android:text="Medium"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="360dp"
+        android:width="350dp"
+        android:height="70dp"
+        android:text="Hard"/>
 
 </RelativeLayout>
