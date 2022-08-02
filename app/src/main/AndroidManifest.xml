@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MentalGym">
-        <activity android:name=".WordScramble"></activity>
+        <activity android:name=".CryptogrammeGame"></activity>
+        <activity android:name=".Cryptogramme" />
+        <activity android:name=".WordScramble" />
         <activity android:name=".GameSelect" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -18,6 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

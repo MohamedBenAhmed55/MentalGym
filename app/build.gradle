@@ -8,8 +8,8 @@ android {
 
     defaultConfig {
         applicationId "com.example.mentalgym"
-        minSdkVersion 29
-        targetSdkVersion 31
+        minSdkVersion 28
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 

@@ -39,16 +39,16 @@ public class GameSelect extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.btn1:
-              //  Intent i1 = new Intent(this,MemoryCards.class);
-               // startActivity(i1);
+//                Intent i1 = new Intent(this,MemoryCards.class);
+//                startActivity(i1);
                 break;
             case R.id.btn2:
                 Intent i2 = new Intent(this,WordScramble.class);
                 startActivity(i2);
                 break;
             case R.id.btn3:
-               // Intent i3 = new Intent(this,Cryptogramme.class);
-               // startActivity(i3);
+                Intent i3 = new Intent(this,Cryptogramme.class);
+                startActivity(i3);
                 break;
             case R.id.Menu:
                 Intent i4 = new Intent(this,MainActivity.class);
