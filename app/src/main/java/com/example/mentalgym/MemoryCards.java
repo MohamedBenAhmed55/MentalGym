@@ -97,7 +97,7 @@ public class MemoryCards extends AppCompatActivity {
         });
         iv_24.setOnClickListener(view -> {
             int theCard = Integer.parseInt((String) view.getTag());
-            doStuff(iv_23,theCard);
+            doStuff(iv_24,theCard);
         });
         iv_31.setOnClickListener(view -> {
             int theCard = Integer.parseInt((String) view.getTag());
