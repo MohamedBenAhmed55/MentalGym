@@ -8,7 +8,7 @@
 
     //Description
     <string name="desc_one">Le but du jeu est de déchiffrer le code et de révéler le message caché .</string>
-<!--    ou   -->
+    <!--    ou   -->
     <string name="desc_two">Vous aller essayer de décrypter une citation ou chaque lettre est remplacée par une autre . Votre objectif est de déterminer quelle était la citation originale</string>
     <string name="desc_three">Le texte chiffré sous les lettres vous aide à reconnaitre les modeles de mots et à voir les lettres identiques . </string>
     <string name="desc_fourth">Aller-y et essayer de déchiffrer quelques cryptogrammer ! Bonne chance!</string>
