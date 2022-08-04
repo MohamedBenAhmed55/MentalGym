@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MentalGym">
         <activity
+            android:name=".CryptogrammeMenu"
+            android:exported="false" />
+        <activity
             android:name=".MemoryCards"
             android:exported="false" />
         <activity android:name=".CryptogrammeGame" />
