@@ -13,4 +13,46 @@
     <string name="desc_three">Le texte chiffré sous les lettres vous aide à reconnaitre les modeles de mots et à voir les lettres identiques . </string>
     <string name="desc_fourth">Aller-y et essayer de déchiffrer quelques cryptogrammer ! Bonne chance!</string>
 
+
+    <!--levels array-->
+    <string-array name="easylevels">
+        <item>Find Me 1</item>
+        <item>Find Me 1</item>
+        <item>Find Me 1</item>
+        <item>Find Me 1</item>
+        <item>Find Me 1</item>
+        <item>Find Me 1</item>
+        <item>Find Me 1</item>
+        <item>Find Me 1</item>
+        <item>Find Me 1</item>
+        <item>Find Me 1</item>
+    </string-array>
+
+    <string-array name="mediumlevels">
+        <item>Find Me 2</item>
+        <item>Find Me 2</item>
+        <item>Find Me 2</item>
+        <item>Find Me 2</item>
+        <item>Find Me 2</item>
+        <item>Find Me 2</item>
+        <item>Find Me 2</item>
+        <item>Find Me 2</item>
+        <item>Find Me 2</item>
+        <item>Find Me 2</item>
+    </string-array>
+
+    <string-array name="hardlevels">
+        <item>Find Me 3</item>
+        <item>Find Me 3</item>
+        <item>Find Me 3</item>
+        <item>Find Me 3</item>
+        <item>Find Me 3</item>
+        <item>Find Me 3</item>
+        <item>Find Me 3</item>
+        <item>Find Me 3</item>
+        <item>Find Me 3</item>
+        <item>Find Me 3</item>
+    </string-array>
+
+
 </resources>

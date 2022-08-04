@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="140dp"
-        android:onClick="Delete"
+        android:onClick="ShowLevels"
         android:text="New Game" />
 
     <Button

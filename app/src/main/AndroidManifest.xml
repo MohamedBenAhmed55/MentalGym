@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MentalGym">
         <activity
+            android:name=".CryptogrammeLevels"
+            android:exported="false" />
+        <activity
             android:name=".CryptogrammeMenu"
             android:exported="false" />
         <activity
