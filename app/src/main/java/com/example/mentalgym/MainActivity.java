@@ -27,9 +27,6 @@ public class MainActivity extends AppCompatActivity {
                 openMenu();
             }
         });
-
-
-
     }
     public void openMenu(){
         Intent intent = new Intent(this, GameSelect.class);
