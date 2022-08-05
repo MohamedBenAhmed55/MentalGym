@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".CryptogrammeMenu">
+
+    <Button
+        android:id="@+id/newgame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="140dp"
+        android:onClick="ShowLevels"
+        android:text="New Game" />
+
+    <Button
+        android:id="@+id/kamal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="140dp"
+        android:text="Continue"
+        android:visibility="gone" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleButtonGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:singleSelection="true">
+
+        <Button
+            android:id="@+id/easy"
+            style="@style/ToggleButtonWithIconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/easy"
+            tools:layout_editor_absoluteX="168dp"
+            tools:layout_editor_absoluteY="153dp" />
+
+        <Button
+            android:id="@+id/medium"
+            style="@style/ToggleButtonWithIconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/medium"
+            tools:layout_editor_absoluteX="173dp"
+            tools:layout_editor_absoluteY="251dp" />
+
+        <Button
+            android:id="@+id/hard"
+            style="@style/ToggleButtonWithIconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/hard"
+            tools:layout_editor_absoluteX="166dp"
+            tools:layout_editor_absoluteY="340dp" />
+
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+</LinearLayout>
