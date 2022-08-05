@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MentalGym">
         <activity
+            android:name=".MemoryCardsLevelE1"
+            android:exported="false" />
+        <activity
             android:name=".WSSlvl1"
             android:exported="false" />
         <activity

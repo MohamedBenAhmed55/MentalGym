@@ -15,11 +15,11 @@
         android:textSize="40dp" />
 
     <Button
+        android:id="@+id/Easy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="200dp"
-        android:id="@+id/Easy"
         android:width="350dp"
         android:height="70dp"
         android:text="Easy" />
@@ -31,7 +31,7 @@
         android:layout_marginTop="280dp"
         android:width="350dp"
         android:height="70dp"
-        android:text="Medium"/>
+        android:text="Medium" />
 
     <Button
         android:layout_width="wrap_content"
@@ -40,6 +40,6 @@
         android:layout_marginTop="360dp"
         android:width="350dp"
         android:height="70dp"
-        android:text="Hard"/>
+        android:text="Hard" />
 
 </RelativeLayout>
