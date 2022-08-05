@@ -23,7 +23,7 @@ public class WorScrambleLevels extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.lvl1){
-            Intent i = new Intent(this,MainActivity.class);
+            Intent i = new Intent(this,WorldScrambelvl1.class);
             startActivity(i);
         }
     }
