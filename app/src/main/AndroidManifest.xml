@@ -13,6 +13,9 @@
             android:name=".MemoryCardsLevelE1"
             android:exported="false" />
         <activity
+            android:name=".WordScramblelvl2"
+            android:exported="false" />
+        <activity
             android:name=".WSSlvl1"
             android:exported="false" />
         <activity
