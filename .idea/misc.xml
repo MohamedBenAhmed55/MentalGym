@@ -16,10 +16,12 @@
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/activity_word_scramble.xml" value="0.19895833333333332" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/cryptogramme_level.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/cryptogrammeonelevel.xml" value="0.25885416666666666" />
+        <entry key="..\:/Users/moham/Documents/Android-projects/MentalGym/app/src/main/res/layout/activity_world_scrambelvl1.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/moham/Documents/Android-projects/MentalGym/app/src/main/res/layout/activity_wsslvl1.xml" value="0.2604166666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" default="true" project-jdk-name="14" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

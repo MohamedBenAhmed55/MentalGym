@@ -14,4 +14,9 @@
     //indicator color
     <color name="inactive">#C4C4C4</color>
     <color name="active">#50C2C9</color>
+
+    <color name="colorPrimaryDark">#FF5EA2</color>
+    <color name="colorAccent">#FF5EA2</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPurple">#332FA2</color>
 </resources>

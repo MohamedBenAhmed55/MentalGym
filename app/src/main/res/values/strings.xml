@@ -54,7 +54,7 @@
         <item>Find Me 3</item>
     </string-array>
 
-<!--    algorithms-->
+    <!--    algorithms-->
 
     <string-array name="algorithms">
         <item>Algorithm1</item>
@@ -68,7 +68,6 @@
         <item>Algorithm1</item>
         <item>Algorithm1</item>
     </string-array>
-
 
 
 </resources>
