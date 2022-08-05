@@ -8,13 +8,28 @@
     tools:context=".MemoryCards">
 
     <include
+        android:id="@+id/include"
         layout="@layout/images"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_centerHorizontal="true"
         tools:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/include"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:drawableTopCompat="@drawable/ic_timer" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,15 +8,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.*;
-
+import java.util.concurrent.TimeUnit;
 
 
 public class MemoryCards extends AppCompatActivity {
+    TextView textView;
 
     ImageView iv_11, iv_12, iv_13, iv_14, iv_21, iv_22, iv_23, iv_24, iv_31, iv_32, iv_33, iv_34;
     //array for the images
@@ -34,6 +37,33 @@ public class MemoryCards extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_cards);
 
+        textView = findViewById(R.id.textView4);
+        // intialize timer duration
+        long duration = TimeUnit.MINUTES.toMillis(1);
+        // intialize countdown timer
+        new CountDownTimer(duration,1000){
+
+            @Override
+            public void onTick(long l) {
+                //when tick convert millisecond to minut and second
+                String sDuration = String.format(Locale.ENGLISH,"%02d : %02d",
+                        TimeUnit.MILLISECONDS.toMinutes(l),
+                        TimeUnit.MILLISECONDS.toSeconds(l) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(l)));
+                // set converted string on text view
+                textView.setText(sDuration);
+            }
+
+            @Override
+            public void onFinish() {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryCards.this);
+                alertDialogBuilder
+                        .setMessage("TIME IS OVER")
+                        .setCancelable(false);
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
+        }.start();
 
         iv_11 = findViewById(R.id.iv_11);
         iv_12 = findViewById(R.id.iv_12);
@@ -304,7 +334,7 @@ public class MemoryCards extends AppCompatActivity {
 
     }
 
-    private void checkEnd(){
+    public void checkEnd(){
         if(iv_11.getVisibility() ==View.INVISIBLE &&
                 iv_12.getVisibility() ==View.INVISIBLE &&
                 iv_13.getVisibility() ==View.INVISIBLE &&
@@ -319,7 +349,7 @@ public class MemoryCards extends AppCompatActivity {
                 iv_34.getVisibility() ==View.INVISIBLE ){
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryCards.this);
             alertDialogBuilder
-                    .setMessage("game over")
+                    .setMessage("YOU WIN ")
                     .setCancelable(false)
                     .setPositiveButton("NEW",new DialogInterface.OnClickListener() {
                         @Override
@@ -338,9 +368,10 @@ public class MemoryCards extends AppCompatActivity {
             AlertDialog alertDialog = alertDialogBuilder.create();
             alertDialog.show();
         }
+
     }
 
-    private void frontOfCardsRessources(){
+    public void frontOfCardsRessources(){
         image101 =R.drawable.chat;
         image102 =R.drawable.chat2;
         image103 =R.drawable.chat3;
