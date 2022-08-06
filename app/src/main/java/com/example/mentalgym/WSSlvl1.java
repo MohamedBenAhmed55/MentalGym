@@ -47,9 +47,20 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
 
         textTitle.setOnClickListener(this);
 
+        // back to home
+        Intent i = new Intent(this,MainActivity.class);
+        textBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(i);
+            }
+        });
+
 
     }
 
+    //next level
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.textTitle) {
@@ -68,4 +79,6 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
 
         }
     }
+
+
 }

@@ -43,28 +43,28 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 //       number =  myPref.getInt("level",1);
         switch(myPref.getInt("level",1)){
             case 1:
-                this.keys = new String[]{"R", "I", "B", "D", "X"};
-                this.textAnswer = "BIRD";
+                keys = new String[]{"R", "I", "B", "D", "X"};
+                textAnswer = "BIRD";
                 textQuestion.setText("Animal With Wings");
                 break;
             case 2:
-                this.keys = new String[]{"C", "D", "O","L","S"};
-                this.textAnswer="COLD";
+                keys = new String[]{"C", "D", "O","L","S"};
+                textAnswer="COLD";
                 textQuestion.setText("Temperature State");
                 break;
             case 3:
-                this.keys = new String[]{"H", "P", "O","W","E"};
-                this.textAnswer="HOPE";
+                keys = new String[]{"H", "P", "O","W","E"};
+                textAnswer="HOPE";
                 textQuestion.setText("Desire for a particular thing to happen");
                 break;
             case 4:
-                this.keys = new String[]{"C", "D", "O","G","O"};
-                this.textAnswer="GOOD";
+                keys = new String[]{"C", "D", "O","G","O"};
+                textAnswer="GOOD";
                 textQuestion.setText("Opposite of bad");
                 break;
             case 5:
-                this. keys = new String[]{"U", "F", "O","L","R"};
-                this.textAnswer="FOUR";
+                 keys = new String[]{"U", "F", "O","L","R"};
+                textAnswer="FOUR";
                 textQuestion.setText("The number of our limbs");
                 break;
             case 6:
@@ -73,18 +73,18 @@ public class WorldScrambelvl1 extends AppCompatActivity {
                 textQuestion.setText("Opposite of Go");
                 break;
             case 7:
-                this.keys = new String[]{"A", "K", "O","N","B"};
-                this.textAnswer="BANK";
+                keys = new String[]{"A", "K", "O","N","B"};
+                textAnswer="BANK";
                 textQuestion.setText("A facility that deals in money");
                 break;
             case 8:
-                this.keys = new String[]{"I", "F", "O","H","S"};
+                keys = new String[]{"I", "F", "O","H","S"};
                 this.textAnswer="FISH";
                 textQuestion.setText("Lives in the sea");
                 break;
             case 9:
-                this.keys = new String[]{"S", "N", "O","L","E"};
-                this.textAnswer="NOSE";
+                keys = new String[]{"S", "N", "O","L","E"};
+                textAnswer="NOSE";
                 textQuestion.setText("Is in the center of the face");
             default:
                 break;
