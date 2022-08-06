@@ -105,7 +105,8 @@
             android:text="6"
             android:textSize="25dp"
             app:layout_constraintLeft_toRightOf="@id/lvl1"
-            tools:layout_editor_absoluteY="82dp" />
+            tools:layout_editor_absoluteY="82dp"
+            android:id="@+id/lvl6"/>
 
     </LinearLayout>
 

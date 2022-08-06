@@ -3,6 +3,7 @@ package com.example.mentalgym;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -17,10 +18,14 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
     ImageView bigboss;
     Animation smalltobig;
 
+    SharedPreferences myPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wsslvl1);
+
+        myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
 
         smalltobig = AnimationUtils.loadAnimation(this, R.anim.smalltobig);
 
@@ -28,7 +33,7 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
 
         textQuestion = (TextView) findViewById(R.id.textQuestion);
         textScreen = (TextView) findViewById(R.id.textScreen);
-        textTitle =  findViewById(R.id.textTitle);
+        textTitle = findViewById(R.id.textTitle);
         textBtn = (TextView) findViewById(R.id.textBtn);
 
         bigboss = (ImageView) findViewById(R.id.bigboss);
@@ -47,9 +52,20 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.textTitle){
-            Intent i = new Intent(this, WordScramblelvl2.class);
-            startActivity(i);
+        if (v.getId() == R.id.textTitle) {
+            int n = myPref.getInt("level", 1);
+            n++;
+            if (n > 9) {
+                Intent i = new Intent(this, WorScrambleLevels.class);
+                startActivity(i);
+
+            } else {
+                myPref.edit().putInt("level", n).commit();
+
+                Intent i = new Intent(this, WorldScrambelvl1.class);
+                startActivity(i);
+            }
+
         }
     }
 }
