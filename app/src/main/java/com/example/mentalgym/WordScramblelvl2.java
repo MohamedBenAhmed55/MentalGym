@@ -173,11 +173,19 @@ public class WordScramblelvl2 extends AppCompatActivity {
                 presCounter = 0;
                 EditText editText = findViewById(R.id.editText);
                 LinearLayout linearLayout = findViewById(R.id.layoutParent);
+                LinearLayout linearLayout2 = findViewById(R.id.layoutParent2);
                 editText.setText("");
                 keys = shuffleArray(keys);
                 linearLayout.removeAllViews();
+                linearLayout2.removeAllViews();
+                int x=0;
                 for (String key : keys) {
-                    addView(linearLayout, key, editText);
+                    if (x<4) {
+                        addView(linearLayout, key, editText);
+                        x++;
+                    }else{
+                        addView(linearLayout2, key, editText);
+                    }
                 }
 
             }
@@ -205,6 +213,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
 
         keys = shuffleArray(keys);
         linearLayout.removeAllViews();
+        linearLayout2.removeAllViews();
         int x=0;
         for (String key : keys) {
             if (x<4) {

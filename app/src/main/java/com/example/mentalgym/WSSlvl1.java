@@ -66,15 +66,24 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
         if (v.getId() == R.id.textTitle) {
             int n = myPref.getInt("level", 1);
             n++;
+            Intent i;
             if (n > 9) {
-                Intent i = new Intent(this, WorScrambleLevels.class);
-                startActivity(i);
+                i = new Intent(this, WorScrambleLevels.class);
+
 
             } else {
                 myPref.edit().putInt("level", n).commit();
 
-                Intent i = new Intent(this, WorldScrambelvl1.class);
+                if (myPref.getString("dif","easy").equals("easy")) {
+                     i = new Intent(this, WorldScrambelvl1.class);
+                    startActivity(i);
+                }else{
+                     i = new Intent(this,WordScramblelvl2.class);
+
+                }
+
                 startActivity(i);
+
             }
 
         }
