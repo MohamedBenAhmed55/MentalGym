@@ -3,6 +3,7 @@ package com.example.mentalgym;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,31 +21,94 @@ import java.util.Random;
 public class WordScramblelvl2 extends AppCompatActivity {
 
     private int presCounter = 0;
-    private int maxPresCounter = 4;
-    private String[] keys = {"C", "D", "O","L","S"};
+    private int maxPresCounter = 6;
+    private String[] keys = {"C", "D", "O", "L", "S"};
     private String textAnswer = "COLD";
-    TextView textScreen,textQuestion,textTitle;
+    private ImageButton resetbtn;
+    TextView textScreen, textQuestion, textTitle;
     Animation smallbigforth;
+
+    SharedPreferences myPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_scramblelvl2);
 
+        textQuestion = (TextView) findViewById(R.id.textQuestion);
+        //        Initializing shared preferences
+        myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        myPref.edit().putString("diff", "mid");
+//       number =  myPref.getInt("level",1);
+        switch (myPref.getInt("level", 1)) {
+            case 1:
+                keys = new String[]{"R", "I", "B", "D", "X", "A", "A", "O"};
+                textAnswer = "ABROAD";
+                textQuestion.setText("Outside your country");
+                break;
+            case 2:
+                keys = new String[]{"N", "N", "A", "L", "A","B","H","U"};
+                textAnswer = "ANNUAL";
+                textQuestion.setText("Each year");
+                break;
+            case 3:
+                keys = new String[]{"A", "N", "G", "E", "R","G","D","P"};
+                textAnswer = "DANGER";
+                textQuestion.setText("Not safe");
+                break;
+            case 4:
+                keys = new String[]{"I", "A", "M", "Y", "L","F","G","S"};
+                textAnswer = "FAMILY";
+                textQuestion.setText("Related by blood");
+                break;
+            case 5:
+                keys = new String[]{"A", "F", "D", "L", "N","H","E","T"};
+                textAnswer = "HANDLE";
+                textQuestion.setText("we open a door with a door...");
+                break;
+            case 6:
+                this.keys = new String[]{"I", "L", "A", "N", "S","Y","D","S"};
+                this.textAnswer = "ISLAND";
+                textQuestion.setText("Land surrounded by water");
+                break;
+            case 7:
+                keys = new String[]{"R", "Y", "E", "A", "W","L","M","T"};
+                textAnswer = "LAWYER";
+                textQuestion.setText("Defends you in court");
+                break;
+            case 8:
+                keys = new String[]{"D", "F", "D", "H", "M","L","I","E"};
+                this.textAnswer = "MIDDLE";
+                textQuestion.setText("In-between");
+                break;
+            case 9:
+                keys = new String[]{"D", "M", "O", "R", "E","P","N","G"};
+                textAnswer = "MODERN";
+                textQuestion.setText("Not ancient");
+            default:
+                break;
+        }
+
         keys = shuffleArray(keys);
 
         smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 
-        for(String key : keys){
-            addView(((LinearLayout) findViewById(R.id.layoutParent)), key, ((EditText) findViewById(R.id.editText)));
+        int x = 0;
+        for (String key : keys) {
+            if (x < 4) {
+                addView(((LinearLayout) findViewById(R.id.layoutParent)), key, ((EditText) findViewById(R.id.editText)));
+                x++;
+            } else {
+                addView(((LinearLayout) findViewById(R.id.layoutParent2)), key, ((EditText) findViewById(R.id.editText)));
+            }
         }
 
-        maxPresCounter = 4;
+        maxPresCounter = 6;
     }
 
-    private String[] shuffleArray(String[] ar){
+    private String[] shuffleArray(String[] ar) {
         Random rnd = new Random();
-        for(int i = ar.length - 1; i>0; i--){
+        for (int i = ar.length - 1; i > 0; i--) {
             int index = rnd.nextInt(i + 1);
             String a = ar[index];
             ar[index] = ar[i];
@@ -53,7 +118,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
         return ar;
     }
 
-    private void addView(LinearLayout viewParent, final String text, final EditText editText){
+    private void addView(LinearLayout viewParent, final String text, final EditText editText) {
         LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -70,10 +135,11 @@ public class WordScramblelvl2 extends AppCompatActivity {
         textView.setFocusable(true);
         textView.setTextSize(32);
 
-        Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/FredokaOneRegular.ttf");
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/FredokaOneRegular.ttf");
         textQuestion = (TextView) findViewById(R.id.textQuestion);
         textScreen = (TextView) findViewById(R.id.textScreen);
         textTitle = (TextView) findViewById(R.id.textTitle);
+        resetbtn = (ImageButton) findViewById(R.id.resetbtn);
 
         textQuestion.setTypeface(typeface);
         textScreen.setTypeface(typeface);
@@ -84,7 +150,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(presCounter < maxPresCounter) {
+                if (presCounter < maxPresCounter) {
                     if (presCounter == 0)
                         editText.setText("");
 
@@ -100,6 +166,22 @@ public class WordScramblelvl2 extends AppCompatActivity {
         });
 
         viewParent.addView(textView);
+
+        resetbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presCounter = 0;
+                EditText editText = findViewById(R.id.editText);
+                LinearLayout linearLayout = findViewById(R.id.layoutParent);
+                editText.setText("");
+                keys = shuffleArray(keys);
+                linearLayout.removeAllViews();
+                for (String key : keys) {
+                    addView(linearLayout, key, editText);
+                }
+
+            }
+        });
     }
 
     private void doValidate() {
@@ -107,11 +189,12 @@ public class WordScramblelvl2 extends AppCompatActivity {
 
         EditText editText = findViewById(R.id.editText);
         LinearLayout linearLayout = findViewById(R.id.layoutParent);
+        LinearLayout linearLayout2 = findViewById(R.id.layoutParent2);
 
-        if(editText.getText().toString().equals(textAnswer)) {
+        if (editText.getText().toString().equals(textAnswer)) {
 //            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
 
-            Intent a = new Intent(this,WSSlvl1.class);
+            Intent a = new Intent(this, WSSlvl1.class);
             startActivity(a);
 
             editText.setText("");
@@ -122,8 +205,14 @@ public class WordScramblelvl2 extends AppCompatActivity {
 
         keys = shuffleArray(keys);
         linearLayout.removeAllViews();
+        int x=0;
         for (String key : keys) {
-            addView(linearLayout, key, editText);
+            if (x<4) {
+                addView(linearLayout, key, editText);
+                x++;
+            }else{
+                addView(linearLayout2, key, editText);
+            }
         }
 
     }

@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class WorScrambleLevels extends AppCompatActivity implements View.OnClickListener {
 
-    private Button lvl1,lvl2,lvl3,lvl4,lvl5,lvl6,lvl7,lvl8,lvl9;
+    private Button lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;
     SharedPreferences myPref;
 
     @Override
@@ -38,7 +38,7 @@ public class WorScrambleLevels extends AppCompatActivity implements View.OnClick
         lvl8.setOnClickListener(this);
         lvl9.setOnClickListener(this);
 
-        myPref = getApplicationContext().getSharedPreferences("MyPref",MODE_PRIVATE);
+        myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
 
     }
 
@@ -50,39 +50,46 @@ public class WorScrambleLevels extends AppCompatActivity implements View.OnClick
 //            startActivity(i);
 //        }
 
-        switch(v.getId()){
-            case(R.id.lvl1):
-                myPref.edit().putInt("level",1).apply();
+
+        switch (v.getId()) {
+            case (R.id.lvl1):
+                myPref.edit().putInt("level", 1).apply();
                 break;
-            case(R.id.lvl2):
-                myPref.edit().putInt("level",2).apply();
+            case (R.id.lvl2):
+                myPref.edit().putInt("level", 2).apply();
                 break;
-            case(R.id.lvl3):
-                myPref.edit().putInt("level",3).apply();
+            case (R.id.lvl3):
+                myPref.edit().putInt("level", 3).apply();
                 break;
-            case(R.id.lvl4):
-                myPref.edit().putInt("level",4).apply();
+            case (R.id.lvl4):
+                myPref.edit().putInt("level", 4).apply();
                 break;
-            case(R.id.lvl5):
-                myPref.edit().putInt("level",5).apply();
+            case (R.id.lvl5):
+                myPref.edit().putInt("level", 5).apply();
                 break;
-            case(R.id.lvl6):
-                myPref.edit().putInt("level",6).apply();
+            case (R.id.lvl6):
+                myPref.edit().putInt("level", 6).apply();
                 break;
-            case(R.id.lvl7):
-                myPref.edit().putInt("level",7).apply();
+            case (R.id.lvl7):
+                myPref.edit().putInt("level", 7).apply();
                 break;
-            case(R.id.lvl8):
-                myPref.edit().putInt("level",8).apply();
+            case (R.id.lvl8):
+                myPref.edit().putInt("level", 8).apply();
                 break;
-            case(R.id.lvl9):
-                myPref.edit().putInt("level",9).apply();
+            case (R.id.lvl9):
+                myPref.edit().putInt("level", 9).apply();
                 break;
             default:
                 break;
         }
 
-        Intent i = new Intent(this,WorldScrambelvl1.class);
+        Intent i;
+
+        if (myPref.getString("dif", "easy").equals("mid")) {
+            i = new Intent(this, WordScramblelvl2.class);
+        } else {
+            i = new Intent(this, WorldScrambelvl1.class);
+        }
         startActivity(i);
     }
 }

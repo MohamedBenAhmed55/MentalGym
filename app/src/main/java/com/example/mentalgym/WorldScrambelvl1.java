@@ -37,9 +37,10 @@ public class WorldScrambelvl1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_world_scrambelvl1);
+
         textQuestion = (TextView) findViewById(R.id.textQuestion);
         //        Initializing shared preferences
-        myPref = getApplicationContext().getSharedPreferences("MyPref",MODE_PRIVATE);
+        myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
 //       number =  myPref.getInt("level",1);
         switch(myPref.getInt("level",1)){
             case 1:
