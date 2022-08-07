@@ -125,6 +125,10 @@ public class WordScramblelvl2 extends AppCompatActivity {
         );
         linearLayoutParams.rightMargin = 30;
 
+        //TODO : REMOVE FOR HARD DIFF
+        linearLayoutParams.leftMargin = 40;
+
+
         final TextView textView = new TextView(this);
         textView.setLayoutParams(linearLayoutParams);
         textView.setBackground(this.getResources().getDrawable(R.drawable.bgpink));
