@@ -74,39 +74,39 @@
         <item>Hello World</item>
         <item>The One Piece Exists</item>
         <item>The purpose of our lives is to be happy</item>
-        <item>Never let the fear of striking out keep you from playing the game</item>
-        <item>The way I see it, if you want the rainbow, you gotta put up with the rain</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
+        <item>I can and I will</item>
+        <item>if you want the rainbow you gotta put up with the rain</item>
+        <item>Take the risk or lose the chance</item>
+        <item>Good things happen to those who hustle</item>
+        <item>He who is brave is free</item>
+        <item>Prove them wrong</item>
+        <item>She believed she could , so she did</item>
     </string-array>
 
     <string-array name="phrasesmedium">
+        <item>Try Again</item>
         <item>The One Piece Exists</item>
-        <item>The One Piece Exists</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
+        <item>Impossible is for the unwilling</item>
+        <item>Once you choose hope, anything’s possible</item>
+        <item>My life is my message</item>
+        <item>Dream big</item>
+        <item>Grow through what you go through</item>
+        <item>You matter</item>
+        <item>Each day provides its own gifts</item>
+        <item>Keep moving forward</item>
     </string-array>
 
     <string-array name="phraseshard">
         <item>The One Piece Exists</item>
-        <item>The One Piece Exists</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
-        <item>Hello There</item>
+        <item>Try Again</item>
+        <item>Leave no stone unturned</item>
+        <item>Stay hungry . Stay foolish</item>
+        <item>If you want it , work for it</item>
+        <item>Broken crayons still color</item>
+        <item>Do it with passion or not at all</item>
+        <item>If you’re going through hell , keep going</item>
+        <item>Every noble work is at first impossible</item>
+        <item>The wisest mind has something yet to learn</item>
     </string-array>
 
 
