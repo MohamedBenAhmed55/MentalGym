@@ -70,4 +70,18 @@
     </string-array>
 
 
+    <string-array name="phrases">
+        <item>Hello World</item>
+        <item>Hello Rabia</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+    </string-array>
+
+
 </resources>

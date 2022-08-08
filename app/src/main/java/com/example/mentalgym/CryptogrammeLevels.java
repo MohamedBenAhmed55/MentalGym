@@ -49,9 +49,11 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
                 levelNames= getResources().getStringArray(R.array.easylevels);
         }
         String[] levelAlgorithm =getResources().getStringArray(R.array.algorithms);
+        String[] levelPhrase =getResources().getStringArray(R.array.phrases);
+
 
         for(int i=0 ; i< levelNames.length; i++){
-            levelCards.add(new CryptogrammeLevel(levelNames[i] , levelImages[i] , levelAlgorithm[i]));
+            levelCards.add(new CryptogrammeLevel(levelNames[i] , levelImages[i] , levelAlgorithm[i] , levelPhrase[i] ));
         }
 
     }
@@ -60,6 +62,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
     public void onItemClick(int position) {
         Intent intent =new Intent(CryptogrammeLevels.this , CryptogrammeGame.class);
         intent.putExtra("algorithm" , levelCards.get(position).getAlgorithm() );
+        intent.putExtra("phrase" , levelCards.get(position).getPhrase() );
         startActivity(intent);
 
     }

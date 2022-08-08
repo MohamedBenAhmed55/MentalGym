@@ -3,23 +3,33 @@ package com.example.mentalgym;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class CryptogrammeGame extends AppCompatActivity {
+    String phrase;
+    String phrasecry;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cryptogramme_game);
         String algo = getIntent().getStringExtra("algorithm");
-        TextView textView = findViewById(R.id.textcrypt);
+        phrase = getIntent().getStringExtra("phrase");
         java.lang.reflect.Method method = null;
-        CryptogrammeAlgorithms cryptogrammeAlgorithms = new CryptogrammeAlgorithms();
+        CryptogrammeAlgorithms cryptogrammeAlgorithms = new CryptogrammeAlgorithms(phrase);
         try {
             method = cryptogrammeAlgorithms.getClass().getMethod(algo );
         } catch (NoSuchMethodException e) {
@@ -32,7 +42,96 @@ public class CryptogrammeGame extends AppCompatActivity {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        textView.setText(cryptogrammeAlgorithms.phrasecrypt);
+       phrasecry= cryptogrammeAlgorithms.phrasecrypt;
+        String[] list = phrasecry.split(" ");
+        String[] truelist = phrase.split(" ");
+        LinearLayout phraseView;
+
+        phraseView = findViewById(R.id.phrase);
+        int ligneSize =0;
+        for(int i=0; i<list.length ; i++){
+            String ch=list[i];
+            String truech=truelist[i];
+            LinearLayout ligne;
+            LinearLayout  word = (LinearLayout) getLayoutInflater().inflate(R.layout.word , null , false);
+            for (int j=0 ; j<ch.length() ; j++){
+                View card = getLayoutInflater().inflate(R.layout.card , null , false);
+                TextView char2 =(TextView) card.findViewById(R.id.char2);
+                TextView truechar =(TextView)card.findViewById(R.id.truechar);
+                EditText char1 =(EditText) card.findViewById(R.id.char1);
+                char c =ch.charAt(j);
+                char truec = truech.charAt(j);
+                String s = Character.toString(c);
+                String trues = Character.toString(truec);
+                char2.setText(s);
+                truechar.setText(trues);
+                word.addView(card);
+                char1.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        boolean is_win = true;
+                        for (int l=0 ; l< phraseView.getChildCount() ; l++){
+                            LinearLayout li = (LinearLayout) phraseView.getChildAt(l);
+                            for(int w=0 ; w< li.getChildCount() ; w++){
+                                LinearLayout mot=(LinearLayout) li.getChildAt(w);
+                                for(int t =0 ; t< mot.getChildCount() ; t++){
+                                    View letter = mot.getChildAt(t);
+                                    EditText e = (EditText) letter.findViewById(R.id.char1);
+                                    TextView r = (TextView) letter.findViewById(R.id.char2);
+                                    String trueChar = (String) ((TextView)letter.findViewById(R.id.truechar)).getText();
+                                    if (char1.getText().length() > 0  && truechar.getText().toString().equals(trueChar ) &&  !(char1.getText().toString().equals(e.getText().toString() ))  ) {
+                                        String x = Character.toString(char1.getText().charAt(0));
+                                        e.setText(x ,TextView.BufferType.EDITABLE);
+
+                                    }
+                                    else if (char1.getText().length() == 0  && truechar.getText().toString().equals(trueChar ) &&  !(char1.getText().toString().equals(e.getText().toString() ))  ) {
+                                        e.setText("" ,TextView.BufferType.EDITABLE);
+
+                                    }
+                                    if ( ! trueChar.equals(e.getText().toString()) ) {
+                                        is_win=false;
+                                    }
+
+
+                                }
+                            }
+                        }
+                        if(is_win){
+                            Toast myToast = Toast.makeText(CryptogrammeGame.this ,  "You Win", Toast.LENGTH_SHORT);
+                            myToast.show();
+                        }
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
+                    }
+                });
+
+            }
+            if ((ch.length() + ligneSize) <= 10 ){
+                ligne = (LinearLayout) phraseView.getChildAt(phraseView.getChildCount()-1);
+                ligne.addView(word);
+                ligneSize+=ch.length();
+            }
+            else {
+                ligneSize=ch.length();
+                ligne = (LinearLayout) getLayoutInflater().inflate(R.layout.word , null , false);
+                ligne.addView(word);
+                phraseView.addView(ligne);
+            }
+
+
+
+        }
+
+
+        
 
     }
 
