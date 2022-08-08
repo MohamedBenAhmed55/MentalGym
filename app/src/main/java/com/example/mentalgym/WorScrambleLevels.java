@@ -87,8 +87,10 @@ public class WorScrambleLevels extends AppCompatActivity implements View.OnClick
 
         if (myPref.getString("dif", "easy").equals("mid")) {
             i = new Intent(this, WordScramblelvl2.class);
-        } else {
+        } else if(myPref.getString("dif","easy").equals("easy")) {
             i = new Intent(this, WorldScrambelvl1.class);
+        } else {
+            i = new Intent(this,WordScramblelvl3.class);
         }
         startActivity(i);
     }

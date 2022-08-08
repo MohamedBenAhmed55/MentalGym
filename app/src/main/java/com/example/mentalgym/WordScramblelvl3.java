@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -19,100 +18,93 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class WorldScrambelvl1 extends AppCompatActivity {
+public class WordScramblelvl3 extends AppCompatActivity {
 
-//    Views
-    TextView textScreen, textQuestion, textTitle;
-    Animation smallbigforth;
     private int presCounter = 0;
-    private int maxPresCounter = 4;
+    private int maxPresCounter = 7;
     private String[] keys ;
     private String textAnswer ;
     private ImageButton resetbtn;
-    private int number;
+    TextView textScreen, textQuestion, textTitle;
+    Animation smallbigforth;
 
-//    Timer
-    private CountDownTimer countDownTimer;
-    private long timeLeftinMilliseconds = 120000; //1 min
-    private TextView countdownText;
-
-//    Shared preference
     SharedPreferences myPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_world_scrambelvl1);
+        setContentView(R.layout.activity_word_scramblelvl3);
 
         textQuestion = (TextView) findViewById(R.id.textQuestion);
-        //        Initializing shared preferences
+
+        //Initializing shared preferences
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
-//       number =  myPref.getInt("level",1);
-        switch(myPref.getInt("level",1)){
+        myPref.edit().putString("diff", "mid");
+
+        switch (myPref.getInt("level", 1)) {
             case 1:
-                keys = new String[]{"R", "I", "B", "D", "X"};
-                textAnswer = "BIRD";
-                textQuestion.setText("Animal With Wings");
+                keys = new String[]{"A","U","C","T","O","N","O","P","F","I"};
+                textAnswer = "AUCTION";
+                textQuestion.setText("An assembly in which you bid on objects.");
                 break;
             case 2:
-                keys = new String[]{"C", "D", "O","L","S"};
-                textAnswer="COLD";
-                textQuestion.setText("Temperature State");
+                keys = new String[]{"C","O","E","X","M","P","L","O","L","D"};
+                textAnswer = "COMPLEX";
+                textQuestion.setText("Not simple");
                 break;
             case 3:
-                keys = new String[]{"H", "P", "O","W","E"};
-                textAnswer="HOPE";
-                textQuestion.setText("Desire for a particular thing to happen");
+                keys = new String[]{"A", "N", "X", "S", "U","O","I","P","D","V"};
+                textAnswer = "ANXIOUS";
+                textQuestion.setText("Not feeling calm");
                 break;
             case 4:
-                keys = new String[]{"C", "D", "O","G","O"};
-                textAnswer="GOOD";
-                textQuestion.setText("Opposite of bad");
+                keys = new String[]{"L", "A", "E", "Y", "L","F","G","E","D","B"};
+                textAnswer = "ALLEGED";
+                textQuestion.setText("Not Certain");
                 break;
             case 5:
-                 keys = new String[]{"U", "F", "O","L","R"};
-                textAnswer="FOUR";
-                textQuestion.setText("The number of our limbs");
+                keys = new String[]{"I", "L", "G", "L", "A","L","E","T","G","S"};
+                textAnswer = "ILLEGAL";
+                textQuestion.setText("Prohibited by the law");
                 break;
             case 6:
-                this.keys = new String[]{"T", "A", "O","Y","S"};
-                this.textAnswer="STAY";
-                textQuestion.setText("Opposite of Go");
+                this.keys = new String[]{"O", "V", "B", "I", "U","Y","U","S","Z","B"};
+                this.textAnswer = "OBVIOUS";
+                textQuestion.setText("clear");
                 break;
             case 7:
-                keys = new String[]{"A", "K", "O","N","B"};
-                textAnswer="BANK";
-                textQuestion.setText("A facility that deals in money");
+                keys = new String[]{"O", "I", "P", "N", "N","O","I","T","G","S"};
+                textAnswer = "OPINION";
+                textQuestion.setText("Something we express");
                 break;
             case 8:
-                keys = new String[]{"I", "F", "O","H","S"};
-                this.textAnswer="FISH";
-                textQuestion.setText("Lives in the sea");
+                keys = new String[]{"P", "H", "O", "N", "X","L","I","E","S","B"};
+                this.textAnswer = "PHOENIX";
+                textQuestion.setText("Rises from its ashes");
                 break;
             case 9:
-                keys = new String[]{"S", "N", "O","L","E"};
-                textAnswer="NOSE";
-                textQuestion.setText("Is in the center of the face");
+                keys = new String[]{"R", "A", "L", "I", "Y","W","A","G","D","M"};
+                textAnswer = "RAILWAY";
+                textQuestion.setText("the road of a train");
             default:
                 break;
         }
-
 
         keys = shuffleArray(keys);
 
         smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 
+        int x = 0;
         for (String key : keys) {
-            addView(((LinearLayout) findViewById(R.id.layoutParent)), key, ((EditText) findViewById(R.id.editText)));
+            if (x < 5) {
+                addView(((LinearLayout) findViewById(R.id.layoutParent)), key, ((EditText) findViewById(R.id.editText)));
+                x++;
+            } else {
+                addView(((LinearLayout) findViewById(R.id.layoutParent2)), key, ((EditText) findViewById(R.id.editText)));
+            }
         }
 
-        maxPresCounter = 4;
-//Timer
-        countdownText = findViewById(R.id.countdown_text);
-        startTimer();
-//        updateTimer();
-
-
+        maxPresCounter = 7;
     }
 
     private String[] shuffleArray(String[] ar) {
@@ -134,6 +126,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         );
         linearLayoutParams.rightMargin = 30;
 
+
         final TextView textView = new TextView(this);
         textView.setLayoutParams(linearLayoutParams);
         textView.setBackground(this.getResources().getDrawable(R.drawable.bgpink));
@@ -149,14 +142,12 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         textScreen = (TextView) findViewById(R.id.textScreen);
         textTitle = (TextView) findViewById(R.id.textTitle);
         resetbtn = (ImageButton) findViewById(R.id.resetbtn);
-        countdownText = (TextView) findViewById(R.id.countdown_text);
 
         textQuestion.setTypeface(typeface);
         textScreen.setTypeface(typeface);
         textTitle.setTypeface(typeface);
         editText.setTypeface(typeface);
         textView.setTypeface(typeface);
-        countdownText.setTypeface(typeface);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,13 +175,20 @@ public class WorldScrambelvl1 extends AppCompatActivity {
                 presCounter = 0;
                 EditText editText = findViewById(R.id.editText);
                 LinearLayout linearLayout = findViewById(R.id.layoutParent);
+                LinearLayout linearLayout2 = findViewById(R.id.layoutParent2);
                 editText.setText("");
                 keys = shuffleArray(keys);
                 linearLayout.removeAllViews();
+                linearLayout2.removeAllViews();
+                int x=0;
                 for (String key : keys) {
-                    addView(linearLayout, key, editText);
+                    if (x<5) {
+                        addView(linearLayout, key, editText);
+                        x++;
+                    }else{
+                        addView(linearLayout2, key, editText);
+                    }
                 }
-
             }
         });
     }
@@ -200,6 +198,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
         EditText editText = findViewById(R.id.editText);
         LinearLayout linearLayout = findViewById(R.id.layoutParent);
+        LinearLayout linearLayout2 = findViewById(R.id.layoutParent2);
 
         if (editText.getText().toString().equals(textAnswer)) {
 //            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
@@ -215,40 +214,17 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
         keys = shuffleArray(keys);
         linearLayout.removeAllViews();
+        linearLayout2.removeAllViews();
+        int x=0;
         for (String key : keys) {
-            addView(linearLayout, key, editText);
+            if (x<5) {
+                addView(linearLayout, key, editText);
+                x++;
+            }else{
+                addView(linearLayout2, key, editText);
+            }
         }
 
     }
-
-    public void startTimer() {
-        countDownTimer = new CountDownTimer(timeLeftinMilliseconds, 1000) {
-            @Override
-            public void onTick(long l) {
-                timeLeftinMilliseconds = l;
-                updateTimer();
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-        }.start();
-
-    }
-
-    public void updateTimer(){
-        int minutes = (int) timeLeftinMilliseconds/60000;
-        int seconds = (int) timeLeftinMilliseconds % 60000 / 1000;
-        String timeLeftText;
-
-        timeLeftText = " " + minutes;
-        timeLeftText+= ":";
-        if(seconds < 10) timeLeftText+="0";
-        timeLeftText += seconds;
-        countdownText.setText(timeLeftText);
-
-    }
-
 
 }
