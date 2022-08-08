@@ -14,6 +14,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
     ArrayList<CryptogrammeLevel> levelCards = new ArrayList<>();
     int[] levelImages = {R.drawable.chat2 , R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 };
     int difficulty;
+    int hintNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
                 difficulty= extras.getInt("difficulty");
             }
         } else {
-            difficulty= (int) savedInstanceState.getSerializable("difficulty");
+            difficulty= 0;
         }
         RecyclerView recyclerView = findViewById(R.id.Levels);
         setUpLevels();
@@ -38,18 +39,25 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
 
     private void setUpLevels(){
         String[] levelNames;
+        String[] levelPhrase;
         switch (difficulty){
             case 1 :
                 levelNames = getResources().getStringArray(R.array.mediumlevels);
+                levelPhrase =getResources().getStringArray(R.array.phrasesmedium);
+                hintNumber= 3;
                 break;
             case 2:
                 levelNames = getResources().getStringArray(R.array.hardlevels);
+                levelPhrase =getResources().getStringArray(R.array.phraseshard);
+                hintNumber=0;
                 break;
             default:
                 levelNames= getResources().getStringArray(R.array.easylevels);
+                levelPhrase =getResources().getStringArray(R.array.phraseseasy);
+                hintNumber = 5;
         }
         String[] levelAlgorithm =getResources().getStringArray(R.array.algorithms);
-        String[] levelPhrase =getResources().getStringArray(R.array.phrases);
+
 
 
         for(int i=0 ; i< levelNames.length; i++){
@@ -63,6 +71,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
         Intent intent =new Intent(CryptogrammeLevels.this , CryptogrammeGame.class);
         intent.putExtra("algorithm" , levelCards.get(position).getAlgorithm() );
         intent.putExtra("phrase" , levelCards.get(position).getPhrase() );
+        intent.putExtra("hintnumber" , hintNumber );
         startActivity(intent);
 
     }

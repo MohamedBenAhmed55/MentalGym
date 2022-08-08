@@ -11,23 +11,30 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.button.MaterialButtonToggleGroup;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 
 public class CryptogrammeGame extends AppCompatActivity {
     String phrase;
     String phrasecry;
+    String phraseHelp;
+    int hintNumber;
+    TextView hintNUmberTextView;
+    List<View> letters= new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cryptogramme_game);
+        hintNUmberTextView = (TextView) findViewById(R.id.hintnumber);
+
         String algo = getIntent().getStringExtra("algorithm");
         phrase = getIntent().getStringExtra("phrase");
+        hintNumber =  getIntent().getIntExtra("hintnumber" , 0);
+        hintNUmberTextView.setText( Integer.toString(hintNumber) );
+        phraseHelp=phrase.replace(" ","");
         java.lang.reflect.Method method = null;
         CryptogrammeAlgorithms cryptogrammeAlgorithms = new CryptogrammeAlgorithms(phrase);
         try {
@@ -75,31 +82,23 @@ public class CryptogrammeGame extends AppCompatActivity {
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
                         boolean is_win = true;
-                        for (int l=0 ; l< phraseView.getChildCount() ; l++){
-                            LinearLayout li = (LinearLayout) phraseView.getChildAt(l);
-                            for(int w=0 ; w< li.getChildCount() ; w++){
-                                LinearLayout mot=(LinearLayout) li.getChildAt(w);
-                                for(int t =0 ; t< mot.getChildCount() ; t++){
-                                    View letter = mot.getChildAt(t);
-                                    EditText e = (EditText) letter.findViewById(R.id.char1);
-                                    TextView r = (TextView) letter.findViewById(R.id.char2);
-                                    String trueChar = (String) ((TextView)letter.findViewById(R.id.truechar)).getText();
-                                    if (char1.getText().length() > 0  && truechar.getText().toString().equals(trueChar ) &&  !(char1.getText().toString().equals(e.getText().toString() ))  ) {
-                                        String x = Character.toString(char1.getText().charAt(0));
-                                        e.setText(x ,TextView.BufferType.EDITABLE);
-
-                                    }
-                                    else if (char1.getText().length() == 0  && truechar.getText().toString().equals(trueChar ) &&  !(char1.getText().toString().equals(e.getText().toString() ))  ) {
-                                        e.setText("" ,TextView.BufferType.EDITABLE);
-
-                                    }
-                                    if ( ! trueChar.equals(e.getText().toString()) ) {
-                                        is_win=false;
-                                    }
-
-
-                                }
+                        for (int l=0 ; l< letters.size() ; l++){
+                            View letter = letters.get(l);
+                            EditText e = (EditText) letter.findViewById(R.id.char1);
+                            TextView r = (TextView) letter.findViewById(R.id.char2);
+                            String trueChar = (String) ((TextView)letter.findViewById(R.id.truechar)).getText();
+                            if (char1.getText().length() > 0  && truechar.getText().toString().equals(trueChar ) &&  !(char1.getText().toString().equals(e.getText().toString() ))  ) {
+                                String x = Character.toString(char1.getText().charAt(0));
+                                e.setText(x ,TextView.BufferType.EDITABLE);
                             }
+                            else if (char1.getText().length() == 0  && truechar.getText().toString().equals(trueChar ) &&  !(char1.getText().toString().equals(e.getText().toString() ))  ) {
+                                        e.setText("" ,TextView.BufferType.EDITABLE);
+                            }
+                            if ( ! trueChar.equals(e.getText().toString()) ) {
+                                is_win=false;
+                            }
+
+
                         }
                         if(is_win){
                             Toast myToast = Toast.makeText(CryptogrammeGame.this ,  "You Win", Toast.LENGTH_SHORT);
@@ -131,7 +130,44 @@ public class CryptogrammeGame extends AppCompatActivity {
         }
 
 
+        for (int l=0 ; l< phraseView.getChildCount() ; l++){
+            LinearLayout li = (LinearLayout) phraseView.getChildAt(l);
+            for(int w=0 ; w< li.getChildCount() ; w++){
+                LinearLayout mot=(LinearLayout) li.getChildAt(w);
+                for(int t =0 ; t< mot.getChildCount() ; t++){
+                    View letter = mot.getChildAt(t);
+                    letters.add(letter);
+                }
+            }
+        }
+
+
         
+
+    }
+
+
+
+
+    public void HelpLetter(View view) {
+        int size = phraseHelp.length();
+        if (phraseHelp.length() > 0 && hintNumber>0) {
+            int ind = new Random().nextInt(size - 1);
+            String l = Character.toString(phraseHelp.charAt(ind));
+            phraseHelp = phraseHelp.replace(l, "");
+            hintNumber--;
+            hintNUmberTextView.setText( Integer.toString(hintNumber) );
+
+            for (int i = 0; i < letters.size(); i++) {
+                View letterView = letters.get(i);
+                String c = ((TextView) letterView.findViewById(R.id.truechar)).getText().toString();
+                if (l.equals(c)) {
+                    TextView char1 = ((TextView) letterView.findViewById(R.id.char1));
+                    char1.setText(l);
+                    char1.setEnabled(false);
+                }
+            }
+        }
 
     }
 

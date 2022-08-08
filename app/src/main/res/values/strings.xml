@@ -16,50 +16,50 @@
 
     <!--levels array-->
     <string-array name="easylevels">
-        <item>Find Me 1</item>
-        <item>Find Me 1</item>
-        <item>Find Me 1</item>
-        <item>Find Me 1</item>
-        <item>Find Me 1</item>
-        <item>Find Me 1</item>
-        <item>Find Me 1</item>
-        <item>Find Me 1</item>
-        <item>Find Me 1</item>
-        <item>Find Me 1</item>
+        <item>easy 1</item>
+        <item>easy 2</item>
+        <item>easy 3</item>
+        <item>easy 4</item>
+        <item>easy 5</item>
+        <item>easy 6</item>
+        <item>easy 7</item>
+        <item>easy 8</item>
+        <item>easy 9</item>
+        <item>easy 10</item>
     </string-array>
 
     <string-array name="mediumlevels">
-        <item>Find Me 2</item>
-        <item>Find Me 2</item>
-        <item>Find Me 2</item>
-        <item>Find Me 2</item>
-        <item>Find Me 2</item>
-        <item>Find Me 2</item>
-        <item>Find Me 2</item>
-        <item>Find Me 2</item>
-        <item>Find Me 2</item>
-        <item>Find Me 2</item>
+        <item>medium 1</item>
+        <item>medium 2</item>
+        <item>medium 3</item>
+        <item>medium 4</item>
+        <item>medium 5</item>
+        <item>medium 6</item>
+        <item>medium 7</item>
+        <item>medium 8</item>
+        <item>medium 9</item>
+        <item>medium 10</item>
     </string-array>
 
     <string-array name="hardlevels">
-        <item>Find Me 3</item>
-        <item>Find Me 3</item>
-        <item>Find Me 3</item>
-        <item>Find Me 3</item>
-        <item>Find Me 3</item>
-        <item>Find Me 3</item>
-        <item>Find Me 3</item>
-        <item>Find Me 3</item>
-        <item>Find Me 3</item>
-        <item>Find Me 3</item>
+        <item>Hard 1</item>
+        <item>Hard 2</item>
+        <item>Hard 3</item>
+        <item>Hard 4</item>
+        <item>Hard 5</item>
+        <item>Hard 6</item>
+        <item>Hard 7</item>
+        <item>Hard 8</item>
+        <item>Hard 9</item>
+        <item>Hard 10</item>
     </string-array>
 
     <!--    algorithms-->
 
     <string-array name="algorithms">
         <item>Algorithm1</item>
-        <item>Algorithm1</item>
-        <item>Algorithm1</item>
+        <item>Algorithm2</item>
+        <item>Algorithm3</item>
         <item>Algorithm1</item>
         <item>Algorithm1</item>
         <item>Algorithm1</item>
@@ -70,9 +70,35 @@
     </string-array>
 
 
-    <string-array name="phrases">
+    <string-array name="phraseseasy">
         <item>Hello World</item>
-        <item>Hello Rabia</item>
+        <item>The One Piece Exists</item>
+        <item>The purpose of our lives is to be happy</item>
+        <item>Never let the fear of striking out keep you from playing the game</item>
+        <item>The way I see it, if you want the rainbow, you gotta put up with the rain</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+    </string-array>
+
+    <string-array name="phrasesmedium">
+        <item>The One Piece Exists</item>
+        <item>The One Piece Exists</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+        <item>Hello There</item>
+    </string-array>
+
+    <string-array name="phraseshard">
+        <item>The One Piece Exists</item>
+        <item>The One Piece Exists</item>
         <item>Hello There</item>
         <item>Hello There</item>
         <item>Hello There</item>

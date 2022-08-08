@@ -20,4 +20,26 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"></LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="HelpLetter"
+        android:text="Help :'("
+        app:layout_constraintBottom_toTopOf="@+id/phrase"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hintnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/active"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/phrase"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

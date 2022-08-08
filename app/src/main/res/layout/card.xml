@@ -24,7 +24,7 @@
         android:text=""
         android:textSize="20dp"
         android:textAlignment="center"
-        android:maxLength="1"/>
+        android:maxLength="2"/>
     <TextView
         android:id="@+id/truechar"
         android:layout_width="wrap_content"
