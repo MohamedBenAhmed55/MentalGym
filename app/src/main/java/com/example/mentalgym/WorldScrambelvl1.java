@@ -168,6 +168,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
                     editText.setText(editText.getText().toString() + text);
                     textView.startAnimation(smallbigforth);
                     textView.animate().alpha(0).setDuration(300);
+                    textView.setClickable(false);
                     presCounter++;
 
                     if (presCounter == maxPresCounter)
@@ -221,6 +222,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
     }
 
+//Timer
     public void startTimer() {
         countDownTimer = new CountDownTimer(timeLeftinMilliseconds, 1000) {
             @Override
@@ -231,7 +233,9 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-
+                Toast.makeText(WorldScrambelvl1.this, "You failed this level", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
             }
         }.start();
 

@@ -13,16 +13,25 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:text="In Fight Battle"
+        android:text="Can you guess the word ?"
         android:textColor="#FFF"
         android:textSize="22sp" />
+    <TextView
+        android:id="@+id/countdown_text"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginLeft="172dp"
+        android:text="10:00"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        />
 
     <LinearLayout
         android:layout_width="290dp"
         android:layout_height="150dp"
         android:orientation="vertical"
         android:background="@drawable/bgquestion"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="38dp"
         android:layout_gravity="center"
         android:gravity="center">
 

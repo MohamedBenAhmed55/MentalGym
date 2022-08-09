@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -20,15 +21,21 @@ import java.util.Random;
 
 public class WordScramblelvl3 extends AppCompatActivity {
 
+    //Views
     private int presCounter = 0;
     private int maxPresCounter = 7;
-    private String[] keys ;
-    private String textAnswer ;
+    private String[] keys;
+    private String textAnswer;
     private ImageButton resetbtn;
     TextView textScreen, textQuestion, textTitle;
     Animation smallbigforth;
-
+    //Preference
     SharedPreferences myPref;
+
+    //    Timer
+    private CountDownTimer countDownTimer;
+    private long timeLeftinMilliseconds = 120000; //1 min
+    private TextView countdownText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,47 +50,47 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
         switch (myPref.getInt("level", 1)) {
             case 1:
-                keys = new String[]{"A","U","C","T","O","N","O","P","F","I"};
+                keys = new String[]{"A", "U", "C", "T", "O", "N", "O", "P", "F", "I"};
                 textAnswer = "AUCTION";
                 textQuestion.setText("An assembly in which you bid on objects.");
                 break;
             case 2:
-                keys = new String[]{"C","O","E","X","M","P","L","O","L","D"};
+                keys = new String[]{"C", "O", "E", "X", "M", "P", "L", "O", "L", "D"};
                 textAnswer = "COMPLEX";
                 textQuestion.setText("Not simple");
                 break;
             case 3:
-                keys = new String[]{"A", "N", "X", "S", "U","O","I","P","D","V"};
+                keys = new String[]{"A", "N", "X", "S", "U", "O", "I", "P", "D", "V"};
                 textAnswer = "ANXIOUS";
                 textQuestion.setText("Not feeling calm");
                 break;
             case 4:
-                keys = new String[]{"L", "A", "E", "Y", "L","F","G","E","D","B"};
+                keys = new String[]{"L", "A", "E", "Y", "L", "F", "G", "E", "D", "B"};
                 textAnswer = "ALLEGED";
                 textQuestion.setText("Not Certain");
                 break;
             case 5:
-                keys = new String[]{"I", "L", "G", "L", "A","L","E","T","G","S"};
+                keys = new String[]{"I", "L", "G", "L", "A", "L", "E", "T", "G", "S"};
                 textAnswer = "ILLEGAL";
                 textQuestion.setText("Prohibited by the law");
                 break;
             case 6:
-                this.keys = new String[]{"O", "V", "B", "I", "U","Y","U","S","Z","B"};
+                this.keys = new String[]{"O", "V", "B", "I", "U", "Y", "U", "S", "Z", "B"};
                 this.textAnswer = "OBVIOUS";
                 textQuestion.setText("clear");
                 break;
             case 7:
-                keys = new String[]{"O", "I", "P", "N", "N","O","I","T","G","S"};
+                keys = new String[]{"O", "I", "P", "N", "N", "O", "I", "T", "G", "S"};
                 textAnswer = "OPINION";
                 textQuestion.setText("Something we express");
                 break;
             case 8:
-                keys = new String[]{"P", "H", "O", "N", "X","L","I","E","S","B"};
+                keys = new String[]{"P", "H", "O", "N", "X", "L", "I", "E", "S", "B"};
                 this.textAnswer = "PHOENIX";
                 textQuestion.setText("Rises from its ashes");
                 break;
             case 9:
-                keys = new String[]{"R", "A", "L", "I", "Y","W","A","G","D","M"};
+                keys = new String[]{"R", "A", "L", "I", "Y", "W", "A", "G", "D", "M"};
                 textAnswer = "RAILWAY";
                 textQuestion.setText("the road of a train");
             default:
@@ -105,6 +112,10 @@ public class WordScramblelvl3 extends AppCompatActivity {
         }
 
         maxPresCounter = 7;
+
+        //        Timer
+        countdownText = findViewById(R.id.countdown_text);
+        startTimer();
     }
 
     private String[] shuffleArray(String[] ar) {
@@ -159,6 +170,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
                     editText.setText(editText.getText().toString() + text);
                     textView.startAnimation(smallbigforth);
                     textView.animate().alpha(0).setDuration(300);
+                    textView.setClickable(false);
                     presCounter++;
 
                     if (presCounter == maxPresCounter)
@@ -180,12 +192,12 @@ public class WordScramblelvl3 extends AppCompatActivity {
                 keys = shuffleArray(keys);
                 linearLayout.removeAllViews();
                 linearLayout2.removeAllViews();
-                int x=0;
+                int x = 0;
                 for (String key : keys) {
-                    if (x<5) {
+                    if (x < 5) {
                         addView(linearLayout, key, editText);
                         x++;
-                    }else{
+                    } else {
                         addView(linearLayout2, key, editText);
                     }
                 }
@@ -215,15 +227,45 @@ public class WordScramblelvl3 extends AppCompatActivity {
         keys = shuffleArray(keys);
         linearLayout.removeAllViews();
         linearLayout2.removeAllViews();
-        int x=0;
+        int x = 0;
         for (String key : keys) {
-            if (x<5) {
+            if (x < 5) {
                 addView(linearLayout, key, editText);
                 x++;
-            }else{
+            } else {
                 addView(linearLayout2, key, editText);
             }
         }
+
+    }
+
+    //Timer
+    public void startTimer() {
+        countDownTimer = new CountDownTimer(timeLeftinMilliseconds, 1000) {
+            @Override
+            public void onTick(long l) {
+                timeLeftinMilliseconds = l;
+                updateTimer();
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
+
+    }
+
+    public void updateTimer() {
+        int minutes = (int) timeLeftinMilliseconds / 60000;
+        int seconds = (int) timeLeftinMilliseconds % 60000 / 1000;
+        String timeLeftText;
+
+        timeLeftText = " " + minutes;
+        timeLeftText += ":";
+        if (seconds < 10) timeLeftText += "0";
+        timeLeftText += seconds;
+        countdownText.setText(timeLeftText);
 
     }
 
