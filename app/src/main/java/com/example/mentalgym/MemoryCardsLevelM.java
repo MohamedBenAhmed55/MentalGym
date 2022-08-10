@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -28,12 +29,17 @@ public class MemoryCardsLevelM extends AppCompatActivity {
     int firstCard, secondCard;
     int clickedFirst , clickedSecond;
     int cardNumber = 1 ;
+    //    Shared preference
+    SharedPreferences myPref;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_cards_level_m);
+
+        myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        myPref.edit().putString("diff", "mid");
 
         textView = findViewById(R.id.textView4);
         // intialize timer duration
@@ -90,7 +96,124 @@ public class MemoryCardsLevelM extends AppCompatActivity {
         iv_34.setTag("11");
 
         //load the card images
-        frontOfCardsRessources();
+        switch(myPref.getInt("level",1)){
+            case 1:
+                image101 =R.drawable.animal1;
+                image102 =R.drawable.animal2;
+                image103 =R.drawable.animal3;
+                image104 =R.drawable.animal4;
+                image105 =R.drawable.animal5;
+                image106 =R.drawable.animal6;
+                image201 =R.drawable.animal1;
+                image202 =R.drawable.animal2;
+                image203 =R.drawable.animal3;
+                image204 =R.drawable.animal4;
+                image205 =R.drawable.animal5;
+                image206 =R.drawable.animal6;
+                break;
+            case 2:
+                image101 =R.drawable.moster1;
+                image102 =R.drawable.moster2;
+                image103 =R.drawable.moster3;
+                image104 =R.drawable.moster4;
+                image105 =R.drawable.moster5;
+                image106 =R.drawable.moster6;
+                image201 =R.drawable.moster1;
+                image202 =R.drawable.moster2;
+                image203 =R.drawable.moster3;
+                image204 =R.drawable.moster4;
+                image205 =R.drawable.moster5;
+                image206 =R.drawable.moster6;
+                break;
+            case 3:
+                image101 =R.drawable.emoji3;
+                image102 =R.drawable.emoji4;
+                image103 =R.drawable.emoji7;
+                image104 =R.drawable.emoji8;
+                image105 =R.drawable.emoji10;
+                image106 =R.drawable.emoji11;
+                image201 =R.drawable.emoji3;
+                image202 =R.drawable.emoji4;
+                image203 =R.drawable.emoji7;
+                image204 =R.drawable.emoji8;
+                image205 =R.drawable.emoji10;
+                image206 =R.drawable.emoji11;
+                break;
+            case 4:
+                image101 =R.drawable.chat;
+                image102 =R.drawable.chat2;
+                image103 =R.drawable.chat3;
+                image104 =R.drawable.chat4;
+                image105 =R.drawable.chat5;
+                image106 =R.drawable.chat6;
+                image201 =R.drawable.chat;
+                image202 =R.drawable.chat2;
+                image203 =R.drawable.chat3;
+                image204 =R.drawable.chat4;
+                image205 =R.drawable.chat5;
+                image206 =R.drawable.chat6;
+                break;
+            case 5:
+                image101 =R.drawable.animal10;
+                image102 =R.drawable.animal9;
+                image103 =R.drawable.animal8;
+                image104 =R.drawable.animal7;
+                image105 =R.drawable.animal5;
+                image106 =R.drawable.animal6;
+                image201 =R.drawable.animal10;
+                image202 =R.drawable.animal9;
+                image203 =R.drawable.animal8;
+                image204 =R.drawable.animal7;
+                image205 =R.drawable.animal5;
+                image206 =R.drawable.animal6;
+                break;
+            case 6:
+
+                break;
+            case 7:
+                image101 =R.drawable.moster11;
+                image102 =R.drawable.moster10;
+                image103 =R.drawable.moster9;
+                image104 =R.drawable.moster8;
+                image105 =R.drawable.moster7;
+                image106 =R.drawable.moster4;
+                image201 =R.drawable.moster11;
+                image202 =R.drawable.moster10;
+                image203 =R.drawable.moster9;
+                image204 =R.drawable.moster8;
+                image205 =R.drawable.moster7;
+                image206 =R.drawable.moster4;
+                break;
+            case 8:
+                image101 =R.drawable.emoji3;
+                image102 =R.drawable.emoji4;
+                image103 =R.drawable.emoji7;
+                image104 =R.drawable.emoji8;
+                image105 =R.drawable.emoji9;
+                image106 =R.drawable.emoji2;
+                image201 =R.drawable.emoji3;
+                image202 =R.drawable.emoji4;
+                image203 =R.drawable.emoji7;
+                image204 =R.drawable.emoji8;
+                image205 =R.drawable.emoji9;
+                image206 =R.drawable.emoji2;
+                break;
+            case 9:
+                image101 =R.drawable.chat;
+                image102 =R.drawable.chat2;
+                image103 =R.drawable.chat3;
+                image104 =R.drawable.chat4;
+                image105 =R.drawable.chat5;
+                image106 =R.drawable.chat6;
+                image201 =R.drawable.chat;
+                image202 =R.drawable.chat2;
+                image203 =R.drawable.chat3;
+                image204 =R.drawable.chat4;
+                image205 =R.drawable.chat5;
+                image206 =R.drawable.chat6;
+            default:
+                break;
+        }
         //shuffle les images
         Collections.shuffle(Arrays.asList(cardsArray));
 

@@ -41,7 +41,7 @@ public class MemoryCardsLevelE extends AppCompatActivity {
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         textView = findViewById(R.id.textView4);
         // intialize timer duration
-        long duration = TimeUnit.MINUTES.toMillis(1);
+        long duration = TimeUnit.SECONDS.toMillis(30);
         // intialize countdown timer
         new CountDownTimer(duration,1000){
 
