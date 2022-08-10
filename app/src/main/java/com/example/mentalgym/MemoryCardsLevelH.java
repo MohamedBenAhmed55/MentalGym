@@ -144,16 +144,76 @@ public class MemoryCardsLevelH extends AppCompatActivity {
                 image208 =R.drawable.moster8;
                 break;
             case 3:
-
+                image101 =R.drawable.moster20;
+                image102 =R.drawable.moster21;
+                image103 =R.drawable.moster22;
+                image104 =R.drawable.moster23;
+                image105 =R.drawable.moster24;
+                image106 =R.drawable.moster25;
+                image107 =R.drawable.moster26;
+                image108 =R.drawable.moster27;
+                image201 =R.drawable.moster20;
+                image202 =R.drawable.moster21;
+                image203 =R.drawable.moster22;
+                image204 =R.drawable.moster23;
+                image205 =R.drawable.moster24;
+                image206 =R.drawable.moster25;
+                image207 =R.drawable.moster26;
+                image208 =R.drawable.moster27;
                 break;
             case 4:
-
+                image101 =R.drawable.animal1;
+                image102 =R.drawable.animal7;
+                image103 =R.drawable.animal11;
+                image104 =R.drawable.animal12;
+                image105 =R.drawable.animal18;
+                image106 =R.drawable.animal13;
+                image107 =R.drawable.animal2;
+                image108 =R.drawable.animal15;
+                image201 =R.drawable.animal1;
+                image202 =R.drawable.animal7;
+                image203 =R.drawable.animal11;
+                image204 =R.drawable.animal12;
+                image205 =R.drawable.animal18;
+                image206 =R.drawable.animal13;
+                image207 =R.drawable.animal2;
+                image208 =R.drawable.animal15;
                 break;
             case 5:
-
+                image101 =R.drawable.animal3;
+                image102 =R.drawable.animal6;
+                image103 =R.drawable.animal14;
+                image104 =R.drawable.animal17;
+                image105 =R.drawable.animal19;
+                image106 =R.drawable.animal20;
+                image107 =R.drawable.animal21;
+                image108 =R.drawable.animal16;
+                image201 =R.drawable.animal13;
+                image202 =R.drawable.animal6;
+                image203 =R.drawable.animal14;
+                image204 =R.drawable.animal17;
+                image205 =R.drawable.animal19;
+                image206 =R.drawable.animal20;
+                image207 =R.drawable.animal21;
+                image208 =R.drawable.animal16;
                 break;
             case 6:
-
+                image101 =R.drawable.animal7;
+                image102 =R.drawable.animal6;
+                image103 =R.drawable.animal18;
+                image104 =R.drawable.animal2;
+                image105 =R.drawable.animal19;
+                image106 =R.drawable.animal5;
+                image107 =R.drawable.animal14;
+                image108 =R.drawable.animal16;
+                image201 =R.drawable.animal7;
+                image202 =R.drawable.animal6;
+                image203 =R.drawable.animal18;
+                image204 =R.drawable.animal2;
+                image205 =R.drawable.animal19;
+                image206 =R.drawable.animal15;
+                image207 =R.drawable.animal14;
+                image208 =R.drawable.animal16;
                 break;
             case 7:
 
