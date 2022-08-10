@@ -2,6 +2,7 @@ package com.example.mentalgym;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,25 +10,45 @@ import android.widget.Button;
 
 
 public class MemoryCards extends AppCompatActivity implements View.OnClickListener{
-    private Button Easy1;
+    private Button Easy, Mid,Hard;
+    SharedPreferences myPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_cards);
 
-        Easy1 = findViewById(R.id.Easy1);
-        Easy1.setOnClickListener(this);
+        Easy = findViewById(R.id.Easy);
+        Easy.setOnClickListener(this);
 
+        Mid = findViewById(R.id.Mid);
+        Mid.setOnClickListener(this);
 
+        Hard = findViewById(R.id.Hard);
+        Hard.setOnClickListener(this);
+
+        myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
     }
 
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.Easy1) {
-            Intent i = new Intent(this, MemoryCardsLevelE1.class);
-            startActivity(i);
+        switch (v.getId()) {
+            case (R.id.Easy):
+                myPref.edit().putString("dif", "easy").apply();
+                break;
+            case (R.id.Mid):
+                myPref.edit().putString("dif", "mid").apply();
+                break;
+            case (R.id.Hard):
+                myPref.edit().putString("dif", "hard").apply();
+                break;
+            default:
+                break;
+
         }
+
+        Intent i = new Intent(this, MemoryCardsLevels.class);
+        startActivity(i);
     }
 }
