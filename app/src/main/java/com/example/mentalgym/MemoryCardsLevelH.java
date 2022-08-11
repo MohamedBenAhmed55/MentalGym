@@ -118,8 +118,8 @@ public class MemoryCardsLevelH extends AppCompatActivity {
                 image108 =R.drawable.moster19;
                 image201 =R.drawable.moster1;
                 image202 =R.drawable.moster10;
-//                image203 =R.drawable.moster12;
-//                image204 =R.drawable.moster15;
+                image203 =R.drawable.moster12;
+                image204 =R.drawable.moster15;
                 image205 =R.drawable.moster5;
                 image206 =R.drawable.moster17;
                 image207 =R.drawable.moster18;
@@ -127,20 +127,20 @@ public class MemoryCardsLevelH extends AppCompatActivity {
                 break;
             case 2:
                 image101 =R.drawable.moster17;
-//                image102 =R.drawable.moster16;
+                image102 =R.drawable.moster16;
                 image103 =R.drawable.moster3;
-//                image104 =R.drawable.moster14;
+                image104 =R.drawable.moster14;
                 image105 =R.drawable.moster5;
                 image106 =R.drawable.moster7;
-//                image107 =R.drawable.moster13;
+                image107 =R.drawable.moster13;
                 image108 =R.drawable.moster8;
                 image201 =R.drawable.moster17;
-//                image202 =R.drawable.moster16;
+                image202 =R.drawable.moster16;
                 image203 =R.drawable.moster3;
-//                image204 =R.drawable.moster14;
+                image204 =R.drawable.moster14;
                 image205 =R.drawable.moster5;
                 image206 =R.drawable.moster7;
-//                image207 =R.drawable.moster13;
+                image207 =R.drawable.moster13;
                 image208 =R.drawable.moster8;
                 break;
             case 3:
