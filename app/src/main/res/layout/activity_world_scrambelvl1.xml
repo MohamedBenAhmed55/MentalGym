@@ -60,10 +60,11 @@
         android:clickable="false"
         android:focusable="false"
         android:gravity="center"
-        android:inputType="text"
+        android:inputType="textNoSuggestions"
         android:padding="10dp"
         android:textColor="#332FA2"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        />
 
     <TextView
         android:id="@+id/textTitle"

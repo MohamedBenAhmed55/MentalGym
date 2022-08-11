@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Gravity;
@@ -168,6 +169,9 @@ public class WordScramblelvl2 extends AppCompatActivity {
         editText.setTypeface(typeface);
         textView.setTypeface(typeface);
 
+//        final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
+
+
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -259,6 +263,9 @@ public class WordScramblelvl2 extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                Toast.makeText(WordScramblelvl2.this, "You failed this level", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
 
             }
         }.start();

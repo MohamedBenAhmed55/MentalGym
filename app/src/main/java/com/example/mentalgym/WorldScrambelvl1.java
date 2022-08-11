@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Gravity;
@@ -33,7 +34,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
 //    Timer
     private CountDownTimer countDownTimer;
-    private long timeLeftinMilliseconds = 120000; //1 min
+    private long timeLeftinMilliseconds = 91000; //1 min
     private TextView countdownText;
 
 //    Shared preference
@@ -158,6 +159,8 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         textView.setTypeface(typeface);
         countdownText.setTypeface(typeface);
 
+//        final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
+
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,6 +173,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
                     textView.animate().alpha(0).setDuration(300);
                     textView.setClickable(false);
                     presCounter++;
+//                    mediaPlayer.start();
 
                     if (presCounter == maxPresCounter)
                         doValidate();
