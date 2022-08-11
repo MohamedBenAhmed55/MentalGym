@@ -110,8 +110,8 @@ public class MemoryCardsLevelH extends AppCompatActivity {
             case 1:
                 image101 =R.drawable.moster1;
                 image102 =R.drawable.moster10;
-//                image103 =R.drawable.moster12;
-//                image104 =R.drawable.moster15;
+                image103 =R.drawable.moster12;
+                image104 =R.drawable.moster15;
                 image105 =R.drawable.moster5;
                 image106 =R.drawable.moster17;
                 image107 =R.drawable.moster18;
