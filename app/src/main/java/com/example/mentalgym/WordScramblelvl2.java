@@ -36,7 +36,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
 
     //    Timer
     private CountDownTimer countDownTimer;
-    private long timeLeftinMilliseconds = 120000; //1 min
+    private long timeLeftinMilliseconds = 91000; //1 min
     private TextView countdownText;
 
 
@@ -169,7 +169,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
         editText.setTypeface(typeface);
         textView.setTypeface(typeface);
 
-//        final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
+        final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
 
         textView.setOnClickListener(new View.OnClickListener() {
@@ -184,6 +184,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
                     textView.animate().alpha(0).setDuration(300);
                     textView.setClickable(false);
                     presCounter++;
+                    mediaPlayer.start();
 
                     if (presCounter == maxPresCounter)
                         doValidate();

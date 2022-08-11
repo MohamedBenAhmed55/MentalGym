@@ -35,7 +35,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
     //    Timer
     private CountDownTimer countDownTimer;
-    private long timeLeftinMilliseconds = 120000; //1 min
+    private long timeLeftinMilliseconds = 61000; //1 min
     private TextView countdownText;
 
     @Override
@@ -161,7 +161,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
         editText.setTypeface(typeface);
         textView.setTypeface(typeface);
 
-//        final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
+
         final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
         textView.setOnClickListener(new View.OnClickListener() {
