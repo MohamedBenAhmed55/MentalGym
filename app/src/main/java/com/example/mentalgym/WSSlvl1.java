@@ -12,11 +12,14 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.net.URISyntaxException;
+
 public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
 
     TextView textScreen, textQuestion, textTitle, textBtn;
     ImageView bigboss;
     Animation smalltobig;
+    int score;
 
     SharedPreferences myPref;
 
@@ -48,7 +51,7 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
         textTitle.setOnClickListener(this);
 
         // back to home
-        Intent i = new Intent(this,MainActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         textBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,10 +60,33 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
             }
         });
 
+        //Incrémentation du score
+        int sc;
+        Intent intent = getIntent();
+        score = intent.getIntExtra("sc", 0);
+        switch (myPref.getString("dif", "easy")) {
+            case "easy":
+                sc = myPref.getInt("easySc", 0);
+                sc += score;
+                myPref.edit().putInt("easySc", sc).apply();
+                break;
+            case "mid":
+                sc = myPref.getInt("midSc", 0);
+                sc += score;
+                myPref.edit().putInt("easySc", sc).apply();
+                break;
+            case "hard":
+                sc = myPref.getInt("hardSc", 0);
+                sc += score;
+                myPref.edit().putInt("hardSc", sc).apply();
+                break;
+            default:
+                break;
+        }
 
     }
 
-    //next level
+    //next level based on difficulty
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.textTitle) {
@@ -69,19 +95,17 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
             Intent i;
             if (n > 9) {
                 i = new Intent(this, WorScrambleLevels.class);
-            }
-            else {
+            } else {
                 myPref.edit().putInt("level", n).commit();
 
-                if (myPref.getString("dif","easy").equals("easy")) {
-                     i = new Intent(this, WorldScrambelvl1.class);
+                if (myPref.getString("dif", "easy").equals("easy")) {
+                    i = new Intent(this, WorldScrambelvl1.class);
 
-                }
-                else if (myPref.getString("dif","easy").equals("mid")) {
-                     i = new Intent(this,WordScramblelvl2.class);
+                } else if (myPref.getString("dif", "easy").equals("mid")) {
+                    i = new Intent(this, WordScramblelvl2.class);
 
-                } else{
-                    i = new Intent(this,WordScramblelvl3.class);
+                } else {
+                    i = new Intent(this, WordScramblelvl3.class);
                 }
 
             }
@@ -90,6 +114,5 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
 
         }
     }
-
 
 }

@@ -31,6 +31,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
     private String textAnswer ;
     private ImageButton resetbtn;
     private int number;
+    private int score = 50;
 
 //    Timer
     private CountDownTimer countDownTimer;
@@ -211,8 +212,8 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 //            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
 
             Intent a = new Intent(this, WSSlvl1.class);
+            a.putExtra("sc",score);
             startActivity(a);
-
             editText.setText("");
         } else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();

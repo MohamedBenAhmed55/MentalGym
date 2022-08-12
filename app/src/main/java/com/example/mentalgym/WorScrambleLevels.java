@@ -7,11 +7,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class WorScrambleLevels extends AppCompatActivity implements View.OnClickListener {
 
     private Button lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;
     SharedPreferences myPref;
+    private TextView scoretxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,27 @@ public class WorScrambleLevels extends AppCompatActivity implements View.OnClick
         lvl8.setOnClickListener(this);
         lvl9.setOnClickListener(this);
 
+        scoretxt = findViewById(R.id.txtScore);
+
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+
+        //Score display
+        int sc = 0;
+        switch (myPref.getString("dif", "easy")) {
+            case "easy":
+                sc = myPref.getInt("easySc", 0);
+                break;
+            case "mid":
+                sc = myPref.getInt("midSc", 0);
+                break;
+            case "hard":
+                sc = myPref.getInt("hardSc", 0);
+                break;
+            default:
+                break;
+        }
+
+        scoretxt.setText("Score : " + sc );
 
     }
 

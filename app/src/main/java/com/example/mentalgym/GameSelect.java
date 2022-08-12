@@ -44,6 +44,7 @@ public class GameSelect extends AppCompatActivity implements View.OnClickListene
                 break;
             case R.id.btn2:
                 Intent i2 = new Intent(this,WordScramble.class);
+                i2.putExtra("scoreinit",0);
                 startActivity(i2);
                 break;
             case R.id.btn3:
@@ -56,8 +57,6 @@ public class GameSelect extends AppCompatActivity implements View.OnClickListene
                 break;
             default:
                 break;
-
-
         }
     }
 }

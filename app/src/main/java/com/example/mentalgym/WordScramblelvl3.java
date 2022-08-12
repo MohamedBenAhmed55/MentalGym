@@ -38,6 +38,9 @@ public class WordScramblelvl3 extends AppCompatActivity {
     private long timeLeftinMilliseconds = 61000; //1 min
     private TextView countdownText;
 
+    //Score
+    private int score = 50;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -221,6 +224,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
 //            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
 
             Intent a = new Intent(this, WSSlvl1.class);
+            a.putExtra("sc",score);
             startActivity(a);
 
             editText.setText("");
