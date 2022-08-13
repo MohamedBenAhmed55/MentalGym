@@ -73,7 +73,7 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
             case "mid":
                 sc = myPref.getInt("midSc", 0);
                 sc += score;
-                myPref.edit().putInt("easySc", sc).apply();
+                myPref.edit().putInt("midSc", sc).apply();
                 break;
             case "hard":
                 sc = myPref.getInt("hardSc", 0);
