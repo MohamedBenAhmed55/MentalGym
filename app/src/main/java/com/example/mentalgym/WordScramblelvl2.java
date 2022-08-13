@@ -303,4 +303,10 @@ public class WordScramblelvl2 extends AppCompatActivity {
         countdownText.setText(timeLeftText);
 
     }
+
+    public void HintClicked(View view) {
+        textQuestion.setVisibility(View.VISIBLE);
+        view.setVisibility(View.GONE);
+        score-=5;
+    }
 }

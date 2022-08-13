@@ -278,4 +278,9 @@ public class WorldScrambelvl1 extends AppCompatActivity {
     }
 
 
+    public void HintClicked(View view) {
+        textQuestion.setVisibility(View.VISIBLE);
+        view.setVisibility(View.GONE);
+        score-=5;
+    }
 }

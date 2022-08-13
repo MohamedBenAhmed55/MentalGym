@@ -42,24 +42,25 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="33dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="50dp"
+            android:layout_width="43dp"
+            android:layout_height="55dp"
             android:background="@drawable/lightbulb"
             android:visibility="visible"
-            />
+            android:id="@+id/hint"
+            android:onClick="HintClicked"/>
 
 
         <TextView
             android:id="@+id/textQuestion"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
+            android:visibility="gone"
             android:lineSpacingExtra="6dp"
             android:text="Animal With Wings"
             android:textAlignment="center"
             android:textColor="#332FA2"
-            android:textSize="26sp" />
+            android:textSize="26sp"
+            />
 
     </LinearLayout>
 

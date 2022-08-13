@@ -52,8 +52,9 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
         //Initializing shared preferences
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
-        myPref.edit().putString("diff", "mid");
+        myPref.edit().putString("diff", "hard");
 
+        //init of variables special to each level
         switch (myPref.getInt("level", 1)) {
             case 1:
                 keys = new String[]{"A", "U", "C", "T", "O", "N", "O", "P", "F", "I"};
@@ -108,6 +109,8 @@ public class WordScramblelvl3 extends AppCompatActivity {
         smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 
         int x = 0;
+
+        //adds clickable letters to the interface
         for (String key : keys) {
             if (x < 5) {
                 addView(((LinearLayout) findViewById(R.id.layoutParent)), key, ((EditText) findViewById(R.id.editText)));
@@ -124,6 +127,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
         startTimer();
     }
 
+    //shuffles the letters in order to display a different order of letters each time
     private String[] shuffleArray(String[] ar) {
         Random rnd = new Random();
         for (int i = ar.length - 1; i > 0; i--) {
@@ -136,6 +140,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
         return ar;
     }
 
+    //creates the clickable letters buttons
     private void addView(LinearLayout viewParent, final String text, final EditText editText) {
         LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -169,6 +174,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
         final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
+        //makes sure the answer is validated when the corresponding number of letters is reached / submit
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -191,6 +197,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
         viewParent.addView(textView);
 
+        //resets letters in case of a mistake
         resetbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -215,6 +222,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
         });
     }
 
+    //method that checks if the answer is valid or not
     private void doValidate() {
         presCounter = 0;
 
@@ -276,6 +284,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
     }
 
+    //Used to update time left on view
     public void updateTimer() {
         int minutes = (int) timeLeftinMilliseconds / 60000;
         int seconds = (int) timeLeftinMilliseconds % 60000 / 1000;
@@ -294,4 +303,10 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
     }
 
+    //Hint used == decrease the score
+    public void HintClicked(View view) {
+        textQuestion.setVisibility(View.VISIBLE);
+        view.setVisibility(View.GONE);
+        score-=5;
+    }
 }
