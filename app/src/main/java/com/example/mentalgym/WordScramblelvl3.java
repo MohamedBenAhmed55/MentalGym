@@ -40,6 +40,8 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
     //Score
     private int score = 50;
+    private int nbattempt = 0;
+    private boolean time = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -224,6 +226,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
 //            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
 
             Intent a = new Intent(this, WSSlvl1.class);
+            score -= nbattempt * 10;
             a.putExtra("sc",score);
             startActivity(a);
 
@@ -231,6 +234,12 @@ public class WordScramblelvl3 extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
             editText.setText("");
+            nbattempt++;
+            if (nbattempt > 3) {
+                Toast.makeText(WordScramblelvl3.this, "Too many attempts", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
+            }
         }
 
         keys = shuffleArray(keys);
@@ -271,6 +280,11 @@ public class WordScramblelvl3 extends AppCompatActivity {
         int minutes = (int) timeLeftinMilliseconds / 60000;
         int seconds = (int) timeLeftinMilliseconds % 60000 / 1000;
         String timeLeftText;
+
+        if (minutes < 1 && time) {
+            score -= 10;
+            time = false;
+        }
 
         timeLeftText = " " + minutes;
         timeLeftText += ":";
