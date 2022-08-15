@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -20,6 +21,8 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
     ImageView bigboss;
     Animation smalltobig;
     int score;
+
+    private MediaPlayer mediaPlayer;
 
     SharedPreferences myPref;
 
@@ -55,7 +58,7 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
         textBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                mediaPlayer.start();
                 startActivity(i);
             }
         });
@@ -83,12 +86,14 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
             default:
                 break;
         }
+        mediaPlayer = MediaPlayer.create(this, R.raw.click);
 
     }
 
     //next level based on difficulty
     @Override
     public void onClick(View v) {
+        mediaPlayer.start();
         if (v.getId() == R.id.textTitle) {
             int n = myPref.getInt("level", 1);
             n++;

@@ -32,7 +32,6 @@ public class WorldScrambelvl1 extends AppCompatActivity {
     private ImageButton resetbtn;
     private int number;
 
-
     //    Timer
     private CountDownTimer countDownTimer;
     private long timeLeftinMilliseconds = 121000; //1 min
@@ -45,6 +44,11 @@ public class WorldScrambelvl1 extends AppCompatActivity {
     private int score = 50;
     private int nbattempt = 0;
     private boolean time = true;
+
+    //Sounds
+    private MediaPlayer mediaPlayer ;
+    private MediaPlayer mediaSuccess;
+    private MediaPlayer mediaFail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +123,10 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         startTimer();
 //        updateTimer();
 
+//Sounds
+        mediaPlayer = MediaPlayer.create(this, R.raw.click);
+        mediaFail = MediaPlayer.create(this,R.raw.fail);
+        mediaSuccess = MediaPlayer.create(this,R.raw.success);
 
     }
 
@@ -165,8 +173,9 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         textView.setTypeface(typeface);
         countdownText.setTypeface(typeface);
 
-        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.click);
 
+
+        final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -193,6 +202,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         resetbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer.start();
                 presCounter = 0;
                 EditText editText = findViewById(R.id.editText);
                 LinearLayout linearLayout = findViewById(R.id.layoutParent);
@@ -215,18 +225,20 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
         if (editText.getText().toString().equals(textAnswer)) {
 //            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
-
+            mediaSuccess.start();
             Intent a = new Intent(this, WSSlvl1.class);
             score -= nbattempt * 10;
             a.putExtra("sc", score);
             startActivity(a);
             editText.setText("");
+
         } else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
             editText.setText("");
             nbattempt++;
-            if (nbattempt > 3) {
+            if (nbattempt > 5) {
                 Toast.makeText(WorldScrambelvl1.this, "Too many attempts", Toast.LENGTH_SHORT).show();
+                mediaFail.start();
                 finish();
                 startActivity(getIntent());
             }
@@ -252,6 +264,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Toast.makeText(WorldScrambelvl1.this, "You failed this level", Toast.LENGTH_SHORT).show();
+                mediaFail.start();
                 finish();
                 startActivity(getIntent());
             }
@@ -279,6 +292,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
 
     public void HintClicked(View view) {
+        mediaPlayer.start();
         textQuestion.setVisibility(View.VISIBLE);
         view.setVisibility(View.GONE);
         score-=5;
