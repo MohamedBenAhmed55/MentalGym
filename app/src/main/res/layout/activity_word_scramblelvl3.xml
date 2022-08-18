@@ -37,6 +37,14 @@
         android:layout_gravity="center"
         android:gravity="center">
 
+        <ImageView
+            android:layout_width="43dp"
+            android:layout_height="55dp"
+            android:background="@drawable/lightbulb"
+            android:visibility="visible"
+            android:id="@+id/hint"
+            android:onClick="HintClicked"/>
+
         <TextView
             android:id="@+id/textQuestion"
             android:layout_width="220dp"
@@ -46,6 +54,7 @@
             android:textAlignment="center"
             android:textColor="#332FA2"
             android:textSize="26sp"
+            android:visibility="gone"
             />
     </LinearLayout>
 

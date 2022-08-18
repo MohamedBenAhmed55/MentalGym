@@ -22,24 +22,33 @@ import java.util.Random;
 
 public class WorldScrambelvl1 extends AppCompatActivity {
 
-//    Views
+    //    Views
     TextView textScreen, textQuestion, textTitle;
     Animation smallbigforth;
     private int presCounter = 0;
     private int maxPresCounter = 4;
-    private String[] keys ;
-    private String textAnswer ;
+    private String[] keys;
+    private String textAnswer;
     private ImageButton resetbtn;
     private int number;
-    private int score = 50;
 
-//    Timer
+    //    Timer
     private CountDownTimer countDownTimer;
     private long timeLeftinMilliseconds = 121000; //1 min
     private TextView countdownText;
 
-//    Shared preference
+    //    Shared preference
     SharedPreferences myPref;
+
+    //Score
+    private int score = 50;
+    private int nbattempt = 0;
+    private boolean time = true;
+
+    //Sounds
+    private MediaPlayer mediaPlayer ;
+    private MediaPlayer mediaSuccess;
+    private MediaPlayer mediaFail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,50 +59,50 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         //        Initializing shared preferences
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
 //       number =  myPref.getInt("level",1);
-        switch(myPref.getInt("level",1)){
+        switch (myPref.getInt("level", 1)) {
             case 1:
                 keys = new String[]{"R", "I", "B", "D", "X"};
                 textAnswer = "BIRD";
                 textQuestion.setText("Animal With Wings");
                 break;
             case 2:
-                keys = new String[]{"C", "D", "O","L","S"};
-                textAnswer="COLD";
+                keys = new String[]{"C", "D", "O", "L", "S"};
+                textAnswer = "COLD";
                 textQuestion.setText("Temperature State");
                 break;
             case 3:
-                keys = new String[]{"H", "P", "O","W","E"};
-                textAnswer="HOPE";
+                keys = new String[]{"H", "P", "O", "W", "E"};
+                textAnswer = "HOPE";
                 textQuestion.setText("Desire for a particular thing to happen");
                 break;
             case 4:
-                keys = new String[]{"C", "D", "O","G","O"};
-                textAnswer="GOOD";
+                keys = new String[]{"C", "D", "O", "G", "O"};
+                textAnswer = "GOOD";
                 textQuestion.setText("Opposite of bad");
                 break;
             case 5:
-                 keys = new String[]{"U", "F", "O","L","R"};
-                textAnswer="FOUR";
+                keys = new String[]{"U", "F", "O", "L", "R"};
+                textAnswer = "FOUR";
                 textQuestion.setText("The number of our limbs");
                 break;
             case 6:
-                this.keys = new String[]{"T", "A", "O","Y","S"};
-                this.textAnswer="STAY";
+                this.keys = new String[]{"T", "A", "O", "Y", "S"};
+                this.textAnswer = "STAY";
                 textQuestion.setText("Opposite of Go");
                 break;
             case 7:
-                keys = new String[]{"A", "K", "O","N","B"};
-                textAnswer="BANK";
+                keys = new String[]{"A", "K", "O", "N", "B"};
+                textAnswer = "BANK";
                 textQuestion.setText("A facility that deals in money");
                 break;
             case 8:
-                keys = new String[]{"I", "F", "O","H","S"};
-                this.textAnswer="FISH";
+                keys = new String[]{"I", "F", "O", "H", "S"};
+                this.textAnswer = "FISH";
                 textQuestion.setText("Lives in the sea");
                 break;
             case 9:
-                keys = new String[]{"S", "N", "O","L","E"};
-                textAnswer="NOSE";
+                keys = new String[]{"S", "N", "O", "L", "E"};
+                textAnswer = "NOSE";
                 textQuestion.setText("Is in the center of the face");
             default:
                 break;
@@ -114,6 +123,10 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         startTimer();
 //        updateTimer();
 
+//Sounds
+        mediaPlayer = MediaPlayer.create(this, R.raw.click);
+        mediaFail = MediaPlayer.create(this,R.raw.fail);
+        mediaSuccess = MediaPlayer.create(this,R.raw.success);
 
     }
 
@@ -160,8 +173,9 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         textView.setTypeface(typeface);
         countdownText.setTypeface(typeface);
 
-        final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
+
+        final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -188,6 +202,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         resetbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer.start();
                 presCounter = 0;
                 EditText editText = findViewById(R.id.editText);
                 LinearLayout linearLayout = findViewById(R.id.layoutParent);
@@ -210,14 +225,23 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
         if (editText.getText().toString().equals(textAnswer)) {
 //            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
-
+            mediaSuccess.start();
             Intent a = new Intent(this, WSSlvl1.class);
-            a.putExtra("sc",score);
+            score -= nbattempt * 10;
+            a.putExtra("sc", score);
             startActivity(a);
             editText.setText("");
+
         } else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
             editText.setText("");
+            nbattempt++;
+            if (nbattempt > 5) {
+                Toast.makeText(WorldScrambelvl1.this, "Too many attempts", Toast.LENGTH_SHORT).show();
+                mediaFail.start();
+                finish();
+                startActivity(getIntent());
+            }
         }
 
         keys = shuffleArray(keys);
@@ -228,7 +252,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
     }
 
-//Timer
+    //Timer
     public void startTimer() {
         countDownTimer = new CountDownTimer(timeLeftinMilliseconds, 1000) {
             @Override
@@ -240,6 +264,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Toast.makeText(WorldScrambelvl1.this, "You failed this level", Toast.LENGTH_SHORT).show();
+                mediaFail.start();
                 finish();
                 startActivity(getIntent());
             }
@@ -247,18 +272,29 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
     }
 
-    public void updateTimer(){
-        int minutes = (int) timeLeftinMilliseconds/60000;
+    public void updateTimer() {
+        int minutes = (int) timeLeftinMilliseconds / 60000;
         int seconds = (int) timeLeftinMilliseconds % 60000 / 1000;
         String timeLeftText;
 
+        if (minutes < 1 && time) {
+            score -= 10;
+            time = false;
+        }
+
         timeLeftText = " " + minutes;
-        timeLeftText+= ":";
-        if(seconds < 10) timeLeftText+="0";
+        timeLeftText += ":";
+        if (seconds < 10) timeLeftText += "0";
         timeLeftText += seconds;
         countdownText.setText(timeLeftText);
 
     }
 
 
+    public void HintClicked(View view) {
+        mediaPlayer.start();
+        textQuestion.setVisibility(View.VISIBLE);
+        view.setVisibility(View.GONE);
+        score-=5;
+    }
 }

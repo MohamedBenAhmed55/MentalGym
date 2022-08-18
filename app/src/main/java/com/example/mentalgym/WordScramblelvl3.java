@@ -40,6 +40,13 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
     //Score
     private int score = 50;
+    private int nbattempt = 0;
+    private boolean time = true;
+
+    //Sounds
+    private MediaPlayer mediaPlayer;
+    private MediaPlayer mediaSuccess;
+    private MediaPlayer mediaFail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +57,9 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
         //Initializing shared preferences
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
-        myPref.edit().putString("diff", "mid");
+        myPref.edit().putString("diff", "hard");
 
+        //init of variables special to each level
         switch (myPref.getInt("level", 1)) {
             case 1:
                 keys = new String[]{"A", "U", "C", "T", "O", "N", "O", "P", "F", "I"};
@@ -106,6 +114,8 @@ public class WordScramblelvl3 extends AppCompatActivity {
         smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 
         int x = 0;
+
+        //adds clickable letters to the interface
         for (String key : keys) {
             if (x < 5) {
                 addView(((LinearLayout) findViewById(R.id.layoutParent)), key, ((EditText) findViewById(R.id.editText)));
@@ -120,8 +130,14 @@ public class WordScramblelvl3 extends AppCompatActivity {
         //        Timer
         countdownText = findViewById(R.id.countdown_text);
         startTimer();
+
+        //Sounds
+        mediaPlayer = MediaPlayer.create(this,R.raw.click);
+        mediaFail = MediaPlayer.create(this,R.raw.fail);
+        mediaSuccess = MediaPlayer.create(this,R.raw.success);
     }
 
+    //shuffles the letters in order to display a different order of letters each time
     private String[] shuffleArray(String[] ar) {
         Random rnd = new Random();
         for (int i = ar.length - 1; i > 0; i--) {
@@ -134,6 +150,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
         return ar;
     }
 
+    //creates the clickable letters buttons
     private void addView(LinearLayout viewParent, final String text, final EditText editText) {
         LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -167,6 +184,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
         final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
+        //makes sure the answer is validated when the corresponding number of letters is reached / submit
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,9 +207,11 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
         viewParent.addView(textView);
 
+        //resets letters in case of a mistake
         resetbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mediaPlayer.start();
                 presCounter = 0;
                 EditText editText = findViewById(R.id.editText);
                 LinearLayout linearLayout = findViewById(R.id.layoutParent);
@@ -213,6 +233,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
         });
     }
 
+    //method that checks if the answer is valid or not
     private void doValidate() {
         presCounter = 0;
 
@@ -222,8 +243,9 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
         if (editText.getText().toString().equals(textAnswer)) {
 //            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
-
+            mediaSuccess.start();
             Intent a = new Intent(this, WSSlvl1.class);
+            score -= nbattempt * 10;
             a.putExtra("sc",score);
             startActivity(a);
 
@@ -231,6 +253,13 @@ public class WordScramblelvl3 extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
             editText.setText("");
+            nbattempt++;
+            if (nbattempt > 2) {
+                Toast.makeText(WordScramblelvl3.this, "Too many attempts", Toast.LENGTH_SHORT).show();
+                mediaFail.start();
+                finish();
+                startActivity(getIntent());
+            }
         }
 
         keys = shuffleArray(keys);
@@ -259,6 +288,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                mediaFail.start();
                 Toast.makeText(WordScramblelvl3.this, "You failed this level", Toast.LENGTH_SHORT).show();
                 finish();
                 startActivity(getIntent());
@@ -267,10 +297,16 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
     }
 
+    //Used to update time left on view
     public void updateTimer() {
         int minutes = (int) timeLeftinMilliseconds / 60000;
         int seconds = (int) timeLeftinMilliseconds % 60000 / 1000;
         String timeLeftText;
+
+        if (minutes < 1 && time) {
+            score -= 10;
+            time = false;
+        }
 
         timeLeftText = " " + minutes;
         timeLeftText += ":";
@@ -280,4 +316,11 @@ public class WordScramblelvl3 extends AppCompatActivity {
 
     }
 
+    //Hint used == decrease the score
+    public void HintClicked(View view) {
+        mediaPlayer.start();
+        textQuestion.setVisibility(View.VISIBLE);
+        view.setVisibility(View.GONE);
+        score-=5;
+    }
 }
