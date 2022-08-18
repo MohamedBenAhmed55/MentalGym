@@ -32,12 +32,12 @@ public class WorldScrambelvl1 extends AppCompatActivity {
     private ImageButton resetbtn;
     private int number;
 
-    //    Timer
+    //Timer
     private CountDownTimer countDownTimer;
     private long timeLeftinMilliseconds = 121000; //1 min
     private TextView countdownText;
 
-    //    Shared preference
+    //Shared preference
     SharedPreferences myPref;
 
     //Score
@@ -59,6 +59,8 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         //        Initializing shared preferences
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
 //       number =  myPref.getInt("level",1);
+
+        //Selecting appropriate values based on the picked level
         switch (myPref.getInt("level", 1)) {
             case 1:
                 keys = new String[]{"R", "I", "B", "D", "X"};
@@ -118,12 +120,12 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         }
 
         maxPresCounter = 4;
-//Timer
+
+        //Timer
         countdownText = findViewById(R.id.countdown_text);
         startTimer();
-//        updateTimer();
 
-//Sounds
+        //Sounds
         mediaPlayer = MediaPlayer.create(this, R.raw.click);
         mediaFail = MediaPlayer.create(this,R.raw.fail);
         mediaSuccess = MediaPlayer.create(this,R.raw.success);
@@ -217,6 +219,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         });
     }
 
+    //Checks if the answer is correct and adds the level's score to the total one
     private void doValidate() {
         presCounter = 0;
 
@@ -272,6 +275,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
     }
 
+    //Updates the timer text
     public void updateTimer() {
         int minutes = (int) timeLeftinMilliseconds / 60000;
         int seconds = (int) timeLeftinMilliseconds % 60000 / 1000;
@@ -291,10 +295,31 @@ public class WorldScrambelvl1 extends AppCompatActivity {
     }
 
 
+    //Shows the hint and subtracts points from the final score
     public void HintClicked(View view) {
         mediaPlayer.start();
         textQuestion.setVisibility(View.VISIBLE);
         view.setVisibility(View.GONE);
         score-=5;
     }
+
+    //Preventing the timer from working in the background after exiting the game
+    @Override
+    protected void onPause() {
+        super.onPause();
+        countDownTimer.cancel();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        countDownTimer.cancel();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        countDownTimer.start();
+    }
+
 }

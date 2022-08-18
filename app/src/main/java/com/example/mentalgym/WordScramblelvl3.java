@@ -323,4 +323,23 @@ public class WordScramblelvl3 extends AppCompatActivity {
         view.setVisibility(View.GONE);
         score-=5;
     }
+
+    //Preventing the timer from working in the background after exiting the game
+    @Override
+    protected void onPause() {
+        super.onPause();
+        countDownTimer.cancel();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        countDownTimer.cancel();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        countDownTimer.start();
+    }
 }
