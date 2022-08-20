@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MentalGym">
         <activity
+            android:name=".WordScrambleLevelsRecycler"
+            android:exported="false" />
+        <activity
             android:name=".MemoryCardsLevelH"
             android:exported="false" />
         <activity
