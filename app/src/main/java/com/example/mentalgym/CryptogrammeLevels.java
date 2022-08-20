@@ -81,13 +81,15 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
 
     @Override
     public void onItemClick(int position) {
-        Intent intent =new Intent(CryptogrammeLevels.this , CryptogrammeGame.class);
-        intent.putExtra("algorithm" , levelCards.get(position).getAlgorithm() );
-        intent.putExtra("phrase" , levelCards.get(position).getPhrase() );
-        intent.putExtra("hintnumber" , hintNumber );
-        intent.putExtra("position" , position+1 );
-        intent.putExtra("difficulty" , difficulty);
-        startActivity(intent);
+        if (levelCards.get(position).getCanPlay()) {
+            Intent intent = new Intent(CryptogrammeLevels.this, CryptogrammeGame.class);
+            intent.putExtra("algorithm", levelCards.get(position).getAlgorithm());
+            intent.putExtra("phrase", levelCards.get(position).getPhrase());
+            intent.putExtra("hintnumber", hintNumber);
+            intent.putExtra("position", position + 1);
+            intent.putExtra("difficulty", difficulty);
+            startActivity(intent);
+        }
     }
 
 
