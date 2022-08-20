@@ -3,6 +3,7 @@ package com.example.mentalgym;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,15 +11,18 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
+import java.util.logging.Handler;
+
 public class CryptogrammeMenu extends AppCompatActivity {
     int difficultyButtonChecked =R.id.easy;
     int difficulty = 0;
-
+    Toast tst;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cryptogramme_menu);
+        tst = Toast.makeText(this, "str", Toast.LENGTH_SHORT);
         MaterialButtonToggleGroup toggleButtonGroup = findViewById(R.id.toggleButtonGroup);
         toggleButtonGroup.check(difficultyButtonChecked);
         toggleButtonGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
@@ -28,22 +32,22 @@ public class CryptogrammeMenu extends AppCompatActivity {
                     switch(checkedId){
                         case R.id.easy:
                             difficulty = 0;
-                            showToast("Easy Mode");
+                            showToast("Easy Mode" );
                             break;
                         case R.id.medium:
                             difficulty = 1;
-                            showToast("Medium Mode");
+                            showToast("Medium Mode" );
                             break;
                         case R.id.hard:
                             difficulty = 2;
-                            showToast("Hard Mode");
+                            showToast("Hard Mode" );
                             break;
                     }
                 }
                 else {
                     if (group.getCheckedButtonId() == View.NO_ID) {
                         difficulty=-1;
-                        showToast("you must select a difficulty");
+                        showToast("you must select a difficulty" );
                     }
                 }
             }
@@ -51,8 +55,11 @@ public class CryptogrammeMenu extends AppCompatActivity {
         );
     }
 
-    private void showToast(String str) {
-        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+    private void showToast(String str ) {
+        tst.cancel();
+        tst.setText(str);
+        tst.show();
+
     }
 
     public void ShowLevels(View view){

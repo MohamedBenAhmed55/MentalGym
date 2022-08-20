@@ -26,23 +26,22 @@ public class CryptogrammeAlgorithms {
             }
             newString+=++c;
         }
-
         phrasecrypt=newString;
-
     }
 
-    public void Algorithm2(){
+
+    public void Algorithm2() {
         String newString = "";
         char c;
-        for (int i =0 ; i<phrase.length() ; i++){
-            c =(char)phrase.charAt(i);
-            if(c == ' '){
-                newString+=' ';
+        for (int i = 0; i < phrase.length(); i++) {
+            c = (char) phrase.charAt(i);
+            if (c == ' ') {
+                newString += ' ';
                 continue;
             }
-            newString+=--c;
+            newString += --c;
         }
-        phrasecrypt=newString;
+        phrasecrypt = newString;
 
     }
 
@@ -62,15 +61,18 @@ public class CryptogrammeAlgorithms {
                 Middle_digit_finder = First_Two_Digit_Finder%10;
                 First_Digit_Finder = First_Two_Digit_Finder/10;
             }
-            else if(Integer.toString(c).length()==3){
+            else if(Integer.toString(c).length()==2){
                 First_Digit_Finder = c/10;
                 last_digit_finder = c%10;
             }
             int sum = First_Digit_Finder + Middle_digit_finder + last_digit_finder;
-            System.out.println(Integer.toString(c) + '\n');
+            System.out.println("code : "+Integer.toString(c) + '\n');
+            System.out.println("sum : "+Integer.toString(sum) + '\n');
             newString+=Integer.toString(sum).charAt(0);
         }
         phrasecrypt=newString;
     }
+
+
 
 }

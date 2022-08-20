@@ -2,6 +2,7 @@ package com.example.mentalgym;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,6 +22,8 @@ public class CryptogrammeGame extends AppCompatActivity {
     String phrase;
     String phrasecry;
     String phraseHelp;
+    int difficulty;
+    int positon;
     int hintNumber;
     TextView hintNUmberTextView;
     List<View> letters= new ArrayList<>();
@@ -28,8 +31,39 @@ public class CryptogrammeGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cryptogramme_game);
-        hintNUmberTextView = (TextView) findViewById(R.id.hintnumber);
+        difficulty =  getIntent().getIntExtra("difficulty" , 0);
+        positon =  getIntent().getIntExtra("position" , 1);
+        DisplayPhrase();
+    }
 
+
+    public void HelpLetter(View view) {
+        int size = phraseHelp.length();
+        if (phraseHelp.length() > 0 && hintNumber>0) {
+            int ind = new Random().nextInt(size - 1);
+            String l = Character.toString(phraseHelp.charAt(ind));
+            phraseHelp = phraseHelp.replace(l, "");
+            hintNumber--;
+            hintNUmberTextView.setText( Integer.toString(hintNumber) );
+
+            for (int i = 0; i < letters.size(); i++) {
+                View letterView = letters.get(i);
+                String c = ((TextView) letterView.findViewById(R.id.truechar)).getText().toString();
+                if (l.equals(c)) {
+                    TextView char1 = ((TextView) letterView.findViewById(R.id.char1));
+                    char1.setText(l);
+                    char1.setEnabled(false);
+                }
+            }
+
+        }
+
+
+
+    }
+
+    public void DisplayPhrase (){
+        hintNUmberTextView = (TextView) findViewById(R.id.hintnumber);
         String algo = getIntent().getStringExtra("algorithm");
         phrase = getIntent().getStringExtra("phrase");
         hintNumber =  getIntent().getIntExtra("hintnumber" , 0);
@@ -49,7 +83,7 @@ public class CryptogrammeGame extends AppCompatActivity {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-       phrasecry= cryptogrammeAlgorithms.phrasecrypt;
+        phrasecry= cryptogrammeAlgorithms.phrasecrypt;
         String[] list = phrasecry.split(" ");
         String[] truelist = phrase.split(" ");
         LinearLayout phraseView;
@@ -92,20 +126,16 @@ public class CryptogrammeGame extends AppCompatActivity {
                                 e.setText(x ,TextView.BufferType.EDITABLE);
                             }
                             else if (char1.getText().length() == 0  && truechar.getText().toString().equals(trueChar ) &&  !(char1.getText().toString().equals(e.getText().toString() ))  ) {
-                                        e.setText("" ,TextView.BufferType.EDITABLE);
+                                e.setText("" ,TextView.BufferType.EDITABLE);
                             }
                             if ( ! trueChar.equals(e.getText().toString()) ) {
-                                is_win=false;
+                                is_win = false;
                             }
-
-
                         }
                         if(is_win){
-                            Toast myToast = Toast.makeText(CryptogrammeGame.this ,  "You Win", Toast.LENGTH_SHORT);
-                            myToast.show();
+                            win();
                         }
                     }
-
                     @Override
                     public void afterTextChanged(Editable s) {
 
@@ -124,12 +154,7 @@ public class CryptogrammeGame extends AppCompatActivity {
                 ligne.addView(word);
                 phraseView.addView(ligne);
             }
-
-
-
         }
-
-
         for (int l=0 ; l< phraseView.getChildCount() ; l++){
             LinearLayout li = (LinearLayout) phraseView.getChildAt(l);
             for(int w=0 ; w< li.getChildCount() ; w++){
@@ -140,37 +165,30 @@ public class CryptogrammeGame extends AppCompatActivity {
                 }
             }
         }
-
-
-        
-
     }
 
-
-
-
-    public void HelpLetter(View view) {
-        int size = phraseHelp.length();
-        if (phraseHelp.length() > 0 && hintNumber>0) {
-            int ind = new Random().nextInt(size - 1);
-            String l = Character.toString(phraseHelp.charAt(ind));
-            phraseHelp = phraseHelp.replace(l, "");
-            hintNumber--;
-            hintNUmberTextView.setText( Integer.toString(hintNumber) );
-
-            for (int i = 0; i < letters.size(); i++) {
-                View letterView = letters.get(i);
-                String c = ((TextView) letterView.findViewById(R.id.truechar)).getText().toString();
-                if (l.equals(c)) {
-                    TextView char1 = ((TextView) letterView.findViewById(R.id.char1));
-                    char1.setText(l);
-                    char1.setEnabled(false);
-                }
-            }
+    private void win(){
+        Toast myToast = Toast.makeText(CryptogrammeGame.this ,  "You Win", Toast.LENGTH_SHORT);
+        myToast.show();
+        SharedPreferences sharedPref = getSharedPreferences(CryptogrammeLevels.PREFERENCES_FILENAME, MODE_PRIVATE);
+        int winwsilna ;
+        switch (difficulty){
+            case  1:
+                winwsilna = sharedPref.getInt(CryptogrammeLevels.WINWSOLNA2 , 1) ;
+                if (positon>=winwsilna)
+                    sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA2  , winwsilna +1).apply();
+                break;
+            case 2:
+                winwsilna = sharedPref.getInt(CryptogrammeLevels.WINWSOLNA3 , 1) ;
+                if (positon>=winwsilna)
+                    sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA3  , winwsilna +1 ).apply();
+                break;
+            default:
+                winwsilna = sharedPref.getInt(CryptogrammeLevels.WINWSOLNA1 , 1) ;
+                System.out.println(positon);
+                System.out.println(winwsilna);
+                if (positon>=winwsilna)
+                    sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA1  , winwsilna + 1).apply();
         }
-
     }
-
-
-
 }

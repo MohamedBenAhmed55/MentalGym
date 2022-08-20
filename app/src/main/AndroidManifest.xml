@@ -45,7 +45,9 @@
         <activity
             android:name=".MemoryCards"
             android:exported="false" />
-        <activity android:name=".CryptogrammeGame" />
+        <activity
+            android:name=".CryptogrammeGame"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".Cryptogramme" />
         <activity android:name=".WordScramble" />
         <activity android:name=".GameSelect" />

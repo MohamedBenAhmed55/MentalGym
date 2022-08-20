@@ -34,6 +34,7 @@ public class CryptogrammeLevelsAdapter extends RecyclerView.Adapter<Cryptogramme
     public void onBindViewHolder(@NonNull CryptogrammeLevelsAdapter.MyViewHolder holder, int position) {
         holder.nameView.setText(cryptogrammeLevels.get(position).getName());
         holder.imageView.setImageResource(cryptogrammeLevels.get(position).getImage());
+        if ( cryptogrammeLevels.get(position).getCanPlay()) holder.lockView.setVisibility(View.GONE);
     }
 
     @Override
@@ -43,12 +44,14 @@ public class CryptogrammeLevelsAdapter extends RecyclerView.Adapter<Cryptogramme
 
     public static class MyViewHolder extends  RecyclerView.ViewHolder{
         ImageView imageView;
+        ImageView lockView;
         TextView nameView;
 
         public MyViewHolder(@NonNull View itemView ,CryptogrammeLevelsInterface cryptogrammeLevelsInterface ) {
             super(itemView);
             imageView = itemView.findViewById(R.id.levelimage);
             nameView =itemView.findViewById(R.id.levelText);
+            lockView = itemView.findViewById(R.id.lock);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
