@@ -185,8 +185,8 @@ public class CryptogrammeGame extends AppCompatActivity {
                 break;
             default:
                 winwsilna = sharedPref.getInt(CryptogrammeLevels.WINWSOLNA1 , 1) ;
-//                System.out.println(positon);
-//                System.out.println(winwsilna);
+                System.out.println(positon);
+                System.out.println(winwsilna);
                 if (positon>=winwsilna)
                     sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA1  , winwsilna + 1).apply();
         }
