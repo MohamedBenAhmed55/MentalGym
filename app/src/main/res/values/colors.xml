@@ -19,4 +19,6 @@
     <color name="colorAccent">#FF5EA2</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPurple">#332FA2</color>
+    <color name="colorYellow">#FFC107</color>
+    <color name="colorRed">#D3443A</color>
 </resources>

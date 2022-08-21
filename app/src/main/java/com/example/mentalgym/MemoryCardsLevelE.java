@@ -58,12 +58,18 @@ public class MemoryCardsLevelE extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryCardsLevelE.this);
+               /* AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryCardsLevelE.this);
                 alertDialogBuilder
                         .setMessage("TIME IS OVER")
-                        .setCancelable(false);
+                        .setCancelable(false)
+                        .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
                 AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
+                alertDialog.show();*/
             }
         }.start();
 

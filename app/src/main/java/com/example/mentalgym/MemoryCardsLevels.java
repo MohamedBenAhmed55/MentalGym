@@ -10,22 +10,21 @@ import android.widget.Button;
 
 public class MemoryCardsLevels extends AppCompatActivity implements View.OnClickListener {
 
-    private Button lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;
     SharedPreferences myPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_cards_levels);
-        lvl1 = findViewById(R.id.lvl1);
-        lvl2 = findViewById(R.id.lvl2);
-        lvl3 = findViewById(R.id.lvl3);
-        lvl4 = findViewById(R.id.lvl4);
-        lvl5 = findViewById(R.id.lvl5);
-        lvl6 = findViewById(R.id.lvl6);
-        lvl7 = findViewById(R.id.lvl7);
-        lvl8 = findViewById(R.id.lvl8);
-        lvl9 = findViewById(R.id.lvl9);
+        Button lvl1 = findViewById(R.id.lvl1);
+        Button lvl2 = findViewById(R.id.lvl2);
+        Button lvl3 = findViewById(R.id.lvl3);
+        Button lvl4 = findViewById(R.id.lvl4);
+        Button lvl5 = findViewById(R.id.lvl5);
+        Button lvl6 = findViewById(R.id.lvl6);
+        Button lvl7 = findViewById(R.id.lvl7);
+        Button lvl8 = findViewById(R.id.lvl8);
+        Button lvl9 = findViewById(R.id.lvl9);
 
         lvl1.setOnClickListener(this);
         lvl2.setOnClickListener(this);

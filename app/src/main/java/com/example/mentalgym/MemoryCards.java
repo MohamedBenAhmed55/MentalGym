@@ -10,7 +10,6 @@ import android.widget.Button;
 
 
 public class MemoryCards extends AppCompatActivity implements View.OnClickListener{
-    private Button Easy, Mid,Hard;
     SharedPreferences myPref;
 
     @Override
@@ -18,14 +17,14 @@ public class MemoryCards extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_cards);
 
-        Easy = findViewById(R.id.Easy);
-        Easy.setOnClickListener(this);
+        Button easy = findViewById(R.id.Easy);
+        easy.setOnClickListener(this);
 
-        Mid = findViewById(R.id.Mid);
-        Mid.setOnClickListener(this);
+        Button mid = findViewById(R.id.Mid);
+        mid.setOnClickListener(this);
 
-        Hard = findViewById(R.id.Hard);
-        Hard.setOnClickListener(this);
+        Button hard = findViewById(R.id.Hard);
+        hard.setOnClickListener(this);
 
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
     }
