@@ -2,6 +2,7 @@ package com.example.mentalgym;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -190,5 +191,11 @@ public class CryptogrammeGame extends AppCompatActivity {
                 if (positon>=winwsilna)
                     sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA1  , winwsilna + 1).apply();
         }
+    }
+
+    public void back(View view) {
+        Intent i=new Intent(this, CryptogrammeLevels.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
     }
 }

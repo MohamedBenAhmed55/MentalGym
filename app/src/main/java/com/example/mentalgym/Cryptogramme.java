@@ -58,23 +58,16 @@ public class Cryptogramme extends AppCompatActivity {
 
         mSLideViewPager = (ViewPager) findViewById(R.id.slideViewPager);
         mDotLayout = (LinearLayout) findViewById(R.id.indicator_layout);
-
         viewPagerAdapter = new ViewPagerAdapter(this);
-
         mSLideViewPager.setAdapter(viewPagerAdapter);
-
         setUpindicator(0);
         mSLideViewPager.addOnPageChangeListener(viewListener);
-
     }
 
     public void setUpindicator(int position){
-
         dots = new TextView[4];
         mDotLayout.removeAllViews();
-
         for (int i = 0 ; i < dots.length ; i++){
-
             dots[i] = new TextView(this);
             dots[i].setText(Html.fromHtml("&#8226"));
             dots[i].setTextSize(35);

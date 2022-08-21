@@ -105,5 +105,12 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
                 sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA1 , 1).apply();
 
         }
+        this.recreate();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        this.recreate();
     }
 }
