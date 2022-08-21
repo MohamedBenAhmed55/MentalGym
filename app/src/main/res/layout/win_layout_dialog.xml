@@ -52,7 +52,6 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/colorYellow"
                 android:background="@drawable/btn_bg_win"
                 android:text="Button"
                 app:layout_constraintEnd_toEndOf="parent"
