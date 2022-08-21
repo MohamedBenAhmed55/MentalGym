@@ -52,7 +52,7 @@ public class WordScramble extends AppCompatActivity implements View.OnClickListe
 
         }
 
-        Intent i = new Intent(this, WorScrambleLevels.class);
+        Intent i = new Intent(this, WordScrambleLevelsRecycler.class);
         startActivity(i);
     }
 }
