@@ -15,13 +15,16 @@ import java.util.logging.Handler;
 
 public class CryptogrammeMenu extends AppCompatActivity {
     int difficultyButtonChecked =R.id.easy;
-    int difficulty = 0;
+    int difficulty ;
+    SharedPreferences sharedPreferences;
     Toast tst;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cryptogramme_menu);
+        sharedPreferences= getSharedPreferences(CryptogrammeLevels.PREFERENCES_FILENAME, MODE_PRIVATE);
+        difficulty= sharedPreferences.getInt("difficulty" , 0);
         tst = Toast.makeText(this, "str", Toast.LENGTH_SHORT);
         MaterialButtonToggleGroup toggleButtonGroup = findViewById(R.id.toggleButtonGroup);
         toggleButtonGroup.check(difficultyButtonChecked);
@@ -68,11 +71,13 @@ public class CryptogrammeMenu extends AppCompatActivity {
 //      else kamal.setVisibility(View.GONE);
         if(difficulty>=0) {
             Intent intent = new Intent(this, CryptogrammeLevels.class);
-            intent.putExtra("difficulty", difficulty);
             startActivity(intent);
+            sharedPreferences.edit().putInt("difficulty" , difficulty).apply();
         }
         else{
             showToast("you must select a difficulty");
         }
     }
+
+
 }

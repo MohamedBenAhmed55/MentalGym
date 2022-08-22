@@ -7,6 +7,38 @@
     android:background="@color/background"
     tools:context=".CryptogrammeLevels">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#55CA1616"
+        tools:ignore="MissingConstraints">
+        <Button
+            android:id="@+id/Back"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-10dp"
+            android:background="?attr/homeAsUpIndicator"
+            android:onClick="back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
+        <Button
+            android:id="@+id/help"
+            android:layout_width="45dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_baseline_reload"
+            android:onClick="reload"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Levels"
         android:layout_width="match_parent"
@@ -17,13 +49,5 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="50dp"/>
 
-    <Button
-        android:id="@+id/reload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="R"
-        app:layout_constraintBottom_toTopOf="@+id/Levels"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="reload"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

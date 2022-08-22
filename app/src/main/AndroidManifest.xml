@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MentalGym">
         <activity
+            android:name=".CryptogrammeWin"
+            android:exported="false" />
+        <activity
             android:name=".WordScrambleLevelsRecycler"
             android:exported="false" />
         <activity
@@ -39,9 +42,7 @@
         <activity
             android:name=".CryptogrammeLevels"
             android:exported="false"
-            android:parentActivityName=".MainActivity">
-        </activity>
-
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".CryptogrammeMenu"
             android:exported="false" />
@@ -53,13 +54,14 @@
             android:exported="false" />
         <activity
             android:name=".CryptogrammeGame"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".Cryptogramme" />
         <activity android:name=".WordScramble" />
         <activity android:name=".GameSelect" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

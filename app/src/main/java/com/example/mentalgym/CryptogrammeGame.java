@@ -1,6 +1,7 @@
 package com.example.mentalgym;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -191,11 +192,17 @@ public class CryptogrammeGame extends AppCompatActivity {
                 if (positon>=winwsilna)
                     sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA1  , winwsilna + 1).apply();
         }
+
+        Intent i = new Intent(CryptogrammeGame.this,CryptogrammeWin.class);
+        startActivity(i);
+        finish();
     }
 
     public void back(View view) {
-        Intent i=new Intent(this, CryptogrammeLevels.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(i);
+        this.finish();
     }
+
+
+
+
 }

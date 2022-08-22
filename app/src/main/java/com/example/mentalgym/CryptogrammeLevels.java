@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class CryptogrammeLevels extends AppCompatActivity implements CryptogrammeLevelsInterface {
     ArrayList<CryptogrammeLevel> levelCards = new ArrayList<>();
-    int[] levelImages = {R.drawable.chat2 , R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 ,R.drawable.chat2 };
+    ArrayList<Integer> levelImages = new ArrayList<>();
     int difficulty , winwsilna ;
     int hintNumber;
     public static  final String PREFERENCES_FILENAME= "LevelsSave";
@@ -28,17 +28,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cryptogramme_levels);
         sharedPref = getSharedPreferences(PREFERENCES_FILENAME, MODE_PRIVATE);
-        if (savedInstanceState == null) {
-            Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                difficulty= 0;
-            } else {
-                difficulty= extras.getInt("difficulty");
-            }
-        } else {
-            difficulty= 0;
-        }
-
+        difficulty =  sharedPref.getInt("difficulty" , 0);
         RecyclerView recyclerView = findViewById(R.id.Levels);
         setUpLevels();
         CryptogrammeLevelsAdapter adapter =new CryptogrammeLevelsAdapter(this, this, levelCards);
@@ -47,9 +37,16 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
 
     }
 
+    private void setUpImages(){
+        for(int i=0 ; i<10 ;i++){
+            levelImages.add(R.drawable.animal20);
+        }
+    }
+
     private void setUpLevels(){
         String[] levelNames;
         String[] levelPhrase;
+        setUpImages();
         switch (difficulty){
             case 1 :
                 levelNames = getResources().getStringArray(R.array.mediumlevels);
@@ -74,7 +71,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
 
 
         for(int i=0 ; i< levelNames.length; i++){
-            levelCards.add(new CryptogrammeLevel(levelNames[i] , levelImages[i] , levelAlgorithm[i] , levelPhrase[i] , i<winwsilna ));
+            levelCards.add(new CryptogrammeLevel(levelNames[i] , levelImages.get(i) , levelAlgorithm[i] , levelPhrase[i] , i<winwsilna ));
         }
 
     }
@@ -110,7 +107,11 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
 
     @Override
     protected void onRestart() {
-        super.onRestart();
         this.recreate();
+        super.onRestart();
+    }
+
+    public void back(View view) {
+        this.finish();
     }
 }
