@@ -122,4 +122,17 @@
         <item>Level 9</item>
     </string-array>
 
+    <string-array name="images">
+        <item>@drawable/youwin</item>
+        <item>@drawable/youwin</item>
+        <item>@drawable/youwin</item>
+        <item>@drawable/youwin</item>
+        <item>@drawable/youwin</item>
+        <item>@drawable/youwin</item>
+        <item>@drawable/youwin</item>
+        <item>@drawable/youwin</item>
+        <item>@drawable/youwin</item>
+        <item>@drawable/youwin</item>
+    </string-array>
+
 </resources>

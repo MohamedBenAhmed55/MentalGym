@@ -80,4 +80,9 @@ public class CryptogrammeMenu extends AppCompatActivity {
     }
 
 
+    public void howToPlay(View view) {
+        Intent i = new Intent(CryptogrammeMenu.this,Cryptogramme.class);
+        startActivity(i);
+        finish();
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.mentalgym;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,8 +14,8 @@ import android.view.View;
 import java.util.ArrayList;
 
 public class CryptogrammeLevels extends AppCompatActivity implements CryptogrammeLevelsInterface {
+
     ArrayList<CryptogrammeLevel> levelCards = new ArrayList<>();
-    ArrayList<Integer> levelImages = new ArrayList<>();
     int difficulty , winwsilna ;
     int hintNumber;
     public static  final String PREFERENCES_FILENAME= "LevelsSave";
@@ -37,32 +38,30 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
 
     }
 
-    private void setUpImages(){
-        for(int i=0 ; i<10 ;i++){
-            levelImages.add(R.drawable.animal20);
-        }
-    }
 
     private void setUpLevels(){
         String[] levelNames;
         String[] levelPhrase;
-        setUpImages();
+        int[] levelImages;
         switch (difficulty){
             case 1 :
                 levelNames = getResources().getStringArray(R.array.mediumlevels);
                 levelPhrase =getResources().getStringArray(R.array.phrasesmedium);
+                levelImages= new int[]{R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2};
                 hintNumber= 20;
                 winwsilna = sharedPref.getInt(WINWSOLNA2  ,1);
                 break;
             case 2:
                 levelNames = getResources().getStringArray(R.array.hardlevels);
                 levelPhrase =getResources().getStringArray(R.array.phraseshard);
+                levelImages= new int[]{R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2};
                 hintNumber=20;
                 winwsilna = sharedPref.getInt(WINWSOLNA3 ,1);
                 break;
             default:
                 levelNames= getResources().getStringArray(R.array.easylevels);
                 levelPhrase =getResources().getStringArray(R.array.phraseseasy);
+                levelImages= new int[]{R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2};
                 hintNumber = 20;
                 winwsilna = sharedPref.getInt(WINWSOLNA1  ,1);
         }
@@ -71,24 +70,31 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
 
 
         for(int i=0 ; i< levelNames.length; i++){
-            levelCards.add(new CryptogrammeLevel(levelNames[i] , levelImages.get(i) , levelAlgorithm[i] , levelPhrase[i] , i<winwsilna ));
+            levelCards.add(new CryptogrammeLevel(levelNames[i] , levelImages[i] , levelAlgorithm[i] , levelPhrase[i] , i<winwsilna ));
         }
 
     }
 
     @Override
     public void onItemClick(int position) {
-        if (levelCards.get(position).getCanPlay()) {
+        if (levelCards.get(position).getCanPlay() || true) {
             Intent intent = new Intent(CryptogrammeLevels.this, CryptogrammeGame.class);
             intent.putExtra("algorithm", levelCards.get(position).getAlgorithm());
             intent.putExtra("phrase", levelCards.get(position).getPhrase());
             intent.putExtra("hintnumber", hintNumber);
             intent.putExtra("position", position + 1);
             intent.putExtra("difficulty", difficulty);
-            startActivity(intent);
+            startActivity(intent );
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(resultCode==2){
+            this.finish();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     public void reload(View view) {
         switch (difficulty){
@@ -107,6 +113,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
 
     @Override
     protected void onRestart() {
+        if(CryptogrammeWin.result==2) this.finish();
         this.recreate();
         super.onRestart();
     }

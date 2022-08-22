@@ -82,7 +82,8 @@
         android:text="Next"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="28sp" />
+        android:textSize="28sp"
+        android:onClick="back"/>
 
     <Button
         android:id="@+id/textBtn"
@@ -95,6 +96,7 @@
         android:textColor="#AD87FF"
         android:textSize="18sp"
         android:background="@android:color/transparent"
-        android:theme="@style/Theme.AppCompat.DayNight" />
+        android:theme="@style/Theme.AppCompat.DayNight"
+        android:onClick="backMenu"/>
 
 </LinearLayout>

@@ -54,7 +54,7 @@
             android:exported="false" />
         <activity
             android:name=".CryptogrammeGame"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Cryptogramme" />
         <activity android:name=".WordScramble" />
         <activity android:name=".GameSelect" />

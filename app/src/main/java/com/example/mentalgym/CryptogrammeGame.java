@@ -1,5 +1,6 @@
 package com.example.mentalgym;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -41,10 +42,14 @@ public class CryptogrammeGame extends AppCompatActivity {
 
     public void HelpLetter(View view) {
         int size = phraseHelp.length();
+        int ind =0;
         if (phraseHelp.length() > 0 && hintNumber>0) {
-            int ind = new Random().nextInt(size - 1);
+            if(size>1) ind = new Random().nextInt(size - 1);
             String l = Character.toString(phraseHelp.charAt(ind));
             phraseHelp = phraseHelp.replace(l, "");
+            if(phraseHelp.equals("")){
+                win();
+            }
             hintNumber--;
             hintNUmberTextView.setText( Integer.toString(hintNumber) );
 
@@ -58,10 +63,8 @@ public class CryptogrammeGame extends AppCompatActivity {
                 }
             }
 
+
         }
-
-
-
     }
 
     public void DisplayPhrase (){
@@ -170,8 +173,6 @@ public class CryptogrammeGame extends AppCompatActivity {
     }
 
     private void win(){
-        Toast myToast = Toast.makeText(CryptogrammeGame.this ,  "You Win", Toast.LENGTH_SHORT);
-        myToast.show();
         SharedPreferences sharedPref = getSharedPreferences(CryptogrammeLevels.PREFERENCES_FILENAME, MODE_PRIVATE);
         int winwsilna ;
         switch (difficulty){
@@ -201,8 +202,6 @@ public class CryptogrammeGame extends AppCompatActivity {
     public void back(View view) {
         this.finish();
     }
-
-
 
 
 }
