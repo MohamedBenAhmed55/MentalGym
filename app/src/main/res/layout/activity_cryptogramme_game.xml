@@ -9,11 +9,6 @@
 <!--        android:id="@+id/win"-->
 <!--        layout="@layout/activity_wsslvl1"-->
 <!--        android:visibility="gone"/>-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/game"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -43,11 +38,11 @@
                 />
 
             <TextView
-                android:id="@+id/hintnumber"
+                android:id="@+id/timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:textColor="@color/active"
+                android:text="00:00"
+                android:textColor="@color/black"
                 android:textSize="34sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +84,7 @@
             </LinearLayout>
 
         </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 

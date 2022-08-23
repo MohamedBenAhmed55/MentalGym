@@ -19,16 +19,21 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class CryptogrammeGame extends AppCompatActivity {
     String phrase;
     String phrasecry;
     String phraseHelp;
+    Timer timer;
+    TimerTask timerTask;
+    Double time=0.0;
     int difficulty;
     int positon;
     int hintNumber;
-    TextView hintNUmberTextView;
+    TextView timerTextView;
     List<View> letters= new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,32 @@ public class CryptogrammeGame extends AppCompatActivity {
         difficulty =  getIntent().getIntExtra("difficulty" , 0);
         positon =  getIntent().getIntExtra("position" , 1);
         DisplayPhrase();
+        timerDispaly();
+    }
+
+    private void timerDispaly() {
+        timerTextView = findViewById(R.id.timer);
+        timer = new Timer();
+        startTimer();
+    }
+
+    private void startTimer() {
+        timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                time++;
+                timerTextView.setText(getTimerText());
+            }
+        };
+        timer.scheduleAtFixedRate(timerTask , 0 , 1000);
+
+    }
+
+    private String getTimerText() {
+        int rounded = (int) Math.round(time);
+        int s = ((rounded % 86400) % 3600)%60;
+        int m = ((rounded % 86400) % 3600)/60;
+        return String.format("%02d",m)+":"+String.format("%02d",s);
     }
 
 
@@ -51,7 +82,6 @@ public class CryptogrammeGame extends AppCompatActivity {
                 win();
             }
             hintNumber--;
-            hintNUmberTextView.setText( Integer.toString(hintNumber) );
 
             for (int i = 0; i < letters.size(); i++) {
                 View letterView = letters.get(i);
@@ -68,11 +98,9 @@ public class CryptogrammeGame extends AppCompatActivity {
     }
 
     public void DisplayPhrase (){
-        hintNUmberTextView = (TextView) findViewById(R.id.hintnumber);
         String algo = getIntent().getStringExtra("algorithm");
         phrase = getIntent().getStringExtra("phrase");
         hintNumber =  getIntent().getIntExtra("hintnumber" , 0);
-        hintNUmberTextView.setText( Integer.toString(hintNumber) );
         phraseHelp=phrase.replace(" ","");
         java.lang.reflect.Method method = null;
         CryptogrammeAlgorithms cryptogrammeAlgorithms = new CryptogrammeAlgorithms(phrase);

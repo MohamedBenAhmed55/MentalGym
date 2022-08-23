@@ -27,6 +27,8 @@ public class CryptogrammeMenu extends AppCompatActivity {
         difficulty= sharedPreferences.getInt("difficulty" , 0);
         tst = Toast.makeText(this, "str", Toast.LENGTH_SHORT);
         MaterialButtonToggleGroup toggleButtonGroup = findViewById(R.id.toggleButtonGroup);
+        if(difficulty ==1)  difficultyButtonChecked = R.id.medium;
+        if(difficulty ==2)  difficultyButtonChecked = R.id.hard;
         toggleButtonGroup.check(difficultyButtonChecked);
         toggleButtonGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
             @Override
@@ -59,7 +61,6 @@ public class CryptogrammeMenu extends AppCompatActivity {
     }
 
     private void showToast(String str ) {
-        tst.cancel();
         tst.setText(str);
         tst.show();
 

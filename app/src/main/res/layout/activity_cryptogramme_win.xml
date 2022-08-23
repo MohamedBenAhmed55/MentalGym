@@ -1,102 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".CryptogrammeWin"
-    android:layout_gravity="center"
     android:theme="@style/Win"
     android:background="@drawable/cryptogramme_win_background">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/medail" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/party" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_marginTop="100dp">
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:src="@drawable/cryptogramme_star" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/starempty1" />
+
+            <ImageView
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:src="@drawable/starempty2" />
+        </LinearLayout>
 
         <ImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:id="@+id/bigboss"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
             android:layout_gravity="center"
-           android:src="@drawable/cryptogramme_star" />
+            android:layout_marginTop="-50dp"
+            android:src="@drawable/youwin" />
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
-            android:src="@drawable/starempty1" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Score : +3"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
-        <ImageView
-            android:layout_width="65dp"
-            android:layout_height="65dp"
+        <TextView
+            android:id="@+id/textQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/starempty2" />
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/caladea"
+            android:text="Good Job !!!! :O Walah M3alim Saa7bi"
+            android:textAlignment="center"
+            android:textColor="#FFF"
+            android:textSize="28sp" />
+
+
+        <Button
+            android:id="@+id/textTitle"
+            android:layout_width="280dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bgbtn"
+            android:fontFamily="@font/poppins_bold"
+            android:onClick="back"
+            android:paddingBottom="10dp"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+
+        <Button
+            android:id="@+id/textBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="sans-serif-condensed"
+            android:onClick="backMenu"
+            android:text="Back to Home"
+            android:textColor="#AD87FF"
+            android:textSize="18sp"
+            android:theme="@style/Theme.AppCompat.DayNight" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/bigboss"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="-50dp"
-        android:src="@drawable/youwin" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Score : +3"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="25sp" />
-
-    <TextView
-        android:id="@+id/textQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/caladea"
-        android:text="Good Job !!!! :O Walah M3alim Saa7bi"
-        android:textAlignment="center"
-        android:textColor="#FFF"
-        android:textSize="28sp" />
 
 
-    <Button
-        android:id="@+id/textTitle"
-        android:layout_width="280dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/bgbtn"
-        android:fontFamily="@font/poppins_bold"
-        android:paddingBottom="10dp"
-        android:text="Next"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        android:onClick="back"/>
-
-    <Button
-        android:id="@+id/textBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Back to Home"
-        android:textColor="#AD87FF"
-        android:textSize="18sp"
-        android:background="@android:color/transparent"
-        android:theme="@style/Theme.AppCompat.DayNight"
-        android:onClick="backMenu"/>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
