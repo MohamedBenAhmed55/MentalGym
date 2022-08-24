@@ -17,6 +17,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MemoryCardsLevelE extends AppCompatActivity {
     TextView textView;
+    // boolean for countdowntimer
+    boolean timeRunning = true ;
 
 
     ImageView iv_11, iv_12, iv_13, iv_21, iv_22, iv_23;
@@ -56,9 +58,12 @@ public class MemoryCardsLevelE extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                    finish();
-                    Intent i = new Intent(MemoryCardsLevelE.this,MCLose.class);
+                if (timeRunning) {
+                    //open lose dialog
+                    Intent i = new Intent(MemoryCardsLevelE.this, MCLose.class);
                     startActivity(i);
+                    finish();
+                }
             }
         }.start();
 
@@ -181,7 +186,6 @@ public class MemoryCardsLevelE extends AppCompatActivity {
             int theCard = Integer.parseInt((String) view.getTag());
             doStuff(iv_23,theCard);
         });
-
 
     }
 
@@ -311,14 +315,14 @@ public class MemoryCardsLevelE extends AppCompatActivity {
                 iv_21.getVisibility() ==View.INVISIBLE &&
                 iv_22.getVisibility() ==View.INVISIBLE &&
                 iv_23.getVisibility() ==View.INVISIBLE ){
-            openWinDiaog();
+            timeRunning = false;
+            //open win dialog
+            Intent i = new Intent(MemoryCardsLevelE.this,MCWin.class);
+            startActivity(i);
+            this.finish();
         }
 
     }
-    public void openWinDiaog() {
-        Intent i = new Intent(MemoryCardsLevelE.this,MCWin.class);
-        startActivity(i);
-        this.finish();
-    }
+
 
 }
