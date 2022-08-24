@@ -42,7 +42,7 @@ public class CryptogrammeGame extends AppCompatActivity {
         difficulty =  getIntent().getIntExtra("difficulty" , 0);
         positon =  getIntent().getIntExtra("position" , 1);
         DisplayPhrase();
-        timerDispaly();
+//        timerDispaly();
     }
 
     private void timerDispaly() {
