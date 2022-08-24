@@ -42,6 +42,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
     private int score = 50;
     private int nbattempt = 0;
     private boolean time = true;
+    private String Level;
 
     //Sounds
     private MediaPlayer mediaPlayer;
@@ -65,46 +66,55 @@ public class WordScramblelvl3 extends AppCompatActivity {
                 keys = new String[]{"A", "U", "C", "T", "O", "N", "O", "P", "F", "I"};
                 textAnswer = "AUCTION";
                 textQuestion.setText("An assembly in which you bid on objects.");
+                Level = "HardLevel 1";
                 break;
             case 2:
                 keys = new String[]{"C", "O", "E", "X", "M", "P", "L", "O", "L", "D"};
                 textAnswer = "COMPLEX";
                 textQuestion.setText("Not simple");
+                Level = "HardLevel 2";
                 break;
             case 3:
                 keys = new String[]{"A", "N", "X", "S", "U", "O", "I", "P", "D", "V"};
                 textAnswer = "ANXIOUS";
                 textQuestion.setText("Not feeling calm");
+                Level = "HardLevel 3";
                 break;
             case 4:
                 keys = new String[]{"L", "A", "E", "Y", "L", "F", "G", "E", "D", "B"};
                 textAnswer = "ALLEGED";
                 textQuestion.setText("Not Certain");
+                Level = "HardLevel 4";
                 break;
             case 5:
                 keys = new String[]{"I", "L", "G", "L", "A", "L", "E", "T", "G", "S"};
                 textAnswer = "ILLEGAL";
                 textQuestion.setText("Prohibited by the law");
+                Level = "HardLevel 5";
                 break;
             case 6:
                 this.keys = new String[]{"O", "V", "B", "I", "U", "Y", "U", "S", "O", "B"};
                 this.textAnswer = "OBVIOUS";
                 textQuestion.setText("clear");
+                Level = "HardLevel 6";
                 break;
             case 7:
                 keys = new String[]{"O", "I", "P", "N", "N", "O", "I", "T", "G", "S"};
                 textAnswer = "OPINION";
                 textQuestion.setText("Something we express");
+                Level = "HardLevel 7";
                 break;
             case 8:
                 keys = new String[]{"P", "H", "O", "N", "X", "L", "I", "E", "S", "B"};
                 this.textAnswer = "PHOENIX";
                 textQuestion.setText("Rises from its ashes");
+                Level = "HardLevel 8";
                 break;
             case 9:
                 keys = new String[]{"R", "A", "L", "I", "Y", "W", "A", "G", "D", "M"};
                 textAnswer = "RAILWAY";
                 textQuestion.setText("the road of a train");
+                Level = "HardLevel 9";
             default:
                 break;
         }
@@ -236,7 +246,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
     //method that checks if the answer is valid or not
     private void doValidate() {
         presCounter = 0;
-
+        int currentSc;
         EditText editText = findViewById(R.id.editText);
         LinearLayout linearLayout = findViewById(R.id.layoutParent);
         LinearLayout linearLayout2 = findViewById(R.id.layoutParent2);
@@ -246,6 +256,13 @@ public class WordScramblelvl3 extends AppCompatActivity {
             mediaSuccess.start();
             Intent a = new Intent(this, WSSlvl1.class);
             score -= nbattempt * 10;
+            currentSc = myPref.getInt(Level,0);
+
+            //Making sure the score isn't infinitely added each time the same level is played
+            if(score >= currentSc){
+                myPref.edit().putInt(Level,score);
+                score=score - currentSc;
+            }
             a.putExtra("sc",score);
             startActivity(a);
 

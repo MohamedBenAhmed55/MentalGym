@@ -43,6 +43,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
     private int score = 50;
     private int nbattempt = 0;
     private boolean time = true;
+    private String Level;
 
     //Sounds
     private MediaPlayer mediaPlayer;
@@ -68,46 +69,55 @@ public class WordScramblelvl2 extends AppCompatActivity {
                 keys = new String[]{"R", "I", "B", "D", "X", "A", "A", "O"};
                 textAnswer = "ABROAD";
                 textQuestion.setText("Outside your country");
+                Level = "MidLevel 1";
                 break;
             case 2:
                 keys = new String[]{"N", "N", "A", "L", "A", "B", "H", "U"};
                 textAnswer = "ANNUAL";
                 textQuestion.setText("Each year");
+                Level = "MidLevel 2";
                 break;
             case 3:
                 keys = new String[]{"A", "N", "G", "E", "R", "G", "D", "P"};
                 textAnswer = "DANGER";
                 textQuestion.setText("Not safe");
+                Level = "MidLevel 3";
                 break;
             case 4:
                 keys = new String[]{"I", "A", "M", "Y", "L", "F", "G", "S"};
                 textAnswer = "FAMILY";
                 textQuestion.setText("Related by blood");
+                Level = "MidLevel 4";
                 break;
             case 5:
                 keys = new String[]{"A", "F", "D", "L", "N", "H", "E", "T"};
                 textAnswer = "HANDLE";
                 textQuestion.setText("we open a door with a door...");
+                Level = "MidLevel 5";
                 break;
             case 6:
                 this.keys = new String[]{"I", "L", "A", "N", "S", "Y", "D", "S"};
                 this.textAnswer = "ISLAND";
                 textQuestion.setText("Land surrounded by water");
+                Level = "MidLevel 6";
                 break;
             case 7:
                 keys = new String[]{"R", "Y", "E", "A", "W", "L", "M", "T"};
                 textAnswer = "LAWYER";
                 textQuestion.setText("Defends you in court");
+                Level = "MidLevel 7";
                 break;
             case 8:
                 keys = new String[]{"D", "F", "D", "H", "M", "L", "I", "E"};
                 this.textAnswer = "MIDDLE";
                 textQuestion.setText("In-between");
+                Level = "MidLevel 8";
                 break;
             case 9:
                 keys = new String[]{"D", "M", "O", "R", "E", "P", "N", "G"};
                 textAnswer = "MODERN";
                 textQuestion.setText("Not ancient");
+                Level = "MidLevel 9";
             default:
                 break;
         }
@@ -237,7 +247,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
 
     private void doValidate() {
         presCounter = 0;
-
+        int currentSc;
         EditText editText = findViewById(R.id.editText);
         LinearLayout linearLayout = findViewById(R.id.layoutParent);
         LinearLayout linearLayout2 = findViewById(R.id.layoutParent2);
@@ -247,6 +257,13 @@ public class WordScramblelvl2 extends AppCompatActivity {
             mediaSuccess.start();
             Intent a = new Intent(this, WSSlvl1.class);
             score -= nbattempt * 10;
+            currentSc = myPref.getInt(Level,0);
+
+            //Making sure the score isn't infinitely added each time the same level is played
+            if(score >= currentSc){
+                myPref.edit().putInt(Level,score);
+                score= score - currentSc;
+            }
             a.putExtra("sc",score);
             startActivity(a);
 

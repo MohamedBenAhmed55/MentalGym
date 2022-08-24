@@ -79,7 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textTitle"
-        android:text="Ammo"
+        android:text="Letters"
         android:textSize="24sp"
         android:textColor="#FFF"
         android:layout_marginRight="28dp"
