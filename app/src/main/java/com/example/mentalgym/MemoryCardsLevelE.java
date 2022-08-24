@@ -1,6 +1,7 @@
 package com.example.mentalgym;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -322,6 +323,27 @@ public class MemoryCardsLevelE extends AppCompatActivity {
             this.finish();
         }
 
+    }
+
+    public void onStart() {
+
+        super.onStart();
+        timeRunning = true;
+    }
+
+    public void onResume(){
+        super.onResume();
+        timeRunning = true;
+    }
+
+    public void onPause(){
+        super.onPause();
+        timeRunning = false;
+    }
+
+    public void onStop(){
+        super.onStop();
+        timeRunning = false;
     }
 
 
