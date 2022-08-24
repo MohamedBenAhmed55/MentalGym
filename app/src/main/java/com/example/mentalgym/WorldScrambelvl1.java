@@ -44,6 +44,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
     private int score = 50;
     private int nbattempt = 0;
     private boolean time = true;
+    private String Level;
 
     //Sounds
     private MediaPlayer mediaPlayer ;
@@ -66,46 +67,55 @@ public class WorldScrambelvl1 extends AppCompatActivity {
                 keys = new String[]{"R", "I", "B", "D", "X"};
                 textAnswer = "BIRD";
                 textQuestion.setText("Animal With Wings");
+                Level = "EasyLevel 1";
                 break;
             case 2:
                 keys = new String[]{"C", "D", "O", "L", "S"};
                 textAnswer = "COLD";
                 textQuestion.setText("Temperature State");
+                Level = "EasyLevel 2";
                 break;
             case 3:
                 keys = new String[]{"H", "P", "O", "W", "E"};
                 textAnswer = "HOPE";
                 textQuestion.setText("Desire for a particular thing to happen");
+                Level = "EasyLevel 3";
                 break;
             case 4:
                 keys = new String[]{"C", "D", "O", "G", "O"};
                 textAnswer = "GOOD";
                 textQuestion.setText("Opposite of bad");
+                Level = "EasyLevel 4";
                 break;
             case 5:
                 keys = new String[]{"U", "F", "O", "L", "R"};
                 textAnswer = "FOUR";
                 textQuestion.setText("The number of our limbs");
+                Level = "EasyLevel 5";
                 break;
             case 6:
                 this.keys = new String[]{"T", "A", "O", "Y", "S"};
                 this.textAnswer = "STAY";
                 textQuestion.setText("Opposite of Go");
+                Level = "EasyLevel 6";
                 break;
             case 7:
                 keys = new String[]{"A", "K", "O", "N", "B"};
                 textAnswer = "BANK";
                 textQuestion.setText("A facility that deals in money");
+                Level = "EasyLevel 7";
                 break;
             case 8:
                 keys = new String[]{"I", "F", "O", "H", "S"};
                 this.textAnswer = "FISH";
                 textQuestion.setText("Lives in the sea");
+                Level = "EasyLevel 8";
                 break;
             case 9:
                 keys = new String[]{"S", "N", "O", "L", "E"};
                 textAnswer = "NOSE";
                 textQuestion.setText("Is in the center of the face");
+                Level = "EasyLevel 9";
             default:
                 break;
         }
@@ -222,15 +232,23 @@ public class WorldScrambelvl1 extends AppCompatActivity {
     //Checks if the answer is correct and adds the level's score to the total one
     private void doValidate() {
         presCounter = 0;
-
+        int currentSc;
         EditText editText = findViewById(R.id.editText);
         LinearLayout linearLayout = findViewById(R.id.layoutParent);
 
         if (editText.getText().toString().equals(textAnswer)) {
-//            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
             mediaSuccess.start();
             Intent a = new Intent(this, WSSlvl1.class);
             score -= nbattempt * 10;
+            currentSc = myPref.getInt(Level,0);
+
+            //Making sure the score isn't infinitely added each time the same level is played
+            if(score >= currentSc){
+                myPref.edit().putInt(Level,score);
+                score=score - currentSc;
+            }
+
             a.putExtra("sc", score);
             startActivity(a);
             editText.setText("");
