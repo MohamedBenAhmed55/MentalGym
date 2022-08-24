@@ -55,8 +55,14 @@ public class CryptogrammeGame extends AppCompatActivity {
         timerTask = new TimerTask() {
             @Override
             public void run() {
-                time++;
-                timerTextView.setText(getTimerText());
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        time++;
+                        timerTextView.setText(getTimerText());
+                    }
+                });
+
             }
         };
         timer.scheduleAtFixedRate(timerTask , 0 , 1000);
