@@ -265,6 +265,7 @@ public class WordScramblelvl3 extends AppCompatActivity {
             }
             a.putExtra("sc",score);
             startActivity(a);
+            finish();
 
             editText.setText("");
         } else {

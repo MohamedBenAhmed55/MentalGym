@@ -60,6 +60,7 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
             public void onClick(View v) {
                 mediaPlayer.start();
                 startActivity(i);
+                finish();
             }
         });
 
@@ -116,6 +117,7 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
             }
 
             startActivity(i);
+            finish();
 
         }
     }
