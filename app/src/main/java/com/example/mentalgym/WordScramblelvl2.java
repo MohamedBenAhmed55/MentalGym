@@ -266,7 +266,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
             }
             a.putExtra("sc",score);
             startActivity(a);
-
+            finish();
             editText.setText("");
         } else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();

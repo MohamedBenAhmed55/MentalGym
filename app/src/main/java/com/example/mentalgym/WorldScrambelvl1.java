@@ -251,6 +251,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
             a.putExtra("sc", score);
             startActivity(a);
+            finish();
             editText.setText("");
 
         } else {
