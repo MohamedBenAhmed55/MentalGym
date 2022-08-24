@@ -19,6 +19,9 @@
             android:name=".MemoryCardsLevelE"
             android:exported="false" />
         <activity
+            android:name=".MCWin"
+            android:exported="false" />
+        <activity
             android:name=".MemoryCardsLevels"
             android:exported="false" />
         <activity
