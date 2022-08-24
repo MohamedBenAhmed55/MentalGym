@@ -24,14 +24,13 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="SpeakableTextPresentCheck"
-                />
+                tools:ignore="SpeakableTextPresentCheck" />
             <Button
                 android:id="@+id/hint"
                 android:layout_width="50dp"
                 android:layout_height="38dp"
                 android:background="@android:drawable/ic_popup_reminder"
-                android:onClick="HintMessage"
+                android:onClick="HelpLetter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/help"
                 app:layout_constraintTop_toTopOf="parent"
