@@ -56,7 +56,9 @@ public class MemoryCardsLevelE extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                //openLoseDiaog();
+                    finish();
+                    Intent i = new Intent(MemoryCardsLevelE.this,MCLose.class);
+                    startActivity(i);
             }
         }.start();
 

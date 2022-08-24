@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,7 +29,7 @@ public class MCWin extends AppCompatActivity implements  View.OnClickListener{
         imageViewTrophy = findViewById(R.id.imageViewTrophy);
         imageViewTrophy.startAnimation(smalltobig);
         txtBack = findViewById(R.id.txtBack);
-        txtWin = findViewById(R.id.txtWin);
+        txtWin = findViewById(R.id.txtLose);
         btnNext = findViewById(R.id.btnNext);
 
         btnNext.setOnClickListener(this);
