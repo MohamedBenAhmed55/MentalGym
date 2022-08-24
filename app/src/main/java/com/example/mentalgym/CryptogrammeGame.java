@@ -231,8 +231,6 @@ public class CryptogrammeGame extends AppCompatActivity {
         }
 
         Intent i = new Intent(CryptogrammeGame.this,CryptogrammeWin.class);
-        i.putExtra("minutes" , m);
-
         startActivity(i);
         finish();
     }

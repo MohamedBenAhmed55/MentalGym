@@ -49,6 +49,9 @@
             android:name=".WorScrambleLevels"
             android:exported="false" />
         <activity
+            android:name=".CryptogrammeWin"
+            android:exported="false" />
+        <activity
             android:name=".MemoryCards"
             android:exported="false" />
         <activity

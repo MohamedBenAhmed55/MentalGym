@@ -14,8 +14,9 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_baseline_close" />
+                app:layout_constraintTop_toTopOf="parent" />
+<!--                app:srcCompat="@drawable/ic_baseline_close"-->
+
 
             <TextView
                 android:id="@+id/txtWin"
