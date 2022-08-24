@@ -1,9 +1,6 @@
 package com.example.mentalgym;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -20,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MemoryCardsLevelE extends AppCompatActivity {
     TextView textView;
+
 
     ImageView iv_11, iv_12, iv_13, iv_21, iv_22, iv_23;
     //array for the images
@@ -58,18 +56,7 @@ public class MemoryCardsLevelE extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-               /* AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryCardsLevelE.this);
-                alertDialogBuilder
-                        .setMessage("TIME IS OVER")
-                        .setCancelable(false)
-                        .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();*/
+                //openLoseDiaog();
             }
         }.start();
 
@@ -196,6 +183,9 @@ public class MemoryCardsLevelE extends AppCompatActivity {
 
     }
 
+
+
+
     public void doStuff(ImageView iv, int card){
         //set the correct image on the imageview
         if (cardsArray[card] == 101){
@@ -319,27 +309,13 @@ public class MemoryCardsLevelE extends AppCompatActivity {
                 iv_21.getVisibility() ==View.INVISIBLE &&
                 iv_22.getVisibility() ==View.INVISIBLE &&
                 iv_23.getVisibility() ==View.INVISIBLE ){
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryCardsLevelE.this);
-            alertDialogBuilder
-                    .setMessage("YOU WIN ")
-                    .setCancelable(false)
-                    .setPositiveButton("NEW",new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    })
-                    .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
+            openWinDiaog();
         }
 
     }
+    public void openWinDiaog() {
+        Intent i = new Intent(this,MCWin.class);
+        startActivity(i);
+    }
+
 }
