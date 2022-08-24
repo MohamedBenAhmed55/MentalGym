@@ -316,7 +316,7 @@ public class MemoryCardsLevelE extends AppCompatActivity {
     public void openWinDiaog() {
         Intent i = new Intent(MemoryCardsLevelE.this,MCWin.class);
         startActivity(i);
-        finish();
+        this.finish();
     }
 
 }
