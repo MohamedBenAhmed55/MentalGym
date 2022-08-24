@@ -80,6 +80,7 @@ public class MCWin extends AppCompatActivity implements  View.OnClickListener{
                     i = new Intent(this, MemoryCardsLevelH.class);
                 }
                 startActivity(i);
+                finish();
             }
         }
     }
