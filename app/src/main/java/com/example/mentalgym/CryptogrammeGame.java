@@ -30,9 +30,11 @@ public class CryptogrammeGame extends AppCompatActivity {
     Timer timer;
     TimerTask timerTask;
     Double time=0.0;
+    int m;
     int difficulty;
     int positon;
     int hintNumber;
+    boolean hintNeverUsed;
     TextView timerTextView;
     List<View> letters= new ArrayList<>();
     @Override
@@ -55,8 +57,14 @@ public class CryptogrammeGame extends AppCompatActivity {
         timerTask = new TimerTask() {
             @Override
             public void run() {
-                time++;
-                timerTextView.setText(getTimerText());
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        time++;
+                        timerTextView.setText(getTimerText());
+                    }
+                });
+
             }
         };
         timer.scheduleAtFixedRate(timerTask , 0 , 1000);
@@ -66,12 +74,13 @@ public class CryptogrammeGame extends AppCompatActivity {
     private String getTimerText() {
         int rounded = (int) Math.round(time);
         int s = ((rounded % 86400) % 3600)%60;
-        int m = ((rounded % 86400) % 3600)/60;
+        m = ((rounded % 86400) % 3600)/60;
         return String.format("%02d",m)+":"+String.format("%02d",s);
     }
 
 
     public void HelpLetter(View view) {
+        hintNeverUsed=false;
         int size = phraseHelp.length();
         int ind =0;
         if (phraseHelp.length() > 0 && hintNumber>0) {
@@ -92,12 +101,11 @@ public class CryptogrammeGame extends AppCompatActivity {
                     char1.setEnabled(false);
                 }
             }
-
-
         }
     }
 
     public void DisplayPhrase (){
+        hintNeverUsed=true;
         String algo = getIntent().getStringExtra("algorithm");
         phrase = getIntent().getStringExtra("phrase");
         hintNumber =  getIntent().getIntExtra("hintnumber" , 0);
@@ -223,13 +231,20 @@ public class CryptogrammeGame extends AppCompatActivity {
         }
 
         Intent i = new Intent(CryptogrammeGame.this,CryptogrammeWin.class);
+        i.putExtra("minutes" , m);
+
         startActivity(i);
         finish();
     }
+
+
 
     public void back(View view) {
         this.finish();
     }
 
 
+    public void HintMessage(View view) {
+
+    }
 }
