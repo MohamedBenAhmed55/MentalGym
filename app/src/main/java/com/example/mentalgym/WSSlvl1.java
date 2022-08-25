@@ -54,7 +54,7 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
         textTitle.setOnClickListener(this);
 
         // back to home
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, WordScramble.class);
         textBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

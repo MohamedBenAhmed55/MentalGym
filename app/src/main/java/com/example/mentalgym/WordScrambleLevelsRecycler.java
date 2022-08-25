@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -16,6 +17,8 @@ public class WordScrambleLevelsRecycler extends AppCompatActivity implements Wsr
     ArrayList<WsrModel> WsrModels = new ArrayList<>();
     SharedPreferences myPref;
     private TextView scoretxt;
+
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class WordScrambleLevelsRecycler extends AppCompatActivity implements Wsr
 
         scoretxt.setText("Score : " + sc);
 
+        mediaPlayer = MediaPlayer.create(this,R.raw.click);
+
     }
 
     private void setUpWsrModels() {
@@ -64,7 +69,9 @@ public class WordScrambleLevelsRecycler extends AppCompatActivity implements Wsr
         } else {
             i = new Intent(this, WordScramblelvl3.class);
         }
+        mediaPlayer.start();
         startActivity(i);
+        finish();
 
     }
 }
