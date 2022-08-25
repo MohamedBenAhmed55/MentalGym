@@ -37,7 +37,7 @@
         android:textSize="28sp"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:text="Well Done! Ready for Boss?" />
+        android:text="Well Done! Ready for more ?" />
 
     <Button
         android:layout_gravity="center"
