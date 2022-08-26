@@ -15,6 +15,9 @@ public class WordScramble extends AppCompatActivity implements View.OnClickListe
 
     SharedPreferences myPref;
 
+    //Sounds
+    private MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +33,7 @@ public class WordScramble extends AppCompatActivity implements View.OnClickListe
         Hard.setOnClickListener(this);
 
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
-
+        mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
     }
 
@@ -52,7 +55,9 @@ public class WordScramble extends AppCompatActivity implements View.OnClickListe
 
         }
 
+        mediaPlayer.start();
         Intent i = new Intent(this, WordScrambleLevelsRecycler.class);
         startActivity(i);
+        finish();
     }
 }

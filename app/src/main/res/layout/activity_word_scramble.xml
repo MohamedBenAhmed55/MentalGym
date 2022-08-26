@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WordScramble">
+    tools:context=".WordScramble"
+    android:background="@drawable/bgapp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,36 +13,42 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:text="Select Difficulty"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        />
 
-    <Button
-        android:id="@+id/Easy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="200dp"
-        android:width="350dp"
-        android:height="70dp"
-        android:text="Easy" />
 
-    <Button
-        android:id="@+id/Mid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="280dp"
-        android:width="350dp"
-        android:height="70dp"
-        android:text="Medium" />
 
-    <Button
-        android:id="@+id/Hard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="360dp"
-        android:width="350dp"
-        android:height="70dp"
-        android:text="Hard" />
+        <Button
+            android:id="@+id/Easy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="200dp"
+            android:width="350dp"
+            android:height="70dp"
+            android:text="Easy" />
+
+        <Button
+            android:id="@+id/Mid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="280dp"
+            android:width="350dp"
+            android:height="70dp"
+            android:text="Medium" />
+
+        <Button
+            android:id="@+id/Hard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="360dp"
+            android:width="350dp"
+            android:height="70dp"
+            android:text="Hard" />
 
 </RelativeLayout>
