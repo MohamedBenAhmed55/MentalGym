@@ -19,27 +19,29 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="@+id/animationView">
+        app:layout_constraintTop_toBottomOf="@+id/animationView">
 
 
         <Button
             android:id="@+id/newgame"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="140dp"
             android:onClick="ShowLevels"
-            android:text="New Game" />
+            android:text="New Game"
+            />
 
         <Button
             android:id="@+id/Help"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="140dp"
             android:onClick="howToPlay"
-            android:text="Help" />
+            android:text="Help"
+            />
 
         <com.google.android.material.button.MaterialButtonToggleGroup
             android:id="@+id/toggleButtonGroup"
