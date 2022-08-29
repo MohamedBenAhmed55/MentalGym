@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fullstar2width">120dp</dimen>
+    <dimen name="fullstar2hight">120dp</dimen>
+    <dimen name="emptyStarHightAndWidth">90dp</dimen>
+</resources>

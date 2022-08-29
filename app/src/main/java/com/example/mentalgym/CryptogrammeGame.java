@@ -35,6 +35,9 @@ public class CryptogrammeGame extends AppCompatActivity {
     TimerTask timerTask;
     Double time=0.0;
     Dialog dialog;
+    boolean isHintClicked=false;
+    boolean isHintLetterClicked=false;
+    int points=3;
     int difficulty;
     int positon;
     int hintNumber;
@@ -84,6 +87,9 @@ public class CryptogrammeGame extends AppCompatActivity {
 
 
     public void HelpLetter(View view) {
+
+        if ( ! isHintLetterClicked) points--;
+        isHintLetterClicked=true;
         int size = phraseHelp.length();
         int ind =0;
         if (phraseHelp.length() > 0 && hintNumber>0) {
@@ -234,11 +240,13 @@ public class CryptogrammeGame extends AppCompatActivity {
                 if (positon>=winwsilna)
                     sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA1  , winwsilna + 1).apply();
         }
-
         Intent i = new Intent(CryptogrammeGame.this,CryptogrammeWin.class);
+        i.putExtra("points" , points);
         startActivity(i);
         finish();
     }
+
+
 
     public void back(View view) {
         this.finish();
@@ -246,7 +254,8 @@ public class CryptogrammeGame extends AppCompatActivity {
 
 
     public void hintPopup(View view) {
-
+        if (! isHintClicked) points--;
+        isHintClicked=true;
         dialog.setContentView(R.layout.cryptogramme_hint_popup);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.show();
