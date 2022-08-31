@@ -27,14 +27,14 @@ public class MemoryCardsLevels extends AppCompatActivity implements View.OnClick
         Button lvl9 = findViewById(R.id.lvl9);
 
         lvl1.setOnClickListener(this);
-       /* lvl2.setOnClickListener(this);
+        lvl2.setOnClickListener(this);
         lvl3.setOnClickListener(this);
         lvl4.setOnClickListener(this);
         lvl5.setOnClickListener(this);
         lvl6.setOnClickListener(this);
         lvl7.setOnClickListener(this);
         lvl8.setOnClickListener(this);
-        lvl9.setOnClickListener(this);*/
+        lvl9.setOnClickListener(this);
 
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
     }
