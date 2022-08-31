@@ -5,36 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GameSelect"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/layoutname"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="97dp"
-            android:layout_marginTop="60dp"
-            android:text="Select a Game"
-            android:textSize="35dp" />
-    </LinearLayout>
+    android:orientation="vertical"
+    android:background="@drawable/select_game_bg">
 
     <LinearLayout
         android:id="@+id/games"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/layoutname"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="120dp"
-        android:layout_marginBottom="120dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginBottom="100dp"
 
-       >
+        >
 
         <Button
             android:id="@+id/btn1"
@@ -62,11 +45,11 @@
         android:id="@+id/Menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/games"
+        android:layout_marginLeft="130dp"
         android:width="150dp"
         android:height="70dp"
-        android:text="Menu"
-        android:layout_below="@id/games"
-        android:layout_marginLeft="130dp"/>
+        android:text="Menu" />
 
 
 </RelativeLayout>
