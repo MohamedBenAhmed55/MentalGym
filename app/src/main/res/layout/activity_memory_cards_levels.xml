@@ -10,89 +10,222 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_final" />
+        android:background="@drawable/select_level_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/lvl1"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.556"
+        app:srcCompat="@drawable/level_pierre" />
+
+    <ImageView
+        android:id="@+id/lvl2"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497"
+        app:srcCompat="@drawable/level_pierre" />
+
+    <ImageView
+        android:id="@+id/lvl3"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.556"
+        app:srcCompat="@drawable/level_pierre" />
+
+    <ImageView
+        android:id="@+id/lvl4"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.624"
+        app:srcCompat="@drawable/level_pierre" />
+
+    <ImageView
+        android:id="@+id/lvl5"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.685"
+        app:srcCompat="@drawable/level_pierre" />
+
+    <ImageView
+        android:id="@+id/lvl6"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.753"
+        app:srcCompat="@drawable/level_pierre" />
+
+    <ImageView
+        android:id="@+id/lvl7"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.81"
+        app:srcCompat="@drawable/level_pierre" />
+
+    <ImageView
+        android:id="@+id/lvl8"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.885"
+        app:srcCompat="@drawable/level_pierre" />
+
+    <ImageView
+        android:id="@+id/lvl9"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.938"
+        app:srcCompat="@drawable/level_pierre" />
+
+    <TextView
+        android:id="@+id/txtView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:text="1"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lvl1"
+        app:layout_constraintEnd_toEndOf="@+id/lvl1"
+        app:layout_constraintStart_toStartOf="@+id/lvl1"
+        app:layout_constraintTop_toTopOf="@+id/lvl1" />
 
-        <Button
-            android:id="@+id/lvl1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-
-        <Button
-            android:id="@+id/lvl2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             />
-
-        <Button
-            android:id="@+id/lvl3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/txtView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:text="2"
+        android:textColor="@color/material_dynamic_neutral40"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lvl2"
+        app:layout_constraintEnd_toEndOf="@+id/lvl2"
+        app:layout_constraintStart_toStartOf="@+id/lvl2"
+        app:layout_constraintTop_toTopOf="@+id/lvl2" />
 
-        <Button
-            android:id="@+id/lvl4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             />
-
-        <Button
-            android:id="@+id/lvl5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             />
-
-        <Button
-            android:id="@+id/lvl6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/txtView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="450dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:text="3"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lvl3"
+        app:layout_constraintEnd_toEndOf="@+id/lvl3"
+        app:layout_constraintStart_toStartOf="@+id/lvl3"
+        app:layout_constraintTop_toTopOf="@+id/lvl3" />
+    <TextView
+        android:id="@+id/txtView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lvl4"
+        app:layout_constraintEnd_toEndOf="@+id/lvl4"
+        app:layout_constraintStart_toStartOf="@+id/lvl4"
+        app:layout_constraintTop_toTopOf="@+id/lvl4" />
+    <TextView
+        android:id="@+id/txtView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lvl5"
+        app:layout_constraintEnd_toEndOf="@+id/lvl5"
+        app:layout_constraintStart_toStartOf="@+id/lvl5"
+        app:layout_constraintTop_toTopOf="@+id/lvl5" />
 
-        <Button
-            android:id="@+id/lvl7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
+    <TextView
+        android:id="@+id/txtView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6"
+        android:textColor="@color/material_dynamic_neutral40"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lvl6"
+        app:layout_constraintEnd_toEndOf="@+id/lvl6"
+        app:layout_constraintStart_toStartOf="@+id/lvl6"
+        app:layout_constraintTop_toTopOf="@+id/lvl6" />
+    <TextView
+        android:id="@+id/txtView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lvl7"
+        app:layout_constraintEnd_toEndOf="@+id/lvl7"
+        app:layout_constraintStart_toStartOf="@+id/lvl7"
+        app:layout_constraintTop_toTopOf="@+id/lvl7" />
 
-        <Button
-            android:id="@+id/lvl8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             />
+    <TextView
+        android:id="@+id/txtView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8"
+        android:textColor="@color/material_dynamic_neutral40"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lvl8"
+        app:layout_constraintEnd_toEndOf="@+id/lvl8"
+        app:layout_constraintStart_toStartOf="@+id/lvl8"
+        app:layout_constraintTop_toTopOf="@+id/lvl8" />
 
-        <Button
-            android:id="@+id/lvl9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/txtView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9"
+        android:textColor="@color/material_dynamic_neutral40"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/lvl9"
+        app:layout_constraintEnd_toEndOf="@+id/lvl9"
+        app:layout_constraintStart_toStartOf="@+id/lvl9"
+        app:layout_constraintTop_toTopOf="@+id/lvl9" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
