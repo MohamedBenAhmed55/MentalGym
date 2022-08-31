@@ -19,7 +19,6 @@ public class MemoryCardsLevels extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_cards_levels);
-
         lvl1 = findViewById(R.id.lvl1);
         lvl2 = findViewById(R.id.lvl2);
         lvl3 = findViewById(R.id.lvl3);
