@@ -21,4 +21,6 @@
     <color name="colorPurple">#332FA2</color>
     <color name="colorYellow">#FFC107</color>
     <color name="colorRed">#D3443A</color>
+    <color name="newGray">#E4DEDE</color>
+
 </resources>

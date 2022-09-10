@@ -4,8 +4,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -27,9 +30,14 @@ public class CryptogrammeGame extends AppCompatActivity {
     String phrase;
     String phrasecry;
     String phraseHelp;
+    String hintPhrase;
     Timer timer;
     TimerTask timerTask;
     Double time=0.0;
+    Dialog dialog;
+    boolean isHintClicked=false;
+    boolean isHintLetterClicked=false;
+    int points=3;
     int difficulty;
     int positon;
     int hintNumber;
@@ -39,6 +47,7 @@ public class CryptogrammeGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cryptogramme_game);
+        dialog= new Dialog(this);
         difficulty =  getIntent().getIntExtra("difficulty" , 0);
         positon =  getIntent().getIntExtra("position" , 1);
         DisplayPhrase();
@@ -78,6 +87,9 @@ public class CryptogrammeGame extends AppCompatActivity {
 
 
     public void HelpLetter(View view) {
+
+        if ( ! isHintLetterClicked) points--;
+        isHintLetterClicked=true;
         int size = phraseHelp.length();
         int ind =0;
         if (phraseHelp.length() > 0 && hintNumber>0) {
@@ -105,6 +117,7 @@ public class CryptogrammeGame extends AppCompatActivity {
 
     public void DisplayPhrase (){
         String algo = getIntent().getStringExtra("algorithm");
+        hintPhrase = getIntent().getStringExtra("hint");
         phrase = getIntent().getStringExtra("phrase");
         hintNumber =  getIntent().getIntExtra("hintnumber" , 0);
         phraseHelp=phrase.replace(" ","");
@@ -227,15 +240,26 @@ public class CryptogrammeGame extends AppCompatActivity {
                 if (positon>=winwsilna)
                     sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA1  , winwsilna + 1).apply();
         }
-
         Intent i = new Intent(CryptogrammeGame.this,CryptogrammeWin.class);
+        i.putExtra("points" , points);
         startActivity(i);
         finish();
     }
+
+
 
     public void back(View view) {
         this.finish();
     }
 
 
+    public void hintPopup(View view) {
+        if (! isHintClicked) points--;
+        isHintClicked=true;
+        dialog.setContentView(R.layout.cryptogramme_hint_popup);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+        TextView hintView = dialog.findViewById(R.id.hint);
+        hintView.setText(hintPhrase);
+    }
 }

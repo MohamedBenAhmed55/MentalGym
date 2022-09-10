@@ -13,7 +13,7 @@
     <string name="desc_three">Le texte chiffré sous les lettres vous aide à reconnaitre les modeles de mots et à voir les lettres identiques . </string>
     <string name="desc_fourth">Aller-y et essayer de déchiffrer quelques cryptogrammer ! Bonne chance!</string>
 
-
+<!--Cryptogramme-->
     <!--levels array-->
     <string-array name="easylevels">
         <item>easy 1</item>
@@ -121,7 +121,7 @@
         <item>Level 8</item>
         <item>Level 9</item>
     </string-array>
-
+<!--Images-->
     <string-array name="images">
         <item>@drawable/youwin</item>
         <item>@drawable/youwin</item>
@@ -133,6 +133,43 @@
         <item>@drawable/youwin</item>
         <item>@drawable/youwin</item>
         <item>@drawable/youwin</item>
+    </string-array>
+
+    <string-array name="hintsEasy">
+        <item>welcome</item>
+        <item>Gol D. Roger</item>
+        <item>ay 7aja </item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+    </string-array>
+    <string-array name="hintsMedium">
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+    </string-array>
+    <string-array name="hintsHard">
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
+        <item>ay 7aja</item>
     </string-array>
 
 </resources>

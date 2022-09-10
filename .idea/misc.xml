@@ -10,16 +10,17 @@
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.257" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.257" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/drawable/ic_timer.xml" value="0.1" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/drawable/num_level_bg.xml" value="0.204" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/font/poppins_bold.xml" value="0.11944444444444445" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/font/poppins_thin.xml" value="0.11944444444444445" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_cryptogramme.xml" value="0.1" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_cryptogramme_game.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_cryptogramme_levels.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_cryptogramme_menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_game_select.xml" value="0.10925925925925926" />
-        <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_game_select.xml" value="0.2" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_mclose.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_mcwin.xml" value="0.2" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_mcwin.xml" value="0.4" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_memory_cards.xml" value="0.176" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_memory_cards_level_e.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_memory_cards_level_e1.xml" value="0.10925925925925926" />
@@ -27,7 +28,7 @@
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_memory_cards_level_h3.xml" value="0.1" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_memory_cards_level_m.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_memory_cards_level_m2.xml" value="0.1" />
-        <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_memory_cards_levels.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_memory_cards_levels.xml" value="0.2" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_wor_scramble_levels.xml" value="0.10925925925925926" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_word_scramble.xml" value="0.264" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/activity_word_scramble_levels_recycler.xml" value="0.25416666666666665" />
@@ -37,18 +38,23 @@
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/images.xml" value="0.253125" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/images_e.xml" value="0.253125" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/images_h.xml" value="0.253125" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/level_images.xml" value="0.253125" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/slider_layout.xml" value="0.10925925925925926" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/MentalGym/app/src/main/res/layout/win_layout_dialog.xml" value="0.264" />
+        <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/drawable/cryptogramme_hint_popup_background.xml" value="0.1" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/drawable/medium.xml" value="0.216" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/activity_cryptogramme_game.xml" value="0.264" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/activity_cryptogramme_levels.xml" value="0.2601851851851852" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/activity_cryptogramme_menu.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/activity_cryptogramme_win.xml" value="0.2" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/activity_game_select.xml" value="0.1" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/activity_memory_cards.xml" value="0.1" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/activity_word_scramble.xml" value="0.19895833333333332" />
+        <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/cryptogramme_hint_popup.xml" value="0.1" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/cryptogramme_level.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/cryptogrammeonelevel.xml" value="0.25885416666666666" />
+        <entry key="..\:/Users/Mohammed Rabia/AndroidStudioProjects/MentalGym1/app/src/main/res/layout/hint_popup.xml" value="0.1" />
         <entry key="..\:/Users/moham/Documents/Android-projects/MentalGym/app/src/main/res/layout/activity_wor_scramble_levels.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/moham/Documents/Android-projects/MentalGym/app/src/main/res/layout/activity_word_scramble.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/moham/Documents/Android-projects/MentalGym/app/src/main/res/layout/activity_word_scramble_levels_recycler.xml" value="0.26666666666666666" />

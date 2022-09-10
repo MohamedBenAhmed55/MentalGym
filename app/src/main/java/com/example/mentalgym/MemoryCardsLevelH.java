@@ -21,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class MemoryCardsLevelH extends AppCompatActivity {
 
     TextView textView;
+    boolean timeRunning = true ;
 
     ImageView iv_11, iv_12, iv_13, iv_14, iv_21, iv_22, iv_23, iv_24,
     iv_31, iv_32, iv_33, iv_34,iv_41,iv_42, iv_43, iv_44;
@@ -62,18 +63,12 @@ public class MemoryCardsLevelH extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-               /* AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryCardsLevelH.this);
-                alertDialogBuilder
-                        .setMessage("TIME IS OVER")
-                        .setCancelable(false)
-                        .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                            }
-                        });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();*/
+                if (timeRunning) {
+                    //open lose dialog
+                    Intent i = new Intent(MemoryCardsLevelH.this, MCLose.class);
+                    startActivity(i);
+                    finish();
+                }
             }
         }.start();
 
@@ -190,7 +185,7 @@ public class MemoryCardsLevelH extends AppCompatActivity {
                 image208 =R.drawable.animal15;
                 break;
             case 5:
-                image101 =R.drawable.animal3;
+                image101 =R.drawable.animal13;
                 image102 =R.drawable.animal6;
                 image103 =R.drawable.animal14;
                 image104 =R.drawable.animal17;
@@ -214,7 +209,7 @@ public class MemoryCardsLevelH extends AppCompatActivity {
                 image103 =R.drawable.animal18;
                 image104 =R.drawable.animal2;
                 image105 =R.drawable.animal19;
-                image106 =R.drawable.animal5;
+                image106 =R.drawable.animal15;
                 image107 =R.drawable.animal14;
                 image108 =R.drawable.animal16;
 
@@ -560,27 +555,32 @@ public class MemoryCardsLevelH extends AppCompatActivity {
                 iv_42.getVisibility() ==View.INVISIBLE &&
                 iv_43.getVisibility() ==View.INVISIBLE &&
                 iv_44.getVisibility() ==View.INVISIBLE ){
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryCardsLevelH.this);
-            alertDialogBuilder
-                    .setMessage("YOU WIN ")
-                    .setCancelable(false)
-                    .setPositiveButton("NEW",new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    })
-                    .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
+            timeRunning = false;
+            //open win dialog
+            Intent i = new Intent(MemoryCardsLevelH.this,MCWin.class);
+            startActivity(i);
+            this.finish();
         }
 
+    }
+    public void onStart() {
+
+        super.onStart();
+        timeRunning = true;
+    }
+
+    public void onResume(){
+        super.onResume();
+        timeRunning = true;
+    }
+
+    public void onPause(){
+        super.onPause();
+        timeRunning = false;
+    }
+
+    public void onStop(){
+        super.onStop();
+        timeRunning = false;
     }
 }

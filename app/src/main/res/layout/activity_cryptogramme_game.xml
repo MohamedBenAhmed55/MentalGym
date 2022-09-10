@@ -14,7 +14,16 @@
             android:layout_height="50dp"
             android:background="#55CA1616"
             tools:ignore="MissingConstraints">
-
+            <Button
+                android:id="@+id/drop"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_baseline_arrow_drop_down_24"
+                android:onClick="HelpLetter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
             <Button
                 android:id="@+id/help"
                 android:layout_width="50dp"
@@ -22,7 +31,7 @@
                 android:background="@drawable/ic_baseline_help_24"
                 android:onClick="HelpLetter"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/drop"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SpeakableTextPresentCheck" />
             <Button
@@ -30,7 +39,7 @@
                 android:layout_width="50dp"
                 android:layout_height="38dp"
                 android:background="@android:drawable/ic_popup_reminder"
-                android:onClick="HelpLetter"
+                android:onClick="hintPopup"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/help"
                 app:layout_constraintTop_toTopOf="parent"

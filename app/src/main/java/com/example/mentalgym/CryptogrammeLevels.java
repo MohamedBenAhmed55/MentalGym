@@ -42,11 +42,13 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
     private void setUpLevels(){
         String[] levelNames;
         String[] levelPhrase;
+        String[] levelHints;
         int[] levelImages;
         switch (difficulty){
             case 1 :
                 levelNames = getResources().getStringArray(R.array.mediumlevels);
                 levelPhrase =getResources().getStringArray(R.array.phrasesmedium);
+                levelHints =getResources().getStringArray(R.array.hintsMedium);
                 levelImages= new int[]{R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2};
                 hintNumber= 20;
                 winwsilna = sharedPref.getInt(WINWSOLNA2  ,1);
@@ -54,6 +56,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
             case 2:
                 levelNames = getResources().getStringArray(R.array.hardlevels);
                 levelPhrase =getResources().getStringArray(R.array.phraseshard);
+                levelHints =getResources().getStringArray(R.array.hintsHard);
                 levelImages= new int[]{R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2};
                 hintNumber=20;
                 winwsilna = sharedPref.getInt(WINWSOLNA3 ,1);
@@ -61,6 +64,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
             default:
                 levelNames= getResources().getStringArray(R.array.easylevels);
                 levelPhrase =getResources().getStringArray(R.array.phraseseasy);
+                levelHints =getResources().getStringArray(R.array.hintsEasy);
                 levelImages= new int[]{R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2};
                 hintNumber = 20;
                 winwsilna = sharedPref.getInt(WINWSOLNA1  ,1);
@@ -70,20 +74,21 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
 
 
         for(int i=0 ; i< levelNames.length; i++){
-            levelCards.add(new CryptogrammeLevel(levelNames[i] , levelImages[i] , levelAlgorithm[i] , levelPhrase[i] , i<winwsilna ));
+            levelCards.add(new CryptogrammeLevel(levelNames[i] , levelImages[i] , levelAlgorithm[i] , levelPhrase[i] , i<winwsilna  , levelHints[i]));
         }
 
     }
 
     @Override
     public void onItemClick(int position) {
-        if (levelCards.get(position).getCanPlay() || true) {
+        if (levelCards.get(position).getCanPlay() ) {
             Intent intent = new Intent(CryptogrammeLevels.this, CryptogrammeGame.class);
             intent.putExtra("algorithm", levelCards.get(position).getAlgorithm());
             intent.putExtra("phrase", levelCards.get(position).getPhrase());
             intent.putExtra("hintnumber", hintNumber);
             intent.putExtra("position", position + 1);
             intent.putExtra("difficulty", difficulty);
+            intent.putExtra("hint", levelCards.get(position).getHint());
             startActivity(intent );
         }
     }
