@@ -249,7 +249,7 @@ public class CryptogrammeGame extends AppCompatActivity {
 
 
     public void back(View view) {
-        this.finish();
+       this.finish();
     }
 
 
@@ -262,4 +262,5 @@ public class CryptogrammeGame extends AppCompatActivity {
         TextView hintView = dialog.findViewById(R.id.hint);
         hintView.setText(hintPhrase);
     }
+
 }

@@ -49,7 +49,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
                 levelNames = getResources().getStringArray(R.array.mediumlevels);
                 levelPhrase =getResources().getStringArray(R.array.phrasesmedium);
                 levelHints =getResources().getStringArray(R.array.hintsMedium);
-                levelImages= new int[]{R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2};
+                levelImages= new int[]{R.drawable.animal1, R.drawable.animal1, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2};
                 hintNumber= 20;
                 winwsilna = sharedPref.getInt(WINWSOLNA2  ,1);
                 break;
@@ -65,7 +65,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
                 levelNames= getResources().getStringArray(R.array.easylevels);
                 levelPhrase =getResources().getStringArray(R.array.phraseseasy);
                 levelHints =getResources().getStringArray(R.array.hintsEasy);
-                levelImages= new int[]{R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2};
+                levelImages= new int[]{R.drawable.zero , R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four, R.drawable.five, R.drawable.six, R.drawable.seven, R.drawable.eight, R.drawable.nine};
                 hintNumber = 20;
                 winwsilna = sharedPref.getInt(WINWSOLNA1  ,1);
         }
