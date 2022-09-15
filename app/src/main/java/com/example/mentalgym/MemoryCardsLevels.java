@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 public class MemoryCardsLevels extends AppCompatActivity implements View.OnClickListener {
 
+    private MediaPlayer mediaPlayer;
     SharedPreferences myPref;
 
     @Override
@@ -36,6 +38,7 @@ public class MemoryCardsLevels extends AppCompatActivity implements View.OnClick
         lvl8.setOnClickListener(this);
         lvl9.setOnClickListener(this);
 
+        mediaPlayer = MediaPlayer.create(this,R.raw.click);
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
     }
     @Override
@@ -74,7 +77,7 @@ public class MemoryCardsLevels extends AppCompatActivity implements View.OnClick
             default:
                 break;
         }
-
+        mediaPlayer.start();
         Intent i;
 
         if (myPref.getString("dif", "easy").equals("mid")) {
@@ -85,6 +88,7 @@ public class MemoryCardsLevels extends AppCompatActivity implements View.OnClick
             i = new Intent(this,MemoryCardsLevelH.class);
         }
         startActivity(i);
+        finish();
     }
 
 }
