@@ -56,10 +56,10 @@ public class MCWin extends AppCompatActivity implements  View.OnClickListener{
         if (view.getId() == R.id.btnNext) {
             int n = myPref.getInt("level", 1);
             n++;
-            if(n<9) {
+            Intent i;
+            if(n<=9) {
 
                 myPref.edit().putInt("level", n).commit();
-                Intent i;
                 if (myPref.getString("dif", "easy").equals("easy")) {
                     i = new Intent(this, MemoryCardsLevelE.class);
                 }
@@ -69,12 +69,12 @@ public class MCWin extends AppCompatActivity implements  View.OnClickListener{
                 else {
                     i = new Intent(this, MemoryCardsLevelH.class);
                 }
-                startActivity(i);
-                this.finish();
             }
             else {
-                Intent i = new Intent(this, MemoryCards.class);
+                i = new Intent(this, MemoryCards.class);
             }
+            startActivity(i);
+            finish();
         }
     }
 }
