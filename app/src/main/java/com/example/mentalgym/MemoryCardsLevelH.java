@@ -50,7 +50,10 @@ public class MemoryCardsLevelH extends AppCompatActivity {
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         myPref.edit().putString("diff", "mid");
 
-        mediaPlayer = MediaPlayer.create(this,R.raw.click);
+        //Sounds
+        mediaPlayer = MediaPlayer.create(this, R.raw.click);
+        mediaFail = MediaPlayer.create(this,R.raw.fail);
+        mediaSuccess = MediaPlayer.create(this,R.raw.success);
 
         textView = findViewById(R.id.textView4);
         // intialize timer duration
