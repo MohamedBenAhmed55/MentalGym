@@ -2,6 +2,7 @@ package com.example.mentalgym;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -32,10 +33,33 @@ public class MCLose extends AppCompatActivity implements  View.OnClickListener {
 
         btnReplay.setOnClickListener(this);
 
+        // back to home
+        Intent i = new Intent(this, MemoryCardsLevels.class);
+        txtBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(i);
+                finish();
+            }
+        });
     }
 
     @Override
     public void onClick(View view) {
+        if (view.getId() == R.id.btnReplay){
+            Intent i;
+            if (myPref.getString("dif", "easy").equals("easy")) {
+                i = new Intent(this, MemoryCardsLevelE.class);
+            }
+            else if (myPref.getString("dif", "easy").equals("mid")) {
+                i = new Intent(this, MemoryCardsLevelM.class);
+            }
+            else {
+                i = new Intent(this, MemoryCardsLevelH.class);
+            }
+            startActivity(i);
+            finish();
+        }
 
     }
 }

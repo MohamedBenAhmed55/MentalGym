@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class MCWin extends AppCompatActivity implements  View.OnClickListener{
     TextView txtBack, txtWin, btnNext;
-    ImageView imageViewTrophy, imageViewClose;
+    ImageView imageViewTrophy;
     Animation smalltobig;
 
 
