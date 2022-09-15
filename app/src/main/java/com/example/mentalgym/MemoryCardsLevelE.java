@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -34,12 +35,18 @@ public class MemoryCardsLevelE extends AppCompatActivity {
     //    Shared preference
     SharedPreferences myPref;
 
+    //Sounds
+    private MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_cards_level_e);
 
+        mediaPlayer = MediaPlayer.create(this,R.raw.click);
+
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+
         textView = findViewById(R.id.textView4);
         // intialize timer duration
         long duration = TimeUnit.SECONDS.toMillis(30);
@@ -194,6 +201,7 @@ public class MemoryCardsLevelE extends AppCompatActivity {
 
 
     public void doStuff(ImageView iv, int card){
+        mediaPlayer.start();
         //set the correct image on the imageview
         if (cardsArray[card] == 101){
             iv.setImageResource(image101);
@@ -213,7 +221,6 @@ public class MemoryCardsLevelE extends AppCompatActivity {
         else if (cardsArray[card]==203){
             iv.setImageResource(image203);
         }
-
         //check which image is selected and save it to temporary variable
         if (cardNumber == 1){
             firstCard = cardsArray[card];
@@ -247,6 +254,7 @@ public class MemoryCardsLevelE extends AppCompatActivity {
     }
 
     public void calculate(){
+
         //if images are equal remove
         if (firstCard == secondCard){
             if (clickedFirst == 0){

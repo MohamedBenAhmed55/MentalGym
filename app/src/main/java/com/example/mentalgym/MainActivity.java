@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MediaPlayer mediaPlayer;
     ImageButton play2;
 
     @Override
@@ -23,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
         play2 = findViewById(R.id.playimg);
         play2.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void openMenu(){
-        mediaPlayer.start();
         Intent intent = new Intent(this, GameSelect.class);
         startActivity(intent);
     }

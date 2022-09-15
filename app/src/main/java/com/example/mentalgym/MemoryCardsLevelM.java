@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -19,6 +20,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MemoryCardsLevelM extends AppCompatActivity {
     TextView textView;
+    // boolean for countdowntimer
+    boolean timeRunning = true ;
 
     ImageView iv_11, iv_12, iv_13, iv_14, iv_21, iv_22, iv_23, iv_24, iv_31, iv_32, iv_33, iv_34;
     //array for the images
@@ -29,8 +32,11 @@ public class MemoryCardsLevelM extends AppCompatActivity {
     int firstCard, secondCard;
     int clickedFirst , clickedSecond;
     int cardNumber = 1 ;
+
     //    Shared preference
     SharedPreferences myPref;
+    //Sounds
+    private MediaPlayer mediaPlayer;
 
 
     @Override
@@ -41,9 +47,11 @@ public class MemoryCardsLevelM extends AppCompatActivity {
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         myPref.edit().putString("diff", "mid");
 
+        mediaPlayer = MediaPlayer.create(this,R.raw.click);
+
         textView = findViewById(R.id.textView4);
         // intialize timer duration
-        long duration = TimeUnit.MINUTES.toMillis(1);
+        long duration = TimeUnit.SECONDS.toMillis(45);
         // intialize countdown timer
         new CountDownTimer(duration,1000){
 
@@ -60,18 +68,12 @@ public class MemoryCardsLevelM extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-              /*  AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryCardsLevelM.this);
-                alertDialogBuilder
-                        .setMessage("TIME IS OVER")
-                        .setCancelable(false)
-                        .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                            }
-                        });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show(); */
+                if (timeRunning) {
+                    //open lose dialog
+                    Intent i = new Intent(MemoryCardsLevelM.this, MCLose.class);
+                    startActivity(i);
+                    finish();
+                }
             }
         }.start();
 
@@ -291,6 +293,8 @@ public class MemoryCardsLevelM extends AppCompatActivity {
     }
 
     public void doStuff(ImageView iv, int card){
+
+        mediaPlayer.start();
         //set the correct image on the imageview
         if (cardsArray[card] == 101){
             iv.setImageResource(image101);
@@ -488,44 +492,35 @@ public class MemoryCardsLevelM extends AppCompatActivity {
                 iv_32.getVisibility() ==View.INVISIBLE &&
                 iv_33.getVisibility() ==View.INVISIBLE &&
                 iv_34.getVisibility() ==View.INVISIBLE ){
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MemoryCardsLevelM.this);
-            alertDialogBuilder
-                    .setMessage("YOU WIN ")
-                    .setCancelable(false)
-                    .setPositiveButton("NEW",new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    })
-                    .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
+            timeRunning = false;
+            //open win dialog
+            Intent i = new Intent(MemoryCardsLevelM.this,MCWin.class);
+            startActivity(i);
+            this.finish();
         }
 
     }
 
-    public void frontOfCardsRessources(){
-        image101 =R.drawable.chat;
-        image102 =R.drawable.chat2;
-        image103 =R.drawable.chat3;
-        image104 =R.drawable.chat4;
-        image105 =R.drawable.chat5;
-        image106 =R.drawable.chat6;
-        image201 =R.drawable.chat;
-        image202 =R.drawable.chat2;
-        image203 =R.drawable.chat3;
-        image204 =R.drawable.chat4;
-        image205 =R.drawable.chat5;
-        image206 =R.drawable.chat6;
 
+    public void onStart() {
 
+        super.onStart();
+        timeRunning = true;
     }
+
+    public void onResume(){
+        super.onResume();
+        timeRunning = true;
+    }
+
+    public void onPause(){
+        super.onPause();
+        timeRunning = false;
+    }
+
+    public void onStop(){
+        super.onStop();
+        timeRunning = false;
+    }
+
 }

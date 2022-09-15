@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -35,6 +36,8 @@ public class MemoryCardsLevelH extends AppCompatActivity {
     int cardNumber = 1 ;
     //    Shared preference
     SharedPreferences myPref;
+    //sound
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class MemoryCardsLevelH extends AppCompatActivity {
 
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         myPref.edit().putString("diff", "mid");
+
+        mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
         textView = findViewById(R.id.textView4);
         // intialize timer duration
@@ -223,12 +228,61 @@ public class MemoryCardsLevelH extends AppCompatActivity {
                 image208 =R.drawable.animal16;
                 break;
             case 7:
+                image101 =R.drawable.emoji3;
+                image102 =R.drawable.emoji12;
+                image103 =R.drawable.emoji7;
+                image104 =R.drawable.emoji_19;
+                image105 =R.drawable.emoji2;
+                image106 =R.drawable.emoji4;
+                image107 =R.drawable.emoji_24;
+                image108 =R.drawable.emoji_26;
 
+                image201 =R.drawable.emoji3;
+                image202 =R.drawable.emoji12;
+                image203 =R.drawable.emoji7;
+                image204 =R.drawable.emoji_19;
+                image205 =R.drawable.emoji2;
+                image206 =R.drawable.emoji4;
+                image207 =R.drawable.emoji_24;
+                image208 =R.drawable.emoji_26;
                 break;
             case 8:
+                image101 =R.drawable.emoji_13;
+                image102 =R.drawable.emoji_14;
+                image103 =R.drawable.emoji_15;
+                image104 =R.drawable.emoji4;
+                image105 =R.drawable.emoji_20;
+                image106 =R.drawable.emoji_22;
+                image107 =R.drawable.emoji_23;
+                image108 =R.drawable.emoji_26;
 
+                image201 =R.drawable.emoji_13;
+                image202 =R.drawable.emoji_14;
+                image203 =R.drawable.emoji_15;
+                image204 =R.drawable.emoji4;
+                image205 =R.drawable.emoji_20;
+                image206 =R.drawable.emoji_22;
+                image207 =R.drawable.emoji_23;
+                image208 =R.drawable.emoji_26;
                 break;
             case 9:
+                image101 =R.drawable.emoji_13;
+                image102 =R.drawable.emoji_14;
+                image103 =R.drawable.emoji_15;
+                image104 =R.drawable.emoji_19;
+                image105 =R.drawable.emoji_20;
+                image106 =R.drawable.emoji_21;
+                image107 =R.drawable.emoji_24;
+                image108 =R.drawable.emoji_26;
+
+                image201 =R.drawable.emoji_13;
+                image202 =R.drawable.emoji_14;
+                image203 =R.drawable.emoji_15;
+                image204 =R.drawable.emoji_19;
+                image205 =R.drawable.emoji_20;
+                image206 =R.drawable.emoji_21;
+                image207 =R.drawable.emoji_24;
+                image208 =R.drawable.emoji_26;
 
             default:
                 break;
@@ -306,6 +360,7 @@ public class MemoryCardsLevelH extends AppCompatActivity {
     }
 
     public void doStuff(ImageView iv, int card){
+        mediaPlayer.start();
         //set the correct image on the imageview
         if (cardsArray[card] == 101){
             iv.setImageResource(image101);

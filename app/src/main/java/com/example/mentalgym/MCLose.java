@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class MCLose extends AppCompatActivity implements  View.OnClickListener {
     TextView txtBack, txtLose, btnReplay;
-    ImageView imageViewLose, imageViewClose;
+    ImageView imageViewLose;
     Animation smalltobig;
 
     SharedPreferences myPref;
