@@ -36,14 +36,19 @@ public class MemoryCardsLevelE extends AppCompatActivity {
     SharedPreferences myPref;
 
     //Sounds
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer ;
+    private MediaPlayer mediaSuccess;
+    private MediaPlayer mediaFail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_cards_level_e);
 
-        mediaPlayer = MediaPlayer.create(this,R.raw.click);
+        //Sounds
+        mediaPlayer = MediaPlayer.create(this, R.raw.click);
+        mediaFail = MediaPlayer.create(this,R.raw.fail);
+        mediaSuccess = MediaPlayer.create(this,R.raw.success);
 
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
 
@@ -67,6 +72,7 @@ public class MemoryCardsLevelE extends AppCompatActivity {
             @Override
             public void onFinish() {
                 if (timeRunning) {
+                    mediaFail.start();
                     //open lose dialog
                     Intent i = new Intent(MemoryCardsLevelE.this, MCLose.class);
                     startActivity(i);
@@ -325,6 +331,7 @@ public class MemoryCardsLevelE extends AppCompatActivity {
                 iv_22.getVisibility() ==View.INVISIBLE &&
                 iv_23.getVisibility() ==View.INVISIBLE ){
             timeRunning = false;
+            mediaSuccess.start();
             //open win dialog
             Intent i = new Intent(MemoryCardsLevelE.this,MCWin.class);
             startActivity(i);

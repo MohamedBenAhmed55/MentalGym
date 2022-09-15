@@ -36,8 +36,11 @@ public class MemoryCardsLevelH extends AppCompatActivity {
     int cardNumber = 1 ;
     //    Shared preference
     SharedPreferences myPref;
-    //sound
-    private MediaPlayer mediaPlayer;
+
+    //Sounds
+    private MediaPlayer mediaPlayer ;
+    private MediaPlayer mediaSuccess;
+    private MediaPlayer mediaFail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,7 @@ public class MemoryCardsLevelH extends AppCompatActivity {
             @Override
             public void onFinish() {
                 if (timeRunning) {
+                    mediaFail.start();
                     //open lose dialog
                     Intent i = new Intent(MemoryCardsLevelH.this, MCLose.class);
                     startActivity(i);
@@ -611,6 +615,7 @@ public class MemoryCardsLevelH extends AppCompatActivity {
                 iv_43.getVisibility() ==View.INVISIBLE &&
                 iv_44.getVisibility() ==View.INVISIBLE ){
             timeRunning = false;
+            mediaSuccess.start();
             //open win dialog
             Intent i = new Intent(MemoryCardsLevelH.this,MCWin.class);
             startActivity(i);
