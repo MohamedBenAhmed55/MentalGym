@@ -24,7 +24,6 @@ public class MCLose extends AppCompatActivity implements  View.OnClickListener {
 
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         smalltobig = AnimationUtils.loadAnimation(this, R.anim.smalltobig);
-        imageViewClose = findViewById(R.id.imageViewClose);
         imageViewLose = findViewById(R.id.imageViewLose);
         imageViewLose.startAnimation(smalltobig);
         txtBack = findViewById(R.id.txtBack);
