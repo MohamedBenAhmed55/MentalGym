@@ -49,6 +49,7 @@ public class WordScrambleLevelsRecycler extends AppCompatActivity implements Wsr
 
     }
 
+    //sets the text array for recycler rows
     private void setUpWsrModels() {
         String[] Levels = getResources().getStringArray(R.array.Levels);
 
@@ -57,6 +58,7 @@ public class WordScrambleLevelsRecycler extends AppCompatActivity implements Wsr
         }
     }
 
+    //redirects you to the corresponding level
     @Override
     public void onItemClick(int position) {
         myPref.edit().putInt("level", position + 1).apply();
