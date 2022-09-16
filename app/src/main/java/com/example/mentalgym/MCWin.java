@@ -34,7 +34,7 @@ public class MCWin extends AppCompatActivity implements  View.OnClickListener{
         btnNext.setOnClickListener(this);
 
         // back to home
-        Intent i = new Intent(this, MemoryCardsLevels.class);
+        Intent i = new Intent(this, MainActivity.class);
         txtBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
