@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CryptogrammeGame"
-    android:background="@drawable/background2">
+    android:background="@drawable/bgapp">
 <!--    <include-->
 <!--        android:id="@+id/win"-->
 <!--        layout="@layout/activity_wsslvl1"-->
