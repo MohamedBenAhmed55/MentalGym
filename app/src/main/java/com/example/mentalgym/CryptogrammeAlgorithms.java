@@ -73,6 +73,37 @@ public class CryptogrammeAlgorithms {
         phrasecrypt=newString;
     }
 
+    public void Algorithm4(){
+        String newString = "";
+        char c;
+        for (int i =0 ; i<phrase.length() ; i++){
+            c =(char)phrase.charAt(i);
+            if(c == ' '){
+                newString+=' ';
+                continue;
+            }
+            c++;
+            c++;
+            newString+=++c;
+        }
+        phrasecrypt=newString;
+    }
+    public void Algorithm5(){
+        String newString = "";
+        char c;
+        for (int i =0 ; i<phrase.length() ; i++){
+            c =(char)phrase.charAt(i);
+            if(c == ' '){
+                newString+=' ';
+                continue;
+            }
+            c--;
+            c--;
+            newString+=--c;
+        }
+        phrasecrypt=newString;
+    }
+
 
 
 }

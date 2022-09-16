@@ -25,6 +25,7 @@ public class MCWin extends AppCompatActivity implements  View.OnClickListener{
 
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         smalltobig = AnimationUtils.loadAnimation(this, R.anim.smalltobig);
+//        imageViewClose = findViewById(R.id.imageViewClose);
         imageViewTrophy = findViewById(R.id.imageViewTrophy);
         imageViewTrophy.startAnimation(smalltobig);
         txtBack = findViewById(R.id.txtBack);

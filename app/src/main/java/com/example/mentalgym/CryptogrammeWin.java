@@ -30,6 +30,8 @@ public class CryptogrammeWin extends AppCompatActivity {
         ImageView firstStar = findViewById(R.id.firstStar);
         ImageView secondStar = findViewById(R.id.secondStar);
         ImageView thirdStar = findViewById(R.id.thirdStar);
+        ImageView youwin = findViewById(R.id.youwin);
+        youwin.startAnimation(smalltobig);
         int widthFull2 =(int) getResources().getDimension(R.dimen.fullstar2width);
         int hightFull2 =(int) getResources().getDimension(R.dimen.fullstar2hight);
         int hightAndWidthFull3 =(int) getResources().getDimension(R.dimen.emptyStarHightAndWidth);
@@ -48,9 +50,9 @@ public class CryptogrammeWin extends AppCompatActivity {
             default:
                 break;
         }
-//        firstStar.setAnimation(smalltobig);
-//        if (firstStar.getAnimation().hasEnded()) secondStar.setAnimation(smalltobig);
-//        if (secondStar.getAnimation().hasEnded()) thirdStar.setAnimation(smalltobig);
+//       firstStar.startAnimation(smalltobig);
+//       if (firstStar.getAnimation().hasEnded()) secondStar.startAnimation(smalltobig);
+//       if (secondStar.getAnimation().hasEnded()) thirdStar.startAnimation(smalltobig);
 
     }
 
@@ -71,6 +73,8 @@ public class CryptogrammeWin extends AppCompatActivity {
         int addScore= points*(difficulty+1);
         TextView scoreText = findViewById(R.id.score);
         scoreText.setText("Score : +"+addScore);
+
+
     }
 
     public void back(View view) {
@@ -81,7 +85,6 @@ public class CryptogrammeWin extends AppCompatActivity {
     public void backMenu(View view) {
         result=2;
         this.finish();
-
     }
 
 
