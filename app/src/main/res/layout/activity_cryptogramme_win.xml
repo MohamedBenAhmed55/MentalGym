@@ -91,7 +91,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/caladea"
-            android:text="Good Job !!!! :O Walah M3alim Saa7bi"
+            android:text="Good Job !!!! :O  you want to have more fun!"
             android:textAlignment="center"
             android:textColor="#FFF"
             android:textSize="28sp" />

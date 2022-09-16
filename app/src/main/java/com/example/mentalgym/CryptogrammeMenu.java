@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
@@ -18,11 +20,14 @@ public class CryptogrammeMenu extends AppCompatActivity {
     int difficulty ;
     SharedPreferences sharedPreferences;
     Toast tst;
+    MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cryptogramme_menu);
+        setscore();
+        setMusic();
         sharedPreferences= getSharedPreferences(CryptogrammeLevels.PREFERENCES_FILENAME, MODE_PRIVATE);
         difficulty= sharedPreferences.getInt("difficulty" , 0);
         tst = Toast.makeText(this, "str", Toast.LENGTH_SHORT);
@@ -60,10 +65,32 @@ public class CryptogrammeMenu extends AppCompatActivity {
         );
     }
 
+    private void setscore() {
+        sharedPreferences= getSharedPreferences(CryptogrammeLevels.PREFERENCES_FILENAME, MODE_PRIVATE);
+        int score = sharedPreferences.getInt("score" , 0);
+        TextView Score = findViewById(R.id.score);
+        Score.setText("Score : "+ score) ;
+    }
+
+    private void setMusic() {
+        if (player == null)
+        {
+            player = MediaPlayer.create(this , R.raw.cryptogramme_music);
+            player.setLooping(true);
+        }
+        player.start();
+    }
+
+    private  void stopPlayer(){
+        if(player != null){
+            player.release();
+            player=null;
+        }
+    }
+
     private void showToast(String str ) {
         tst.setText(str);
         tst.show();
-
     }
 
     public void ShowLevels(View view){
@@ -85,5 +112,18 @@ public class CryptogrammeMenu extends AppCompatActivity {
         Intent i = new Intent(CryptogrammeMenu.this,Cryptogramme.class);
         startActivity(i);
         finish();
+    }
+
+    @Override
+    protected void onPause() {
+        player.pause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        player.start();
+        setscore();
+        super.onResume();
     }
 }

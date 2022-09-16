@@ -11,6 +11,7 @@
         android:textAlignment="center"
         android:maxLength="1"
         android:textSize="20dp"
+        android:textColor="@color/white"
         android:inputType="textPersonName"
         android:text=""
          />
@@ -20,6 +21,8 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="20dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/white"
         android:textAlignment="center"
         android:maxLength="2"/>
     <TextView

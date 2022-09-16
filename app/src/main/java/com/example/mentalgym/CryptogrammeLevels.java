@@ -49,16 +49,16 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
                 levelNames = getResources().getStringArray(R.array.mediumlevels);
                 levelPhrase =getResources().getStringArray(R.array.phrasesmedium);
                 levelHints =getResources().getStringArray(R.array.hintsMedium);
-                levelImages= new int[]{R.drawable.animal1, R.drawable.animal1, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2};
-                hintNumber= 20;
+                levelImages= new int[]{R.drawable.zero , R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four, R.drawable.five, R.drawable.six, R.drawable.seven, R.drawable.eight, R.drawable.nine};
+                hintNumber= 3;
                 winwsilna = sharedPref.getInt(WINWSOLNA2  ,1);
                 break;
             case 2:
                 levelNames = getResources().getStringArray(R.array.hardlevels);
                 levelPhrase =getResources().getStringArray(R.array.phraseshard);
                 levelHints =getResources().getStringArray(R.array.hintsHard);
-                levelImages= new int[]{R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2, R.drawable.animal2};
-                hintNumber=20;
+                levelImages= new int[]{R.drawable.dzero , R.drawable.done, R.drawable.dtwo, R.drawable.dthree, R.drawable.dfour, R.drawable.dfive, R.drawable.dsix, R.drawable.dseven, R.drawable.deight, R.drawable.dnine};
+                hintNumber=1;
                 winwsilna = sharedPref.getInt(WINWSOLNA3 ,1);
                 break;
             default:
@@ -66,7 +66,7 @@ public class CryptogrammeLevels extends AppCompatActivity implements Cryptogramm
                 levelPhrase =getResources().getStringArray(R.array.phraseseasy);
                 levelHints =getResources().getStringArray(R.array.hintsEasy);
                 levelImages= new int[]{R.drawable.zero , R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four, R.drawable.five, R.drawable.six, R.drawable.seven, R.drawable.eight, R.drawable.nine};
-                hintNumber = 20;
+                hintNumber = 5;
                 winwsilna = sharedPref.getInt(WINWSOLNA1  ,1);
         }
         String[] levelAlgorithm =getResources().getStringArray(R.array.algorithms);

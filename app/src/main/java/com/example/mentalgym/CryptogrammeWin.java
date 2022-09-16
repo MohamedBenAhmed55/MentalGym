@@ -73,6 +73,8 @@ public class CryptogrammeWin extends AppCompatActivity {
         int addScore= points*(difficulty+1);
         TextView scoreText = findViewById(R.id.score);
         scoreText.setText("Score : +"+addScore);
+
+
     }
 
     public void back(View view) {

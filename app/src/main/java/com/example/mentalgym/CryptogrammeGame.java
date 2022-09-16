@@ -222,11 +222,14 @@ public class CryptogrammeGame extends AppCompatActivity {
     private void win(){
         SharedPreferences sharedPref = getSharedPreferences(CryptogrammeLevels.PREFERENCES_FILENAME, MODE_PRIVATE);
         int winwsilna ;
+        int addScore= points*(difficulty+1);
+        int score =  sharedPref.getInt("score" , 0);
         switch (difficulty){
             case  1:
                 winwsilna = sharedPref.getInt(CryptogrammeLevels.WINWSOLNA2 , 1) ;
-                if (positon>=winwsilna)
-                    sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA2  , winwsilna +1).apply();
+                if (positon>=winwsilna) {
+                    sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA2, winwsilna + 1).apply();
+                }
                 break;
             case 2:
                 winwsilna = sharedPref.getInt(CryptogrammeLevels.WINWSOLNA3 , 1) ;
@@ -239,6 +242,9 @@ public class CryptogrammeGame extends AppCompatActivity {
                 System.out.println(winwsilna);
                 if (positon>=winwsilna)
                     sharedPref.edit().putInt(CryptogrammeLevels.WINWSOLNA1  , winwsilna + 1).apply();
+        }
+        if(positon>=winwsilna){
+            sharedPref.edit().putInt("score" , score+addScore).apply();
         }
         Intent i = new Intent(CryptogrammeGame.this,CryptogrammeWin.class);
         i.putExtra("points" , points);
