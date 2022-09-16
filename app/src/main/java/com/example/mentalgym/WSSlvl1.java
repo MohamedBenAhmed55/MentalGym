@@ -100,7 +100,7 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
             n++;
             Intent i;
             if (n > 9) {
-                i = new Intent(this, WorScrambleLevels.class);
+                i = new Intent(this, WordScrambleLevelsRecycler.class);
             } else {
                 myPref.edit().putInt("level", n).commit();
 
