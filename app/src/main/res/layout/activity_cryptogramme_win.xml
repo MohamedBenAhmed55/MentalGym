@@ -66,7 +66,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/bigboss"
+            android:id="@+id/youwin"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_gravity="center"
@@ -91,7 +91,7 @@
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/caladea"
-            android:text="Good Job !!!! :O Walah M3alim Saa7bi"
+            android:text="Good Job !!!! :O  press Next to have more fun!"
             android:textAlignment="center"
             android:textColor="#FFF"
             android:textSize="28sp" />

@@ -16,42 +16,43 @@
 <!--Cryptogramme-->
     <!--levels array-->
     <string-array name="easylevels">
-        <item>easy 1</item>
-        <item>easy 2</item>
-        <item>easy 3</item>
-        <item>easy 4</item>
-        <item>easy 5</item>
-        <item>easy 6</item>
-        <item>easy 7</item>
-        <item>easy 8</item>
-        <item>easy 9</item>
-        <item>easy 10</item>
+        <item>Level easy 0</item>
+        <item>Level easy 1</item>
+        <item>Level easy 2</item>
+        <item>Level easy 3</item>
+        <item>Level easy 4</item>
+        <item>Level easy 5</item>
+        <item>Level easy 6</item>
+        <item>Level easy 7</item>
+        <item>Level easy 8</item>
+        <item>Level easy 9</item>
     </string-array>
 
     <string-array name="mediumlevels">
-        <item>medium 1</item>
-        <item>medium 2</item>
-        <item>medium 3</item>
-        <item>medium 4</item>
-        <item>medium 5</item>
-        <item>medium 6</item>
-        <item>medium 7</item>
-        <item>medium 8</item>
-        <item>medium 9</item>
-        <item>medium 10</item>
+        <item>Level medium 0</item>
+        <item>Level medium 1</item>
+        <item>Level medium 2</item>
+        <item>Level medium 3</item>
+        <item>Level medium 4</item>
+        <item>Level medium 5</item>
+        <item>Level medium 6</item>
+        <item>Level medium 7</item>
+        <item>Level medium 8</item>
+        <item>Level medium 9</item>
     </string-array>
 
     <string-array name="hardlevels">
-        <item>Hard 1</item>
-        <item>Hard 2</item>
-        <item>Hard 3</item>
-        <item>Hard 4</item>
-        <item>Hard 5</item>
-        <item>Hard 6</item>
-        <item>Hard 7</item>
-        <item>Hard 8</item>
-        <item>Hard 9</item>
-        <item>Hard 10</item>
+        <item>Level hard 0</item>
+        <item>Level hard 1</item>
+        <item>Level hard 2</item>
+        <item>Level hard 3</item>
+        <item>Level hard 4</item>
+        <item>Level hard 5</item>
+        <item>Level hard 6</item>
+        <item>Level hard 7</item>
+        <item>Level hard 8</item>
+        <item>Level hard 9</item>
+
     </string-array>
 
     <!--    algorithms-->
@@ -60,13 +61,13 @@
         <item>Algorithm1</item>
         <item>Algorithm2</item>
         <item>Algorithm3</item>
+        <item>Algorithm4</item>
+        <item>Algorithm5</item>
         <item>Algorithm1</item>
-        <item>Algorithm1</item>
-        <item>Algorithm1</item>
-        <item>Algorithm1</item>
-        <item>Algorithm1</item>
-        <item>Algorithm1</item>
-        <item>Algorithm1</item>
+        <item>Algorithm2</item>
+        <item>Algorithm3</item>
+        <item>Algorithm4</item>
+        <item>Algorithm5</item>
     </string-array>
 
 
@@ -85,8 +86,8 @@
 
     <string-array name="phrasesmedium">
         <item>Try Again</item>
-        <item>The One Piece Exists</item>
         <item>Impossible is for the unwilling</item>
+        <item>The One Piece Exists</item>
         <item>Once you choose hope, anything’s possible</item>
         <item>My life is my message</item>
         <item>Dream big</item>
@@ -98,12 +99,12 @@
 
     <string-array name="phraseshard">
         <item>The One Piece Exists</item>
-        <item>Try Again</item>
+        <item>Whoever is happy will make others happy too</item>
         <item>Leave no stone unturned</item>
         <item>Stay hungry . Stay foolish</item>
         <item>If you want it , work for it</item>
         <item>Broken crayons still color</item>
-        <item>Do it with passion or not at all</item>
+        <item>go on your path even if you live for a day</item>
         <item>If you’re going through hell , keep going</item>
         <item>Every noble work is at first impossible</item>
         <item>The wisest mind has something yet to learn</item>
@@ -136,10 +137,10 @@
     </string-array>
 
     <string-array name="hintsEasy">
-        <item>welcome</item>
+        <item>hello world</item>
         <item>Gol D. Roger</item>
-        <item>ay 7aja </item>
-        <item>ay 7aja</item>
+        <item>Be Happy</item>
+        <item>yes you can</item>
         <item>ay 7aja</item>
         <item>ay 7aja</item>
         <item>ay 7aja</item>
@@ -148,9 +149,9 @@
         <item>ay 7aja</item>
     </string-array>
     <string-array name="hintsMedium">
-        <item>ay 7aja</item>
-        <item>ay 7aja</item>
-        <item>ay 7aja</item>
+        <item>Again !!!!</item>
+        <item>Impossible !!  :O</item>
+        <item>yes exists !!!!</item>
         <item>ay 7aja</item>
         <item>ay 7aja</item>
         <item>ay 7aja</item>
@@ -160,8 +161,8 @@
         <item>ay 7aja</item>
     </string-array>
     <string-array name="hintsHard">
-        <item>ay 7aja</item>
-        <item>ay 7aja</item>
+        <item>yes exists !!!!</item>
+        <item>will make others happy</item>
         <item>ay 7aja</item>
         <item>ay 7aja</item>
         <item>ay 7aja</item>

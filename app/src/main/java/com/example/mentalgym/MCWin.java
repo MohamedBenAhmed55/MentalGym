@@ -25,6 +25,7 @@ public class MCWin extends AppCompatActivity implements  View.OnClickListener{
 
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
         smalltobig = AnimationUtils.loadAnimation(this, R.anim.smalltobig);
+//        imageViewClose = findViewById(R.id.imageViewClose);
         imageViewTrophy = findViewById(R.id.imageViewTrophy);
         imageViewTrophy.startAnimation(smalltobig);
         txtBack = findViewById(R.id.txtBack);
@@ -34,7 +35,7 @@ public class MCWin extends AppCompatActivity implements  View.OnClickListener{
         btnNext.setOnClickListener(this);
 
         // back to home
-        Intent i = new Intent(this, MemoryCardsLevels.class);
+        Intent i = new Intent(this, MainActivity.class);
         txtBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

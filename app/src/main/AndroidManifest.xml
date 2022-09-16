@@ -50,7 +50,8 @@
 
         <activity
             android:name=".CryptogrammeMenu"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/cryptogramme"/>
         <activity
             android:name=".WorScrambleLevels"
             android:exported="false" />
