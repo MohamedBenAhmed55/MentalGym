@@ -269,4 +269,7 @@ public class CryptogrammeGame extends AppCompatActivity {
         hintView.setText(hintPhrase);
     }
 
+    public void refresh(View view) {
+        recreate();
+    }
 }
