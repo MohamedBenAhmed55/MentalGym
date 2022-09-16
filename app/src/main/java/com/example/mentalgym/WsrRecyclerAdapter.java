@@ -61,8 +61,6 @@ public class WsrRecyclerAdapter extends RecyclerView.Adapter<WsrRecyclerAdapter.
                 }
             });
 
-
-
         }
     }
 }

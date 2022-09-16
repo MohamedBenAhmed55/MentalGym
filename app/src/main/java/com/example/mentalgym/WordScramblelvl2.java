@@ -62,8 +62,8 @@ public class WordScramblelvl2 extends AppCompatActivity {
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
 
         myPref.edit().putString("diff", "mid");
-//       number =  myPref.getInt("level",1);
 
+        //initializing level values
         switch (myPref.getInt("level", 1)) {
             case 1:
                 keys = new String[]{"R", "I", "B", "D", "X", "A", "A", "O"};
@@ -126,6 +126,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
 
         smallbigforth = AnimationUtils.loadAnimation(this, R.anim.smallbigforth);
 
+        //adding the letters views to the interface
         int x = 0;
         for (String key : keys) {
             if (x < 4) {
@@ -149,6 +150,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
 
     }
 
+    //Rearranges the order of the letters
     private String[] shuffleArray(String[] ar) {
         Random rnd = new Random();
         for (int i = ar.length - 1; i > 0; i--) {
@@ -161,6 +163,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
         return ar;
     }
 
+    //function used in adding the letters to the interface
     private void addView(LinearLayout viewParent, final String text, final EditText editText) {
         LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -168,7 +171,6 @@ public class WordScramblelvl2 extends AppCompatActivity {
         );
         linearLayoutParams.rightMargin = 30;
 
-        //TODO : REMOVE FOR HARD DIFF
         linearLayoutParams.leftMargin = 40;
 
 
@@ -197,6 +199,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
         final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
 
+        //tracking the number of letters clicked
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -219,6 +222,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
 
         viewParent.addView(textView);
 
+        //reshuffles the letters
         resetbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,6 +249,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
         });
     }
 
+    //checks the validity of the answer and adds the score
     private void doValidate() {
         presCounter = 0;
         int currentSc;
@@ -253,7 +258,6 @@ public class WordScramblelvl2 extends AppCompatActivity {
         LinearLayout linearLayout2 = findViewById(R.id.layoutParent2);
 
         if (editText.getText().toString().equals(textAnswer)) {
-//            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
             mediaSuccess.start();
             Intent a = new Intent(this, WSSlvl1.class);
             score -= nbattempt * 10;
@@ -280,6 +284,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
             }
         }
 
+        //reshuffles the letters in case of failure
         keys = shuffleArray(keys);
         linearLayout.removeAllViews();
         linearLayout2.removeAllViews();
@@ -316,6 +321,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
 
     }
 
+    //Updates the timer text
     public void updateTimer() {
         int minutes = (int) timeLeftinMilliseconds / 60000;
         int seconds = (int) timeLeftinMilliseconds % 60000 / 1000;
@@ -334,6 +340,7 @@ public class WordScramblelvl2 extends AppCompatActivity {
 
     }
 
+    //shows the hint and subtracts the score
     public void HintClicked(View view) {
         mediaPlayer.start();
         textQuestion.setVisibility(View.VISIBLE);

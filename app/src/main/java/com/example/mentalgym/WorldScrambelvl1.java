@@ -57,9 +57,9 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         setContentView(R.layout.activity_world_scrambelvl1);
 
         textQuestion = (TextView) findViewById(R.id.textQuestion);
+
         //        Initializing shared preferences
         myPref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
-//       number =  myPref.getInt("level",1);
 
         //Selecting appropriate values based on the picked level
         switch (myPref.getInt("level", 1)) {
@@ -142,6 +142,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
     }
 
+    //Rearranges the order of the letters to display them differently each time
     private String[] shuffleArray(String[] ar) {
         Random rnd = new Random();
         for (int i = ar.length - 1; i > 0; i--) {
@@ -154,6 +155,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
         return ar;
     }
 
+    //adds clickable letter view
     private void addView(LinearLayout viewParent, final String text, final EditText editText) {
         LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -189,6 +191,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
         final MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.click);
 
+        //tracks clicking on letters
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -211,6 +214,7 @@ public class WorldScrambelvl1 extends AppCompatActivity {
 
         viewParent.addView(textView);
 
+        //Reshuffles the letters
         resetbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

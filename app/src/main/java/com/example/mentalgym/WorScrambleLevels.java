@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
+//Deprecated file, replaced with recyclerView
+
 public class WorScrambleLevels extends AppCompatActivity implements View.OnClickListener {
 
     private Button lvl1, lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9;

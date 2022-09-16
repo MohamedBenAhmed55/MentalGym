@@ -64,7 +64,7 @@ public class WSSlvl1 extends AppCompatActivity implements View.OnClickListener {
             }
         });
 
-        //Incrémentation du score
+        //Incrementing the score
         int sc;
         Intent intent = getIntent();
         score = intent.getIntExtra("sc", 0);

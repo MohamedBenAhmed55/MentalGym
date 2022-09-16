@@ -252,7 +252,6 @@ public class WordScramblelvl3 extends AppCompatActivity {
         LinearLayout linearLayout2 = findViewById(R.id.layoutParent2);
 
         if (editText.getText().toString().equals(textAnswer)) {
-//            Toast.makeText(MainActivity.this, "Correct", Toast.LENGTH_SHORT).show();
             mediaSuccess.start();
             Intent a = new Intent(this, WSSlvl1.class);
             score -= nbattempt * 10;

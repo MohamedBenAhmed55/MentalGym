@@ -38,6 +38,7 @@ public class WordScramble extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    //Saves the chosen difficulty and redirects you to the corresponding levels
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
